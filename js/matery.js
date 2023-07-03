@@ -106,6 +106,10 @@ $(function () {
             subHtmlSelectorRelative: true
         });
 
+        $(document).find('img[data-original]').each(function(){
+            $(this).parent().attr("href", $(this).attr("data-original"));
+        });
+
         // progress bar init
         const progressElement = window.document.querySelector('.progress-bar');
         if (progressElement) {
@@ -117,6 +121,7 @@ $(function () {
     articleInit();
 
     $('.modal').modal();
+
 
     /*回到顶部*/
     $('#backTop').click(function () {
@@ -170,3 +175,19 @@ $(function () {
     // 初始化加载 tooltipped.
     $('.tooltipped').tooltip();
 });
+
+// 深色模式设置
+function switchNightMode() {
+    var body = document.body;
+    if(body.classList.contains('dark')){
+    document.body.classList.remove('dark');
+    localStorage.setItem('dark','0');
+    $('#nightMode').removeClass("fa-lightbulb").addClass("fa-lightbulb");
+    return;
+    } else {
+    document.body.classList.add('dark');
+    localStorage.setItem('dark','1');
+    $('#nightMode').removeClass("fa-lightbulb").addClass("fa-lightbulb");
+    return;
+    }
+}
