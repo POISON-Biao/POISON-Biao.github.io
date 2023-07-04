@@ -278,19 +278,19 @@ header .side-nav {
 }
 
 nav {
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 7px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: none;
 }
 
 #subtitle {
-    text-shadow: #000000a3 1.2px 0 0, #000 0 1.2px 0, #000 -1.2px 0 0, #000 0 -1.2px 0;
+    text-shadow: none;
 }
 
 .cover-social-link {
-    text-shadow: #000000a3 1.2px 0 0, #000 0 1.2px 0, #000 -1.2px 0 0, #000 0 -1.2px 0;
+    text-shadow: none;
 }
 
 .description {
-    text-shadow: #000000a3 1.2px 0 0, #000 0 1.2px 0, #000 -1.2px 0 0, #000 0 -1.2px 0;
+    text-shadow: none;
 }
 
 header .nav-transparent {
@@ -398,7 +398,7 @@ header .side-nav .social-link {
     background-color: transparent;
     border-radius: 30px;
     box-shadow: none;
-    text-shadow: #000000a3 1.2px 0 0, #000 0 1.2px 0, #000 -1.2px 0 0, #000 0 -1.2px 0;
+    text-shadow: none;
 }
 
 .cover-btns a:hover {
@@ -593,7 +593,7 @@ header .go-back i {
     line-height: 1.2em;
     margin-bottom: 20px;
     position: relative;
-    text-shadow: #000000a3 1.2px 0 0, #000 0 1.2px 0, #000 -1.2px 0 0, #000 0 -1.2px 0;
+    text-shadow: none;
 }
 
 .bg-cover .description {
