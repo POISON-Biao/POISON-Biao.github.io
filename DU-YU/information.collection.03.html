@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="01web常规-系统&amp;中间件&amp;数据库&amp;源码, DU-玉 渗透测试 CTF PWN 护网行动 公安联考 考研 ">
+    <meta name="keywords" content="03Web拓展-CDN&amp;WAF&amp;OSS&amp;反向&amp;负载均衡, DU-玉 渗透测试 CTF PWN 护网行动 公安联考 考研 ">
     <meta name="description" content="中国人民警察大学 | 渗透 | 护网 | 二进制 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>01web常规-系统&amp;中间件&amp;数据库&amp;源码 | DU-玉</title>
+    <title>03Web拓展-CDN&amp;WAF&amp;OSS&amp;反向&amp;负载均衡 | DU-玉</title>
 
     <link rel="icon" type="image/jpeg" href="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/hsy-head.jpg">
 
@@ -486,12 +486,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928014621.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020704.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">01web常规-系统&amp;中间件&amp;数据库&amp;源码</h1>
+                    <h1 class="description center-align post-title">03Web拓展-CDN&amp;WAF&amp;OSS&amp;反向&amp;负载均衡</h1>
                 </div>
             </div>
         </div>
@@ -671,41 +671,43 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-04%20090622.png" alt="屏幕截图 2023-06-04 090622" style="zoom: 67%;" />
-
-<h2 id="web四大件作用"><a href="#web四大件作用" class="headerlink" title="web四大件作用"></a>web四大件作用</h2><p>系统、中间件、数据库、源代码</p>
-<h2 id="网站有哪些展示"><a href="#网站有哪些展示" class="headerlink" title="网站有哪些展示"></a>网站有哪些展示</h2><p>子域名模式 </p>
-<p>端口模式</p>
-<p>目录模式</p>
-<p>公司发放的IP，扫描时扫描公司所有的IP</p>
-<p>##文件访问解析</p>
-<p>中间件、解析规则：中间解析规则决定上传到目标是什么类型</p>
-<p>源文件的权限决定</p>
-<p>锁图片文件，依旧可看，但没有执行了，有后门也不行</p>
-<h2 id="源码配置文件"><a href="#源码配置文件" class="headerlink" title="源码配置文件"></a>源码配置文件</h2><p>1.数据库直接放在本地</p>
-<p>2.数据库和网站分离，放在另外一个服务器上</p>
-<p>数据库直接放到云端，拿到数据库账户密码也不行，云端只支持网站源码连接，可能只允许某些账号或目标访问</p>
-<p>app.config数据库配置文件</p>
-<h2 id="源码开源"><a href="#源码开源" class="headerlink" title="源码开源"></a>源码开源</h2><p>开源-源码可见</p>
-<p>开源-源码不可见：各种加密，百度上有ASP加密     ，PHP加密什么的</p>
-<p>语言特性决定：java运行以后就会改变                     </p>
-<p>开源是为了白盒测试-代码审计</p>
-<h2 id="源码结构目录"><a href="#源码结构目录" class="headerlink" title="源码结构目录"></a>源码结构目录</h2><p>admin后台管理相关</p>
-<p>bin指引目录</p>
-<p>database数据库相关</p>
-<p>images图片相关</p>
-<p>js前端文件</p>
-<p>member会员</p>
-<p>template模板</p>
-<p>upfiles文件上传</p>
-<p>webservice网站服务</p>
-<p>##路由访问</p>
-<p>常规：url+文件路径            url和文件目录对应不上，要根据路由配置决定</p>
-<h1 id="小迪总结"><a href="#小迪总结" class="headerlink" title="小迪总结"></a>小迪总结</h1><h3 id="常规化"><a href="#常规化" class="headerlink" title="常规化"></a>常规化</h3><p>原理：源码数据都在同服务器</p>
-<p>影响：无，常规安全测试手法</p>
-<h3 id="站库分离："><a href="#站库分离：" class="headerlink" title="站库分离："></a>站库分离：</h3><p>原理：源码数据库不在同服务器</p>
-<p>存储：其他服务器上数据库&amp;云数据库产品</p>
-<p>影响：数据被单独存放，能连接才可影响数据</p>
+                <h2 id="一、WAF-：web-Application-firewall"><a href="#一、WAF-：web-Application-firewall" class="headerlink" title="一、WAF ：web Application firewall"></a>一、WAF ：web Application firewall</h2><p>原理：web应用防火墙，保护web</p>
+<p>影响：安全测试手法被拦截</p>
+<p>很难绕过</p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604195810154.png" alt="image-20230604195810154"></p>
+<p>、<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604195848213.png" alt="image-20230604195848213"></p>
+<h2 id="二、CDN（Content-Delivery-Network-）"><a href="#二、CDN（Content-Delivery-Network-）" class="headerlink" title="二、CDN（Content Delivery Network ）"></a>二、CDN（Content Delivery Network ）</h2><p>开通后全国分布有节点，超级ping能查到ping通的IP地址</p>
+<p>原理：内容分发服务，旨在提高访问速度 </p>
+<p>影响：隐藏真实源IP，导致对目标测试错误，看到的是节点</p>
+<p>演示：阿里云备案域名全局CDN加速服务</p>
+<p>Windows2012 + BT宝塔面板 + CDN服务</p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604195914239.png" alt="image-20230604195914239"></p>
+<h2 id="三、OSS（Object-Storage-Service）"><a href="#三、OSS（Object-Storage-Service）" class="headerlink" title="三、OSS（Object Storage Service）"></a>三、OSS（Object Storage Service）</h2><p>云存储服务，旨在提高访问速度</p>
+<p>阿里云OSS:</p>
+<p>开OSS</p>
+<p>2、新建Bucket</p>
+<p>3、配置Bucket属性</p>
+<p>4、配置Access访问</p>
+<p>原理：</p>
+<p>为什么要使用第三方存储？</p>
+<p>1）静态文件会占用大量带宽</p>
+<p>2）加载速度</p>
+<p>3）存储空间</p>
+<p>影响：</p>
+<p>上传的文件或解析的文件均来自于OSS资源，无法解析，单独存储</p>
+<p>1、修复上传安全</p>
+<p>2、文件解析不一样</p>
+<p>3、但Accesskey隐患</p>
+<h2 id="四、反向代理"><a href="#四、反向代理" class="headerlink" title="四、反向代理"></a>四、反向代理</h2><h3 id="1、正向代理，挂VPN一个意思"><a href="#1、正向代理，挂VPN一个意思" class="headerlink" title="1、正向代理，挂VPN一个意思"></a>1、正向代理，挂VPN一个意思</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604195939721.png" alt="image-20230604195939721"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604200708819.png" alt="image-20230604200708819"></p>
+<h3 id="2、反向代理"><a href="#2、反向代理" class="headerlink" title="2、反向代理"></a>2、反向代理</h3><h4 id="将真实的目标指向任意一个站点"><a href="#将真实的目标指向任意一个站点" class="headerlink" title="将真实的目标指向任意一个站点"></a>将真实的目标指向任意一个站点</h4><p>主机只能访问服务器1，服务器2将数据放到服务器1，主机间接访问服务器2 </p>
+<p><img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230604200708819.png" alt="image-20230604200708819"></p>
+<h4 id="如果设置了反向代理，比如反向代理设置为baidu-com-x2F"><a href="#如果设置了反向代理，比如反向代理设置为baidu-com-x2F" class="headerlink" title="如果设置了反向代理，比如反向代理设置为baidu.com&#x2F;"></a>如果设置了反向代理，比如反向代理设置为baidu.com&#x2F;</h4><h4 id="那么你访问设置了反向代理的网站，就会直接跳转到baidu-com-x2F"><a href="#那么你访问设置了反向代理的网站，就会直接跳转到baidu-com-x2F" class="headerlink" title="那么你访问设置了反向代理的网站，就会直接跳转到baidu.com&#x2F;"></a>那么你访问设置了反向代理的网站，就会直接跳转到baidu.com&#x2F;</h4><h2 id="五、负载均衡"><a href="#五、负载均衡" class="headerlink" title="五、负载均衡"></a>五、负载均衡</h2><p>原理：分摊到多个操作单元上进行执行，共同完成工作任务</p>
+<p>影响：有多个服务器加载服务，  测试过程中存在多个目标情况</p>
+<p>演示：Nginx负载均衡配置</p>
+<p>Windows2012 + BT宝塔面板 + Nginx</p>
+<h4 id="定义负载设置（和ISCC实战poc-exe设置原理一样，恶心啊！！ISCC不能在脚本里设置代理，搞了三天！！！）"><a href="#定义负载设置（和ISCC实战poc-exe设置原理一样，恶心啊！！ISCC不能在脚本里设置代理，搞了三天！！！）" class="headerlink" title="定义负载设置（和ISCC实战poc.exe设置原理一样，恶心啊！！ISCC不能在脚本里设置代理，搞了三天！！！）"></a>定义负载设置（和ISCC实战poc.exe设置原理一样，恶心啊！！ISCC不能在脚本里设置代理，搞了三天！！！）</h4><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604204133704.png" alt="image-20230604204133704"></p>
+<h1 id="小迪总结"><a href="#小迪总结" class="headerlink" title="小迪总结"></a>小迪总结</h1><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-04%20204854.png" alt="屏幕截图 2023-06-04 204854"></p>
 
                 
             </div>
@@ -732,7 +734,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://POISON-Biao.github.io/DU-YU/information.collection.01.html">https://POISON-Biao.github.io/DU-YU/information.collection.01.html</a>
+                    <a href="https://POISON-Biao.github.io/DU-YU/information.collection.03.html">https://POISON-Biao.github.io/DU-YU/information.collection.03.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1247,13 +1249,13 @@ new Valine({
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/DU-YU/information.collection.02.html">
+                <a href="/DU-YU/information.collection.04.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021707.jpg" class="responsive-img" alt="02Web其他-前后端&amp;软件&amp;Docker&amp;分配站">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020152.jpg" class="responsive-img" alt="04APP架构-封装&amp;原生态&amp;H5&amp;flutter">
                         
-                        <span class="card-title">02Web其他-前后端&amp;软件&amp;Docker&amp;分配站</span>
+                        <span class="card-title">04APP架构-封装&amp;原生态&amp;H5&amp;flutter</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1293,16 +1295,16 @@ new Valine({
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/DU-YU/information.collection.01.html">
+                <a href="/DU-YU/information.collection.02.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928014621.jpg" class="responsive-img" alt="01web常规-系统&amp;中间件&amp;数据库&amp;源码">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021707.jpg" class="responsive-img" alt="02Web其他-前后端&amp;软件&amp;Docker&amp;分配站">
                         
-                        <span class="card-title">01web常规-系统&amp;中间件&amp;数据库&amp;源码</span>
+                        <span class="card-title">02Web其他-前后端&amp;软件&amp;Docker&amp;分配站</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1327,7 +1329,6 @@ new Valine({
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
