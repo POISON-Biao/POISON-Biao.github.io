@@ -217,10 +217,10 @@
             "autoRun": 0,
             "background": false,
             "badge": 0,
-            "desc": "个人博客",
+            "desc": "DU-玉の博客",
             "icon": {
                 "type": "img",
-                "content": "https://s1.ax1x.com/2020/05/17/YR20js.jpg",
+                "content": "https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/hsy-head2.jpg",
                 "bg": "#6b96cf"
             },
             "openMode": "normal",
@@ -240,8 +240,8 @@
                 "height": "y*0.8-80",
                 "width": "x*0.8"
             },
-            "title": "个人博客",
-            "url": "http://www.luckyzmj.cn",
+            "title": "DU-玉の博客",
+            "url": "https://poison-biao.github.io",
             "customTile": "",
             "urlRandomToken": true
         },
