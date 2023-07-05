@@ -416,10 +416,11 @@ YL.render = function (data) {
         if (first && !YL.static.serialNumber) {
           YL.onReady(function () {
             setTimeout(function () {
-              YL.msg("DU-玉  Windows", 'Hello，欢迎来到 Windows 小分站！<br/>个人主页：' + '<a style="color: white" target="_blank" href="https://poison-biao.github.io/"> poison-biao.github.io </a><br />本网站 UI 由 ' + '<a style="color: white" target="_blank" href="https://ylui.yuri2.cn"> YLUI </a> 强力驱动<p>欢迎使用微信扫描二维码对作者进行捐赠~<br/><br/><img style="width: 100%" src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/wechat.jpg"/></p>');
+              YL.msg("DU-玉 可视化Windows", 'Hello，欢迎来到我的小分站！<br/>DU-玉 主页：' + '<a style="color: white" target="_blank" href="https://poison-biao.github.io/"> poison-biao.github.io </a><br /><p>欢迎扫码找我交流学习~ <br/><br/><img style="width: 50%" src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/wechatpy.jpg"/></p><p><img style="width: 50%" src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/QQpy.jpg"/></p>');
             }, 1500)
           });
-        }
+        }//
+
 
         this.ready = true;
       },

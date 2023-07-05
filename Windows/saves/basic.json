@@ -233,7 +233,7 @@
                 "y": "y*0.1"
             },
             "version": "1.0.0",
-            "poweredBy": "Luckey",
+            "poweredBy": "DU-玉",
             "resizable": true,
             "single": true,
             "size": {
@@ -662,7 +662,7 @@
                 "y": "y*0.05"
             },
             "version": "1.0.0",
-            "poweredBy": "luckyzmj",
+            "poweredBy": "DU-玉",
             "resizable": true,
             "single": false,
             "size": {
@@ -761,7 +761,7 @@
                 "y": "y*0.05"
             },
             "version": "1.0.0",
-            "poweredBy": "luckyzmj",
+            "poweredBy": "DU-玉",
             "resizable": true,
             "single": false,
             "size": {
@@ -794,7 +794,7 @@
                 "y": "y*0.05"
             },
             "version": "1.0.0",
-            "poweredBy": "luckyzmj",
+            "poweredBy": "DU-玉",
             "resizable": true,
             "single": false,
             "size": {
@@ -827,7 +827,7 @@
                 "y": "y*0.05"
             },
             "version": "1.0.0",
-            "poweredBy": "luckyzmj",
+            "poweredBy": "DU-玉",
             "resizable": true,
             "single": false,
             "size": {
@@ -860,7 +860,7 @@
                 "y": "y*0.05"
             },
             "version": "1.0.0",
-            "poweredBy": "luckyzmj",
+            "poweredBy": "DU-玉",
             "resizable": true,
             "single": false,
             "size": {
@@ -935,7 +935,7 @@
         },
         {
             "app": "yl-app-home",
-            "title": "个人博客",
+            "title": "DU-玉の博客",
             "params": {},
             "hash": ""
         },
@@ -1013,7 +1013,7 @@
                     "w": 6,
                     "h": 4,
                     "app": "yl-app-home",
-                    "title": "个人博客",
+                    "title": "DU-玉の博客",
                     "i": "147",
                     "params": {},
                     "hash": ""
@@ -1056,7 +1056,7 @@
             },
             "itemPushed-89": {
                 "app": "yl-app-home",
-                "title": "个人博客",
+                "title": "DU-玉の博客",
                 "params": {},
                 "hash": ""
             },

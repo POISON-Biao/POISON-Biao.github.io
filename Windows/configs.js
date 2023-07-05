@@ -1,9 +1,9 @@
 YL.static = {
   /** “关于”信息 */
-  softwareName: 'DU-玉的后花园', //网站名。请在此处填写您自己的网站名，如王小明的博客。
+  softwareName: 'DU-玉的分站', //网站名。请在此处填写您自己的网站名，如王小明的博客。
   version: "1.0.0", // 网站版本号
   iconBtnStart: 'https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/hsy-head2.jpg', //主图标
-  author: 'Luckey',//作者
+  author: 'DU-玉',//作者
   contactInformation: 'QQ：3529735834',//联系方式
   officialWebsite: 'https://poison-biao.github.io/',//软件官网
   welcome: '本网站UI由 YLUI 强力驱动\n更多信息：//ylui.yuri2.cn',//加载完毕控制台提示信息
