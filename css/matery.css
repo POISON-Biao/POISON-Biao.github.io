@@ -2109,6 +2109,8 @@ footer .copy-right {
     content: "\f086";
 }
 
+
+/*开关灯设置*/
 /* 深色模式设置 */
 /* 字体颜色变灰白色 */
 body.dark .fas,
@@ -2172,3 +2174,6 @@ body.dark header .side-nav .menu-list .m-nav-show
 body.dark .aplayer{background: #2f3742!important;}
 body.dark img, body.dark strong {
     filter: brightness(.7);
+/*这段JavaScript代码定义了一个函数switchNightMode，该函数用于切换网站的深色模式和正常模式。当函数被调用时，它会检查body元素是否包含类dark。如果包含，那么它会移除这个类，将网站切换到正常模式，并在本地存储中设置一个名为dark的项，值为0。同时，它会找到id为nightMode的元素，并将其类从fa-lightbulb改为fa-lightbulb。
+
+如果body元素不包含类dark，那么函数会添加这个类，将网站切换到深色模式，并在本地存储中设置dark项的值为1。同时，它也会修改nightMode元素的类。*/

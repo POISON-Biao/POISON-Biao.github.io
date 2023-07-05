@@ -40,7 +40,10 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="DU-玉" type="application/atom+xml">
+</head>
 
 
 
@@ -476,7 +479,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021815.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/null')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -688,6 +691,9 @@ $("#encrypt-blog").justifiedGallery({margins: 5, rowHeight: 150});
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">3k</span>&nbsp;字
+            
             
             
             
@@ -717,7 +723,7 @@ $("#encrypt-blog").justifiedGallery({margins: 5, rowHeight: 150});
                     var today = new Date();
                     var startYear = "2023";
                     var startMonth = "7";
-                    var startDate = "2";
+                    var startDate = "4";
                     var startHour = "0";
                     var startMinute = "0";
                     var startSecond = "0";
@@ -947,21 +953,31 @@ $(function () {
 
     
 
+<!-- 深色模式自动调节 -->
 <!-- 深色模式按钮 -->
-    <script>
-        if (localStorage.getItem('dark') === '1') {
+<script>
+    // 检查localStorage中是否有'dark'这个键，且其值是否为'1'
+    if (localStorage.getItem('dark') === '1') {
+        // 如果有且其值为'1'，则给body添加'dark'这个类，切换到深色模式
         document.body.classList.add('dark');
-        }
-        else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+    }
+    // 检查当前时间是否在晚上22点到早上7点之间
+    // else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+    //     // 如果是，则给body添加'dark'这个类，切换到深色模式
+    //     document.body.classList.add('dark');
+    // } 
+    // 检查用户的系统是否偏好深色模式
+    else if (matchMedia('(prefers-color-scheme: dark)').matches) {
+        // 如果是，则给body添加'dark'这个类，切换到深色模式
         document.body.classList.add('dark');
-        } 
-        else if (matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-        }
-    </script>
-    <a onclick="switchNightMode()" id="sma">
-        <i class="fas fa-lightbulb" id="nightMode" aria-hidden="true"></i>
-    </a>
+    }
+</script>
+<!-- 深色模式切换按钮，点击时调用switchNightMode()函数 -->
+<a onclick="switchNightMode()" id="sma">
+    <!-- 深色模式切换按钮的图标 -->
+    <i class="fas fa-lightbulb" id="nightMode" aria-hidden="true"></i>
+</a>
+
 
     <!-- 天气接口控件   -->
     

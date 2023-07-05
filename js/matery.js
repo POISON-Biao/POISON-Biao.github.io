@@ -177,17 +177,28 @@ $(function () {
 });
 
 // 深色模式设置
+// 定义一个函数，用来切换深色模式和浅色模式
 function switchNightMode() {
+    // 获取body元素
     var body = document.body;
+    // 检查body元素是否有'dark'这个类
     if(body.classList.contains('dark')){
-    document.body.classList.remove('dark');
-    localStorage.setItem('dark','0');
-    $('#nightMode').removeClass("fa-lightbulb").addClass("fa-lightbulb");
-    return;
+        // 如果有'dark'这个类，就移除它，切换到浅色模式
+        document.body.classList.remove('dark');
+        // 在localStorage中设置'dark'的值为'0'，表示浅色模式
+        localStorage.setItem('dark','0');
+        // 将id为'nightMode'的元素的类从'fa-lightbulb'改为'fa-lightbulb'
+        $('#nightMode').removeClass("fa-lightbulb").addClass("fa-lightbulb");
+        // 结束函数
+        return;
     } else {
-    document.body.classList.add('dark');
-    localStorage.setItem('dark','1');
-    $('#nightMode').removeClass("fa-lightbulb").addClass("fa-lightbulb");
-    return;
+        // 如果没有'dark'这个类，就添加它，切换到深色模式
+        document.body.classList.add('dark');
+        // 在localStorage中设置'dark'的值为'1'，表示深色模式
+        localStorage.setItem('dark','1');
+        // 将id为'nightMode'的元素的类从'fa-lightbulb'改为'fa-lightbulb'
+        $('#nightMode').removeClass("fa-lightbulb").addClass("fa-lightbulb");
+        // 结束函数
+        return;
     }
 }
