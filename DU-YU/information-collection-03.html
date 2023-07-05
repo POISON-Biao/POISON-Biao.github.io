@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="DU-玉 渗透测试 CTF PWN 护网行动 公安联考 考研 ">
+    <meta name="keywords" content="03Web拓展-CDN&amp;WAF&amp;OSS&amp;反向&amp;负载均衡, DU-玉 渗透测试 CTF PWN 护网行动 公安联考 考研 ">
     <meta name="description" content="中国人民警察大学 | 渗透 | 护网 | 二进制 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>DU-玉</title>
+    <title>03Web拓展-CDN&amp;WAF&amp;OSS&amp;反向&amp;负载均衡 | DU-玉</title>
 
     <link rel="icon" type="image/jpeg" href="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/hsy-head.jpg">
 
@@ -489,12 +489,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/null')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/InformationCollection.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">03Web拓展-CDN&amp;WAF&amp;OSS&amp;反向&amp;负载均衡</h1>
                 </div>
             </div>
         </div>
@@ -613,12 +613,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%B8%97%E9%80%8F-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
+                                <span class="chip bg-color">渗透-信息收集</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%B8%97%E9%80%8F/" class="post-category">
+                                渗透
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -627,21 +640,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-06-17
+                    2023-07-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-17
+                    2023-07-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5
+                    463
                 </div>
                 
 
@@ -671,7 +684,44 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                google-site-verification: google110e5e5e14c8dcf0.html
+                <h2 id="一、WAF-：web-Application-firewall"><a href="#一、WAF-：web-Application-firewall" class="headerlink" title="一、WAF ：web Application firewall"></a>一、WAF ：web Application firewall</h2><p>原理：web应用防火墙，保护web</p>
+<p>影响：安全测试手法被拦截</p>
+<p>很难绕过</p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604195810154.png" alt="image-20230604195810154"></p>
+<p>、<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604195848213.png" alt="image-20230604195848213"></p>
+<h2 id="二、CDN（Content-Delivery-Network-）"><a href="#二、CDN（Content-Delivery-Network-）" class="headerlink" title="二、CDN（Content Delivery Network ）"></a>二、CDN（Content Delivery Network ）</h2><p>开通后全国分布有节点，超级ping能查到ping通的IP地址</p>
+<p>原理：内容分发服务，旨在提高访问速度 </p>
+<p>影响：隐藏真实源IP，导致对目标测试错误，看到的是节点</p>
+<p>演示：阿里云备案域名全局CDN加速服务</p>
+<p>Windows2012 + BT宝塔面板 + CDN服务</p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604195914239.png" alt="image-20230604195914239"></p>
+<h2 id="三、OSS（Object-Storage-Service）"><a href="#三、OSS（Object-Storage-Service）" class="headerlink" title="三、OSS（Object Storage Service）"></a>三、OSS（Object Storage Service）</h2><p>云存储服务，旨在提高访问速度</p>
+<p>阿里云OSS:</p>
+<p>开OSS</p>
+<p>2、新建Bucket</p>
+<p>3、配置Bucket属性</p>
+<p>4、配置Access访问</p>
+<p>原理：</p>
+<p>为什么要使用第三方存储？</p>
+<p>1）静态文件会占用大量带宽</p>
+<p>2）加载速度</p>
+<p>3）存储空间</p>
+<p>影响：</p>
+<p>上传的文件或解析的文件均来自于OSS资源，无法解析，单独存储</p>
+<p>1、修复上传安全</p>
+<p>2、文件解析不一样</p>
+<p>3、但Accesskey隐患</p>
+<h2 id="四、反向代理"><a href="#四、反向代理" class="headerlink" title="四、反向代理"></a>四、反向代理</h2><h3 id="1、正向代理，挂VPN一个意思"><a href="#1、正向代理，挂VPN一个意思" class="headerlink" title="1、正向代理，挂VPN一个意思"></a>1、正向代理，挂VPN一个意思</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604195939721.png" alt="image-20230604195939721"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604200708819.png" alt="image-20230604200708819"></p>
+<h3 id="2、反向代理"><a href="#2、反向代理" class="headerlink" title="2、反向代理"></a>2、反向代理</h3><h4 id="将真实的目标指向任意一个站点"><a href="#将真实的目标指向任意一个站点" class="headerlink" title="将真实的目标指向任意一个站点"></a>将真实的目标指向任意一个站点</h4><p>主机只能访问服务器1，服务器2将数据放到服务器1，主机间接访问服务器2 </p>
+<p><img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230604200708819.png" alt="image-20230604200708819"></p>
+<h4 id="如果设置了反向代理，比如反向代理设置为baidu-com-x2F"><a href="#如果设置了反向代理，比如反向代理设置为baidu-com-x2F" class="headerlink" title="如果设置了反向代理，比如反向代理设置为baidu.com/"></a>如果设置了反向代理，比如反向代理设置为baidu.com/</h4><h4 id="那么你访问设置了反向代理的网站，就会直接跳转到baidu-com-x2F"><a href="#那么你访问设置了反向代理的网站，就会直接跳转到baidu-com-x2F" class="headerlink" title="那么你访问设置了反向代理的网站，就会直接跳转到baidu.com/"></a>那么你访问设置了反向代理的网站，就会直接跳转到baidu.com/</h4><h2 id="五、负载均衡"><a href="#五、负载均衡" class="headerlink" title="五、负载均衡"></a>五、负载均衡</h2><p>原理：分摊到多个操作单元上进行执行，共同完成工作任务</p>
+<p>影响：有多个服务器加载服务，  测试过程中存在多个目标情况</p>
+<p>演示：Nginx负载均衡配置</p>
+<p>Windows2012 + BT宝塔面板 + Nginx</p>
+<h4 id="定义负载设置（和ISCC实战poc-exe设置原理一样，恶心啊！！ISCC不能在脚本里设置代理，搞了三天！！！）"><a href="#定义负载设置（和ISCC实战poc-exe设置原理一样，恶心啊！！ISCC不能在脚本里设置代理，搞了三天！！！）" class="headerlink" title="定义负载设置（和ISCC实战poc.exe设置原理一样，恶心啊！！ISCC不能在脚本里设置代理，搞了三天！！！）"></a>定义负载设置（和ISCC实战poc.exe设置原理一样，恶心啊！！ISCC不能在脚本里设置代理，搞了三天！！！）</h4><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604204133704.png" alt="image-20230604204133704"></p>
+<h1 id="小迪总结"><a href="#小迪总结" class="headerlink" title="小迪总结"></a>小迪总结</h1><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-04%20204854.png" alt="屏幕截图 2023-06-04 204854"></p>
+
                 
             </div>
             <hr/>
@@ -697,7 +747,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://POISON-Biao.github.io/google1xxxxxxx0.html">https://POISON-Biao.github.io/google1xxxxxxx0.html</a>
+                    <a href="https://POISON-Biao.github.io/du-yu/information-collection-03.html">https://POISON-Biao.github.io/du-yu/information-collection-03.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -734,7 +784,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E6%B8%97%E9%80%8F-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
+                                    <span class="chip bg-color">渗透-信息收集</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1204,18 +1258,16 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/google1xxxxxxx0.html">
+                <a href="/du-yu/information-collection-04.html">
                     <div class="card-image">
                         
+                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/InformationCollection.png" class="responsive-img" alt="04APP架构-封装&amp;原生态&amp;H5&amp;flutter">
                         
-                        <img src="/null" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
+                        <span class="card-title">04APP架构-封装&amp;原生态&amp;H5&amp;flutter</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1225,18 +1277,29 @@ new Valine({
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-17
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-04
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            DU-玉
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B8%97%E9%80%8F/" class="post-category">
+                                    渗透
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B8%97%E9%80%8F-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
+                        <span class="chip bg-color">渗透-信息收集</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1244,16 +1307,15 @@ new Valine({
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/google1xxxxxxx0.html">
+                <a href="/du-yu/information-collection-02.html">
                     <div class="card-image">
                         
+                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/InformationCollection.png" class="responsive-img" alt="02Web其他-前后端&amp;软件&amp;Docker&amp;分配站">
                         
-                        <img src="/null" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
+                        <span class="card-title">02Web其他-前后端&amp;软件&amp;Docker&amp;分配站</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1264,17 +1326,28 @@ new Valine({
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-04
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            DU-玉
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B8%97%E9%80%8F/" class="post-category">
+                                    渗透
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B8%97%E9%80%8F-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
+                        <span class="chip bg-color">渗透-信息收集</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
