@@ -54,6 +54,19 @@
     
     
     <entry>
+      <title></title>
+      <link href="/du-yu/undefined.html"/>
+      <url>/du-yu/undefined.html</url>
+      
+        <content type="html"><![CDATA[<p>title: 01web常规-系统&amp;中间件&amp;数据库&amp;源码<br>author: DU-玉<br>coverImg: <a href="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/hsy-head2.jpg">https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/hsy-head2.jpg</a><br>top: false<br>cover: false<br>toc: true<br>mathjax: false<br>summary:<br>tags:</p><ul><li>信息收集<br>categories:</li><li>渗透学习<br>abbrlink: 19d2a4e6<br>reprintPolicy: cc_by<br>date: 2023-07-04 00:00:00<br>img:<br>password:</li></ul><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-04%20090622.png" alt="屏幕截图 2023-06-04 090622" style="zoom: 67%;"><h2 id="web四大件作用"><a href="#web四大件作用" class="headerlink" title="web四大件作用"></a>web四大件作用</h2><p>系统、中间件、数据库、源代码</p><h2 id="网站有哪些展示"><a href="#网站有哪些展示" class="headerlink" title="网站有哪些展示"></a>网站有哪些展示</h2><p>子域名模式 </p><p>端口模式</p><p>目录模式</p><p>公司发放的IP，扫描时扫描公司所有的IP</p><p>##文件访问解析</p><p>中间件、解析规则：中间解析规则决定上传到目标是什么类型</p><p>源文件的权限决定</p><p>锁图片文件，依旧可看，但没有执行了，有后门也不行</p><h2 id="源码配置文件"><a href="#源码配置文件" class="headerlink" title="源码配置文件"></a>源码配置文件</h2><p>1.数据库直接放在本地</p><p>2.数据库和网站分离，放在另外一个服务器上</p><p>数据库直接放到云端，拿到数据库账户密码也不行，云端只支持网站源码连接，可能只允许某些账号或目标访问</p><p>app.config数据库配置文件</p><h2 id="源码开源"><a href="#源码开源" class="headerlink" title="源码开源"></a>源码开源</h2><p>开源-源码可见</p><p>开源-源码不可见：各种加密，百度上有ASP加密     ，PHP加密什么的</p><p>语言特性决定：java运行以后就会改变                     </p><p>开源是为了白盒测试-代码审计</p><h2 id="源码结构目录"><a href="#源码结构目录" class="headerlink" title="源码结构目录"></a>源码结构目录</h2><p>admin后台管理相关</p><p>bin指引目录</p><p>database数据库相关</p><p>images图片相关</p><p>js前端文件</p><p>member会员</p><p>template模板</p><p>upfiles文件上传</p><p>webservice网站服务</p><p>##路由访问</p><p>常规：url+文件路径            url和文件目录对应不上，要根据路由配置决定</p><h1 id="小迪总结"><a href="#小迪总结" class="headerlink" title="小迪总结"></a>小迪总结</h1><h3 id="常规化"><a href="#常规化" class="headerlink" title="常规化"></a>常规化</h3><p>原理：源码数据都在同服务器</p><p>影响：无，常规安全测试手法</p><h3 id="站库分离："><a href="#站库分离：" class="headerlink" title="站库分离："></a>站库分离：</h3><p>原理：源码数据库不在同服务器</p><p>存储：其他服务器上数据库&amp;云数据库产品</p><p>影响：数据被单独存放，能连接才可影响数据</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>06抓包技术&amp;HTTPS协议&amp;APP&amp;小程序&amp;PC应用&amp;WEB&amp;转发联动</title>
       <link href="/du-yu/information-collection-06.html"/>
       <url>/du-yu/information-collection-06.html</url>
@@ -159,31 +172,6 @@
       <url>/du-yu/information-collection-02.html</url>
       
         <content type="html"><![CDATA[<h2 id="一、-前后端分离"><a href="#一、-前后端分离" class="headerlink" title="一、 前后端分离"></a>一、 前后端分离</h2><h3 id="源码不同，前端源码和后端源码分离"><a href="#源码不同，前端源码和后端源码分离" class="headerlink" title="源码不同，前端源码和后端源码分离"></a>源码不同，前端源码和后端源码分离</h3><p>安全速度快，但大量数据传输不如传统网站</p><p>开发的框架，API传输数据</p><p>前端页面通过api接口传到后端，后台单独管理（类似于两个网站 ） </p><h3 id="1-前台只负责呈现（so基本没有漏洞）"><a href="#1-前台只负责呈现（so基本没有漏洞）" class="headerlink" title="1.前台只负责呈现（so基本没有漏洞）"></a>1.前台只负责呈现（so基本没有漏洞）</h3><p>js网站传输几乎都是API，基本不会有代码的逻辑性，页面光秃秃 </p><h3 id="2-后台更新影响前台"><a href="#2-后台更新影响前台" class="headerlink" title="2.后台更新影响前台"></a>2.后台更新影响前台</h3><p>后台域名大部分不在前端同域名中（so获取前端权限有可能不会影响后端） 能连接才能影响数据</p><p>扫描的时候找后端域名，如果找不到，查看前端框架有无历史漏洞，如果没有，只能尝试社工或者其他方法了</p><h2 id="二、宝塔-phpstudy（软件搭建的网站）"><a href="#二、宝塔-phpstudy（软件搭建的网站）" class="headerlink" title="二、宝塔+phpstudy（软件搭建的网站）"></a>二、宝塔+phpstudy（软件搭建的网站）</h2><p>(购买阿里云服务器，打开所有安全组，255端口要申请) </p><p>用不同软件搭建网站时，要关闭当前的网站</p><p>一个服务器只能支持一个软件搭建网站，端口会冲突</p><p>所需数据库，中间件不一样的话，也要关</p><p>###1.原理：打包类集成化环境，权限配置或受控制</p><h3 id="2-影响：攻击者权限对比区别（不同软件影响也不同）"><a href="#2-影响：攻击者权限对比区别（不同软件影响也不同）" class="headerlink" title="2.影响：攻击者权限对比区别（不同软件影响也不同）"></a>2.影响：攻击者权限对比区别（不同软件影响也不同）</h3><p>和常规搭建的网站最大区别就是权限区别 </p><p>宝塔：拿到权限后，webshell执行不了，文件管理锁定目录，只能看到当前网站目录，其他目录看不到，没有权限，宝塔自动加了限制    </p><p>phpstudy：whoami 获取用户权限 -administartor</p><p>自己IIS搭建有一半webshell能执行,目录也能查看一般</p><h2 id="三、docker-容器（都是假的，除非逃逸出去）"><a href="#三、docker-容器（都是假的，除非逃逸出去）" class="headerlink" title="三、docker 容器（都是假的，除非逃逸出去）"></a>三、docker 容器（都是假的，除非逃逸出去）</h2><p>原理：虚拟化技术独立磁盘空间，非真实物理环境</p><p>影响：攻击者虚拟空间磁盘 </p><h2 id="四、建站分配站（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）"><a href="#四、建站分配站（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）" class="headerlink" title="四、建站分配站（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）"></a>四、建站分配站（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）</h2><h3 id="1-托管（有版权）（面对的是安全公司）"><a href="#1-托管（有版权）（面对的是安全公司）" class="headerlink" title="1.托管（有版权）（面对的是安全公司）"></a>1.托管（有版权）（面对的是安全公司）</h3><h3 id="2-申请（没有版权）（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）"><a href="#2-申请（没有版权）（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）" class="headerlink" title="2.申请（没有版权）（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）"></a>2.申请（没有版权）（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）</h3><p>原理：利用别人域名模版建立  </p><p>影响：实质安全测试非目标资产</p><h2 id="五、静态Web"><a href="#五、静态Web" class="headerlink" title="五、静态Web"></a>五、静态Web</h2><p>例子：大学学的html设计的网站（单一，想修改页面只能改源代码）</p><p>原理：数据没有传输性（js传输不算）</p><p>影响：无漏洞</p><h2 id="六、伪静态"><a href="#六、伪静态" class="headerlink" title="六、伪静态"></a>六、伪静态</h2><p>动态转为静态技术，伪装的静态</p><h1 id="小迪总结"><a href="#小迪总结" class="headerlink" title="小迪总结"></a>小迪总结</h1><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-04%20181607.png" alt="屏幕截图 2023-06-04 181607"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 渗透 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 渗透-信息收集 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>01web常规-系统&amp;中间件&amp;数据库&amp;源码</title>
-      <link href="/du-yu/information-collection-01.html"/>
-      <url>/du-yu/information-collection-01.html</url>
-      
-        <content type="html"><![CDATA[<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-04%20090622.png" alt="屏幕截图 2023-06-04 090622" style="zoom: 67%;"><h2 id="web四大件作用"><a href="#web四大件作用" class="headerlink" title="web四大件作用"></a>web四大件作用</h2><p>系统、中间件、数据库、源代码</p><h2 id="网站有哪些展示"><a href="#网站有哪些展示" class="headerlink" title="网站有哪些展示"></a>网站有哪些展示</h2><p>子域名模式 </p><p>端口模式</p><p>目录模式</p><p>公司发放的IP，扫描时扫描公司所有的IP</p><p>##文件访问解析</p><p>中间件、解析规则：中间解析规则决定上传到目标是什么类型</p><p>源文件的权限决定</p><p>锁图片文件，依旧可看，但没有执行了，有后门也不行</p><h2 id="源码配置文件"><a href="#源码配置文件" class="headerlink" title="源码配置文件"></a>源码配置文件</h2><p>1.数据库直接放在本地</p><p>2.数据库和网站分离，放在另外一个服务器上</p><p>数据库直接放到云端，拿到数据库账户密码也不行，云端只支持网站源码连接，可能只允许某些账号或目标访问</p><p>app.config数据库配置文件</p><h2 id="源码开源"><a href="#源码开源" class="headerlink" title="源码开源"></a>源码开源</h2><p>开源-源码可见</p><p>开源-源码不可见：各种加密，百度上有ASP加密     ，PHP加密什么的</p><p>语言特性决定：java运行以后就会改变                     </p><p>开源是为了白盒测试-代码审计</p><h2 id="源码结构目录"><a href="#源码结构目录" class="headerlink" title="源码结构目录"></a>源码结构目录</h2><p>admin后台管理相关</p><p>bin指引目录</p><p>database数据库相关</p><p>images图片相关</p><p>js前端文件</p><p>member会员</p><p>template模板</p><p>upfiles文件上传</p><p>webservice网站服务</p><p>##路由访问</p><p>常规：url+文件路径            url和文件目录对应不上，要根据路由配置决定</p><h1 id="小迪总结"><a href="#小迪总结" class="headerlink" title="小迪总结"></a>小迪总结</h1><h3 id="常规化"><a href="#常规化" class="headerlink" title="常规化"></a>常规化</h3><p>原理：源码数据都在同服务器</p><p>影响：无，常规安全测试手法</p><h3 id="站库分离："><a href="#站库分离：" class="headerlink" title="站库分离："></a>站库分离：</h3><p>原理：源码数据库不在同服务器</p><p>存储：其他服务器上数据库&amp;云数据库产品</p><p>影响：数据被单独存放，能连接才可影响数据</p>]]></content>
       
       
       <categories>
