@@ -18,8 +18,8 @@
   
   <entry>
     <title>050文件上传漏洞</title>
-    <link href="https://poison-biao.github.io/du-yuvulnerability-learning-02.html"/>
-    <id>https://poison-biao.github.io/du-yuvulnerability-learning-02.html</id>
+    <link href="https://poison-biao.github.io/du-yu/vulnerability-learning-02.html"/>
+    <id>https://poison-biao.github.io/du-yu/vulnerability-learning-02.html</id>
     <published>2023-07-05T08:27:16.000Z</published>
     <updated>2023-07-05T10:56:01.460Z</updated>
     
@@ -43,8 +43,8 @@
   
   <entry>
     <title>049挖洞思路</title>
-    <link href="https://poison-biao.github.io/du-yuvulnerability-learning-01.html"/>
-    <id>https://poison-biao.github.io/du-yuvulnerability-learning-01.html</id>
+    <link href="https://poison-biao.github.io/du-yu/vulnerability-learning-01.html"/>
+    <id>https://poison-biao.github.io/du-yu/vulnerability-learning-01.html</id>
     <published>2023-07-05T08:27:01.000Z</published>
     <updated>2023-07-05T10:55:52.481Z</updated>
     
@@ -68,8 +68,8 @@
   
   <entry>
     <title>06抓包技术&amp;HTTPS协议&amp;APP&amp;小程序&amp;PC应用&amp;WEB&amp;转发联动</title>
-    <link href="https://poison-biao.github.io/du-yuinformation-collection-06.html"/>
-    <id>https://poison-biao.github.io/du-yuinformation-collection-06.html</id>
+    <link href="https://poison-biao.github.io/du-yu/information-collection-06.html"/>
+    <id>https://poison-biao.github.io/du-yu/information-collection-06.html</id>
     <published>2023-07-03T16:00:06.000Z</published>
     <updated>2023-07-05T10:54:58.952Z</updated>
     
@@ -93,8 +93,8 @@
   
   <entry>
     <title>05基础命令&amp;反弹shell&amp;数据不回显带外查询</title>
-    <link href="https://poison-biao.github.io/du-yuinformation-collection-05.html"/>
-    <id>https://poison-biao.github.io/du-yuinformation-collection-05.html</id>
+    <link href="https://poison-biao.github.io/du-yu/information-collection-05.html"/>
+    <id>https://poison-biao.github.io/du-yu/information-collection-05.html</id>
     <published>2023-07-03T16:00:05.000Z</published>
     <updated>2023-07-05T10:54:54.884Z</updated>
     
@@ -117,8 +117,8 @@
   
   <entry>
     <title>04APP架构-封装&amp;原生态&amp;H5&amp;flutter</title>
-    <link href="https://poison-biao.github.io/du-yuinformation-collection-04.html"/>
-    <id>https://poison-biao.github.io/du-yuinformation-collection-04.html</id>
+    <link href="https://poison-biao.github.io/du-yu/information-collection-04.html"/>
+    <id>https://poison-biao.github.io/du-yu/information-collection-04.html</id>
     <published>2023-07-03T16:00:04.000Z</published>
     <updated>2023-07-05T10:55:07.378Z</updated>
     
@@ -141,8 +141,8 @@
   
   <entry>
     <title>03Web拓展-CDN&amp;WAF&amp;OSS&amp;反向&amp;负载均衡</title>
-    <link href="https://poison-biao.github.io/du-yuinformation-collection-03.html"/>
-    <id>https://poison-biao.github.io/du-yuinformation-collection-03.html</id>
+    <link href="https://poison-biao.github.io/du-yu/information-collection-03.html"/>
+    <id>https://poison-biao.github.io/du-yu/information-collection-03.html</id>
     <published>2023-07-03T16:00:03.000Z</published>
     <updated>2023-07-05T10:55:18.170Z</updated>
     
@@ -165,8 +165,8 @@
   
   <entry>
     <title>02Web其他-前后端&amp;软件&amp;Docker&amp;分配站</title>
-    <link href="https://poison-biao.github.io/du-yuinformation-collection-02.html"/>
-    <id>https://poison-biao.github.io/du-yuinformation-collection-02.html</id>
+    <link href="https://poison-biao.github.io/du-yu/information-collection-02.html"/>
+    <id>https://poison-biao.github.io/du-yu/information-collection-02.html</id>
     <published>2023-07-03T16:00:02.000Z</published>
     <updated>2023-07-06T10:32:14.034Z</updated>
     
@@ -189,8 +189,8 @@
   
   <entry>
     <title>01web常规-系统&amp;中间件&amp;数据库&amp;源码</title>
-    <link href="https://poison-biao.github.io/du-yuinformation-collection-01.html"/>
-    <id>https://poison-biao.github.io/du-yuinformation-collection-01.html</id>
+    <link href="https://poison-biao.github.io/du-yu/information-collection-01.html"/>
+    <id>https://poison-biao.github.io/du-yu/information-collection-01.html</id>
     <published>2023-07-03T16:00:01.000Z</published>
     <updated>2023-07-06T10:14:16.585Z</updated>
     
