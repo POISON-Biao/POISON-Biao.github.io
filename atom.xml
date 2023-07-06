@@ -189,10 +189,10 @@
   
   <entry>
     <title>01web常规-系统&amp;中间件&amp;数据库&amp;源码</title>
-    <link href="https://poison-biao.github.io/du-yu/information.collection.01.html"/>
-    <id>https://poison-biao.github.io/du-yu/information.collection.01.html</id>
+    <link href="https://poison-biao.github.io/du-yu/null.html"/>
+    <id>https://poison-biao.github.io/du-yu/null.html</id>
     <published>2023-07-03T16:00:01.000Z</published>
-    <updated>2023-07-05T13:47:35.077Z</updated>
+    <updated>2023-07-06T10:06:25.953Z</updated>
     
     <content type="html"><![CDATA[<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-04%20090622.png" alt="屏幕截图 2023-06-04 090622" style="zoom: 67%;"><h2 id="web四大件作用"><a href="#web四大件作用" class="headerlink" title="web四大件作用"></a>web四大件作用</h2><p>系统、中间件、数据库、源代码</p><h2 id="网站有哪些展示"><a href="#网站有哪些展示" class="headerlink" title="网站有哪些展示"></a>网站有哪些展示</h2><p>子域名模式 </p><p>端口模式</p><p>目录模式</p><p>公司发放的IP，扫描时扫描公司所有的IP</p><p>##文件访问解析</p><p>中间件、解析规则：中间解析规则决定上传到目标是什么类型</p><p>源文件的权限决定</p><p>锁图片文件，依旧可看，但没有执行了，有后门也不行</p><h2 id="源码配置文件"><a href="#源码配置文件" class="headerlink" title="源码配置文件"></a>源码配置文件</h2><p>1.数据库直接放在本地</p><p>2.数据库和网站分离，放在另外一个服务器上</p><p>数据库直接放到云端，拿到数据库账户密码也不行，云端只支持网站源码连接，可能只允许某些账号或目标访问</p><p>app.config数据库配置文件</p><h2 id="源码开源"><a href="#源码开源" class="headerlink" title="源码开源"></a>源码开源</h2><p>开源-源码可见</p><p>开源-源码不可见：各种加密，百度上有ASP加密     ，PHP加密什么的</p><p>语言特性决定：java运行以后就会改变                     </p><p>开源是为了白盒测试-代码审计</p><h2 id="源码结构目录"><a href="#源码结构目录" class="headerlink" title="源码结构目录"></a>源码结构目录</h2><p>admin后台管理相关</p><p>bin指引目录</p><p>database数据库相关</p><p>images图片相关</p><p>js前端文件</p><p>member会员</p><p>template模板</p><p>upfiles文件上传</p><p>webservice网站服务</p><p>##路由访问</p><p>常规：url+文件路径            url和文件目录对应不上，要根据路由配置决定</p><h1 id="小迪总结"><a href="#小迪总结" class="headerlink" title="小迪总结"></a>小迪总结</h1><h3 id="常规化"><a href="#常规化" class="headerlink" title="常规化"></a>常规化</h3><p>原理：源码数据都在同服务器</p><p>影响：无，常规安全测试手法</p><h3 id="站库分离："><a href="#站库分离：" class="headerlink" title="站库分离："></a>站库分离：</h3><p>原理：源码数据库不在同服务器</p><p>存储：其他服务器上数据库&amp;云数据库产品</p><p>影响：数据被单独存放，能连接才可影响数据</p>]]></content>
     
