@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="02Web其他-前后端&amp;软件&amp;Docker&amp;分配站, DU-玉 渗透测试 CTF PWN 护网行动 公安联考 考研 ">
+    <meta name="keywords" content="04APP架构-封装&amp;原生态&amp;H5&amp;flutter, DU-玉 渗透测试 CTF PWN 护网行动 公安联考 考研 ">
     <meta name="description" content="中国人民警察大学 | 渗透 | 护网 | 二进制 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>02Web其他-前后端&amp;软件&amp;Docker&amp;分配站 | DU-玉</title>
+    <title>04APP架构-封装&amp;原生态&amp;H5&amp;flutter | DU-玉</title>
 
     <link rel="icon" type="image/jpeg" href="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/hsy-head.jpg">
 
@@ -494,7 +494,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">02Web其他-前后端&amp;软件&amp;Docker&amp;分配站</h1>
+                    <h1 class="description center-align post-title">04APP架构-封装&amp;原生态&amp;H5&amp;flutter</h1>
                 </div>
             </div>
         </div>
@@ -647,14 +647,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-06
+                    2023-07-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    647
+                    600
                 </div>
                 
 
@@ -684,30 +684,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、-前后端分离"><a href="#一、-前后端分离" class="headerlink" title="一、 前后端分离"></a>一、 前后端分离</h2><h3 id="源码不同，前端源码和后端源码分离"><a href="#源码不同，前端源码和后端源码分离" class="headerlink" title="源码不同，前端源码和后端源码分离"></a>源码不同，前端源码和后端源码分离</h3><p>安全速度快，但大量数据传输不如传统网站</p>
-<p>开发的框架，API传输数据</p>
-<p>前端页面通过api接口传到后端，后台单独管理（类似于两个网站 ） </p>
-<h3 id="1-前台只负责呈现（so基本没有漏洞）"><a href="#1-前台只负责呈现（so基本没有漏洞）" class="headerlink" title="1.前台只负责呈现（so基本没有漏洞）"></a>1.前台只负责呈现（so基本没有漏洞）</h3><p>js网站传输几乎都是API，基本不会有代码的逻辑性，页面光秃秃 </p>
-<h3 id="2-后台更新影响前台"><a href="#2-后台更新影响前台" class="headerlink" title="2.后台更新影响前台"></a>2.后台更新影响前台</h3><p>后台域名大部分不在前端同域名中（so获取前端权限有可能不会影响后端） 能连接才能影响数据</p>
-<p>扫描的时候找后端域名，如果找不到，查看前端框架有无历史漏洞，如果没有，只能尝试社工或者其他方法了</p>
-<h2 id="二、宝塔-phpstudy（软件搭建的网站）"><a href="#二、宝塔-phpstudy（软件搭建的网站）" class="headerlink" title="二、宝塔+phpstudy（软件搭建的网站）"></a>二、宝塔+phpstudy（软件搭建的网站）</h2><p>(购买阿里云服务器，打开所有安全组，255端口要申请) </p>
-<p>用不同软件搭建网站时，要关闭当前的网站</p>
-<p>一个服务器只能支持一个软件搭建网站，端口会冲突</p>
-<p>所需数据库，中间件不一样的话，也要关</p>
-<p>###1.原理：打包类集成化环境，权限配置或受控制</p>
-<h3 id="2-影响：攻击者权限对比区别（不同软件影响也不同）"><a href="#2-影响：攻击者权限对比区别（不同软件影响也不同）" class="headerlink" title="2.影响：攻击者权限对比区别（不同软件影响也不同）"></a>2.影响：攻击者权限对比区别（不同软件影响也不同）</h3><p>和常规搭建的网站最大区别就是权限区别 </p>
-<p>宝塔：拿到权限后，webshell执行不了，文件管理锁定目录，只能看到当前网站目录，其他目录看不到，没有权限，宝塔自动加了限制    </p>
-<p>phpstudy：whoami 获取用户权限 -administartor</p>
-<p>自己IIS搭建有一半webshell能执行,目录也能查看一般</p>
-<h2 id="三、docker-容器（都是假的，除非逃逸出去）"><a href="#三、docker-容器（都是假的，除非逃逸出去）" class="headerlink" title="三、docker 容器（都是假的，除非逃逸出去）"></a>三、docker 容器（都是假的，除非逃逸出去）</h2><p>原理：虚拟化技术独立磁盘空间，非真实物理环境</p>
-<p>影响：攻击者虚拟空间磁盘 </p>
-<h2 id="四、建站分配站（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）"><a href="#四、建站分配站（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）" class="headerlink" title="四、建站分配站（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）"></a>四、建站分配站（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）</h2><h3 id="1-托管（有版权）（面对的是安全公司）"><a href="#1-托管（有版权）（面对的是安全公司）" class="headerlink" title="1.托管（有版权）（面对的是安全公司）"></a>1.托管（有版权）（面对的是安全公司）</h3><h3 id="2-申请（没有版权）（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）"><a href="#2-申请（没有版权）（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）" class="headerlink" title="2.申请（没有版权）（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）"></a>2.申请（没有版权）（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）</h3><p>原理：利用别人域名模版建立  </p>
-<p>影响：实质安全测试非目标资产</p>
-<h2 id="五、静态Web"><a href="#五、静态Web" class="headerlink" title="五、静态Web"></a>五、静态Web</h2><p>例子：大学学的html设计的网站（单一，想修改页面只能改源代码）</p>
-<p>原理：数据没有传输性（js传输不算）</p>
-<p>影响：无漏洞</p>
-<h2 id="六、伪静态"><a href="#六、伪静态" class="headerlink" title="六、伪静态"></a>六、伪静态</h2><p>动态转为静态技术，伪装的静态</p>
-<h1 id="小迪总结"><a href="#小迪总结" class="headerlink" title="小迪总结"></a>小迪总结</h1><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-04%20181607.png" alt="屏幕截图 2023-06-04 181607"></p>
+                <h2 id="APP应用开发架构"><a href="#APP应用开发架构" class="headerlink" title="APP应用开发架构"></a>APP应用开发架构</h2><h3 id="1、原生开发"><a href="#1、原生开发" class="headerlink" title="1、原生开发"></a>1、原生开发</h3><p>安卓一般使用java语言开发，当然现在也有kotlin语言进行开发。如何开发就涉及到具体编程了，这里就不详说了。简单描述就是使用安卓提供的一系列控件来实现页面，复杂点的页面可以通过自定义控件来实现。</p>
+<p>APP-开发架构-原生态-IDEA</p>
+<h4 id="安全影响：反编译-amp-抓包-amp-常规测试（提取资产信息：1-接口：IP地址、网站域名）"><a href="#安全影响：反编译-amp-抓包-amp-常规测试（提取资产信息：1-接口：IP地址、网站域名）" class="headerlink" title="安全影响：反编译&amp;抓包&amp;常规测试（提取资产信息：1.接口：IP地址、网站域名）"></a>安全影响：反编译&amp;抓包&amp;常规测试（提取资产信息：1.接口：IP地址、网站域名）</h4><h4 id="安全测试：逆向的角度去分析逻辑设计安全；简单安卓逆向，常见抓包"><a href="#安全测试：逆向的角度去分析逻辑设计安全；简单安卓逆向，常见抓包" class="headerlink" title="安全测试：逆向的角度去分析逻辑设计安全；简单安卓逆向，常见抓包"></a>安全测试：逆向的角度去分析逻辑设计安全；简单安卓逆向，常见抓包</h4><h3 id="2、使用H5语言开发（前端语言）"><a href="#2、使用H5语言开发（前端语言）" class="headerlink" title="2、使用H5语言开发（前端语言）"></a>2、使用H5语言开发（前端语言）</h3><p>使用H5开发的好处有很多，可多端复用，比如浏览器端，ios端，当然H5开发的体验是没有原生好的。结合我做过的项目来说，一般是这个页面需要分享出去的话，就用H5开发。</p>
+<h4 id="APP-开发架构-H5-amp-Vue-HBuilderX"><a href="#APP-开发架构-H5-amp-Vue-HBuilderX" class="headerlink" title="APP-开发架构-H5&amp;Vue-HBuilderX"></a>APP-开发架构-H5&amp;Vue-HBuilderX</h4><p>演示：HBuilderX案例</p>
+<p>安全影响：API&amp;JS框架安全问题&amp;JS前端测试</p>
+<h4 id="WX小程序-开发架构-H5-amp-Vue-HBuilderX"><a href="#WX小程序-开发架构-H5-amp-Vue-HBuilderX" class="headerlink" title="WX小程序-开发架构-H5&amp;Vue-HBuilderX"></a>WX小程序-开发架构-H5&amp;Vue-HBuilderX</h4><p>演示：HBuilderX案例</p>
+<p>安全影响：API&amp;JS框架安全问题&amp;JS前端测试</p>
+<h3 id="3、使用flutter开发"><a href="#3、使用flutter开发" class="headerlink" title="3、使用flutter开发"></a>3、使用flutter开发</h3><p>flutter是近年来谷歌推出的一款UI框架，使用dart语言进行开发，支持跨平台，weight渲染直接操作硬件层，体验可媲美原生。但是flutter技术比较新，生态还不完善，开发起来效率相对偏低。</p>
+<h3 id="4、常规Web开发"><a href="#4、常规Web开发" class="headerlink" title="4、常规Web开发"></a>4、常规Web开发</h3><p>Web App软件开发简单地说，就是开发一个网站，然后加入app的壳。Web App一般非常小，内容都是app内的网页展示，受制于网页技术本身，可实现功能少，而且每次打开，几乎所有的内容都需要重新加载，所以反应速度慢，内容加载过多就容易卡死，用户体验差，而且app内的交互设计等非常有效。但开发周期长端，需要的技术人员少，成本低。</p>
+<h4 id="APP-开发架构–Web封装-封装平台"><a href="#APP-开发架构–Web封装-封装平台" class="headerlink" title="APP-开发架构–Web封装-封装平台"></a>APP-开发架构–Web封装-封装平台</h4><p>演示：ShopXO源码程序+一门APP打包</p>
+<p>安全影响：常Web安全测试</p>
+<h4 id="WX小程序-开发架构-Web封装-平台"><a href="#WX小程序-开发架构-Web封装-平台" class="headerlink" title="WX小程序-开发架构-Web封装-平台"></a>WX小程序-开发架构-Web封装-平台</h4><p>演示：ShopXO源码程序+一门APP打包</p>
+<p>安全影响：常规Web安全测试j</p>
+<h1 id="小迪总结"><a href="#小迪总结" class="headerlink" title="小迪总结"></a>小迪总结</h1><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-05%20012642.png" alt="屏幕截图 2023-06-05 012642"></p>
 
                 
             </div>
@@ -734,7 +724,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://POISON-Biao.github.io/du-yu/information-collection-02.html">https://POISON-Biao.github.io/du-yu/information-collection-02.html</a>
+                    <a href="https://POISON-Biao.github.io/du-yuinformation-collection-04.html">https://POISON-Biao.github.io/du-yuinformation-collection-04.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1249,12 +1239,12 @@ new Valine({
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/du-yu/information-collection-03.html">
+                <a href="/du-yuinformation-collection-05.html">
                     <div class="card-image">
                         
-                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/InformationCollection.png" class="responsive-img" alt="03Web拓展-CDN&amp;WAF&amp;OSS&amp;反向&amp;负载均衡">
+                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/InformationCollection.png" class="responsive-img" alt="05基础命令&amp;反弹shell&amp;数据不回显带外查询">
                         
-                        <span class="card-title">03Web拓展-CDN&amp;WAF&amp;OSS&amp;反向&amp;负载均衡</span>
+                        <span class="card-title">05基础命令&amp;反弹shell&amp;数据不回显带外查询</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1297,12 +1287,12 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/du-yu/information-collection-01.html">
+                <a href="/du-yuinformation-collection-03.html">
                     <div class="card-image">
                         
-                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/InformationCollection.png" class="responsive-img" alt="01web常规-系统&amp;中间件&amp;数据库&amp;源码">
+                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/InformationCollection.png" class="responsive-img" alt="03Web拓展-CDN&amp;WAF&amp;OSS&amp;反向&amp;负载均衡">
                         
-                        <span class="card-title">01web常规-系统&amp;中间件&amp;数据库&amp;源码</span>
+                        <span class="card-title">03Web拓展-CDN&amp;WAF&amp;OSS&amp;反向&amp;负载均衡</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

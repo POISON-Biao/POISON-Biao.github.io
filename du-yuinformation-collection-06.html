@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="050文件上传漏洞, DU-玉 渗透测试 CTF PWN 护网行动 公安联考 考研 ">
+    <meta name="keywords" content="06抓包技术&amp;HTTPS协议&amp;APP&amp;小程序&amp;PC应用&amp;WEB&amp;转发联动, DU-玉 渗透测试 CTF PWN 护网行动 公安联考 考研 ">
     <meta name="description" content="中国人民警察大学 | 渗透 | 护网 | 二进制 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>050文件上传漏洞 | DU-玉</title>
+    <title>06抓包技术&amp;HTTPS协议&amp;APP&amp;小程序&amp;PC应用&amp;WEB&amp;转发联动 | DU-玉</title>
 
     <link rel="icon" type="image/jpeg" href="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/hsy-head.jpg">
 
@@ -489,12 +489,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/WebCaveStudy.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/InformationCollection.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">050文件上传漏洞</h1>
+                    <h1 class="description center-align post-title">06抓包技术&amp;HTTPS协议&amp;APP&amp;小程序&amp;PC应用&amp;WEB&amp;转发联动</h1>
                 </div>
             </div>
         </div>
@@ -615,8 +615,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%B8%97%E9%80%8F-%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">渗透-漏洞学习</span>
+                            <a href="/tags/%E6%B8%97%E9%80%8F-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
+                                <span class="chip bg-color">渗透-信息收集</span>
                             </a>
                         
                     </div>
@@ -640,7 +640,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-07-05
+                    2023-07-04
                 </div>
                 
 
@@ -654,7 +654,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    244
+                    82
                 </div>
                 
 
@@ -684,26 +684,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h3><p>上传图片—–&gt;base64数据（文件上传变为数据形式 ，方便存储在数据库中）</p>
-<p>显示图片—–&gt;解码数据还原，如果不是图片则不显示</p>
-<p>（可能有特殊符号各种什么的，转化为数据进行完整封装）</p>
-<p>解析协议固定</p>
-<p>不管是什么文件类型</p>
-<p>解析为指定数据类型</p>
-<p>数据存储文件，固定的协议解析文件</p>
-<p>不管上传什么文件，只认数据</p>
-<h3 id="大网站分站存储"><a href="#大网站分站存储" class="headerlink" title="大网站分站存储"></a>大网站分站存储</h3><p>保护域名——————–&gt;控制解析</p>
-<p>想测试ZZ</p>
-<p>OSS存储</p>
-<p>如何判断：<strong>1.看上传之后的访问地址，如果后门无法解析就</strong></p>
-<p><strong>2.看上传的数据包（bilibili）</strong></p>
-<p><strong>3.分站上传看访问地址</strong></p>
-<p><strong>4.一打开就是下载</strong></p>
-<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/Vulnerability-learning.png" alt="Vulnerability-learning"></p>
-<h1 id="绕过（除了下面这种其他无解）"><a href="#绕过（除了下面这种其他无解）" class="headerlink" title="绕过（除了下面这种其他无解）"></a>绕过（除了下面这种其他无解）</h1><p>文件被锁</p>
-<p>能控制上传文件写入目录</p>
-<h3 id="免杀"><a href="#免杀" class="headerlink" title="免杀"></a>免杀</h3><p>上传以后就被杀掉了</p>
-<h1 id="SDK阿里云"><a href="#SDK阿里云" class="headerlink" title="SDK阿里云"></a>SDK阿里云</h1>
+                <h3 id="web协议的抓包"><a href="#web协议的抓包" class="headerlink" title="web协议的抓包"></a>web协议的抓包</h3><p>工具：charles（茶杯）  Telerik Fiddler</p>
+<p>BP设置代理的原理：感觉像充当一个VPN，让浏览器走监听的端口，BP监听或者拦截</p>
+<p><strong>本机</strong>：证书——&gt;抓包</p>
+<p><strong>模拟器</strong>：证书—–&gt;设置代理——&gt;抓包（封装和没封装的APP都能抓到）</p>
+<h1 id="小迪总结"><a href="#小迪总结" class="headerlink" title="小迪总结"></a>小迪总结</h1><p>、<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-07%20085010.png" alt="屏幕截图 2023-06-07 085010"></p>
+
                 
             </div>
             <hr/>
@@ -729,7 +715,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://POISON-Biao.github.io/du-yu/vulnerability-learning-02.html">https://POISON-Biao.github.io/du-yu/vulnerability-learning-02.html</a>
+                    <a href="https://POISON-Biao.github.io/du-yuinformation-collection-06.html">https://POISON-Biao.github.io/du-yuinformation-collection-06.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -767,8 +753,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%B8%97%E9%80%8F-%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">渗透-漏洞学习</span>
+                                <a href="/tags/%E6%B8%97%E9%80%8F-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
+                                    <span class="chip bg-color">渗透-信息收集</span>
                                 </a>
                             
                         </div>
@@ -1240,17 +1226,16 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/du-yu/vulnerability-learning-02.html">
+                <a href="/du-yuvulnerability-learning-01.html">
                     <div class="card-image">
                         
-                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/WebCaveStudy.png" class="responsive-img" alt="050文件上传漏洞">
+                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/WebCaveStudy.png" class="responsive-img" alt="049挖洞思路">
                         
-                        <span class="card-title">050文件上传漏洞</span>
+                        <span class="card-title">049挖洞思路</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1260,9 +1245,9 @@ new Valine({
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-05
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-05
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1275,7 +1260,6 @@ new Valine({
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1294,12 +1278,12 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/du-yu/vulnerability-learning-01.html">
+                <a href="/du-yuinformation-collection-05.html">
                     <div class="card-image">
                         
-                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/WebCaveStudy.png" class="responsive-img" alt="049挖洞思路">
+                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/InformationCollection.png" class="responsive-img" alt="05基础命令&amp;反弹shell&amp;数据不回显带外查询">
                         
-                        <span class="card-title">049挖洞思路</span>
+                        <span class="card-title">05基础命令&amp;反弹shell&amp;数据不回显带外查询</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1310,7 +1294,7 @@ new Valine({
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-04
                             </span>
                         <span class="publish-author">
                             
@@ -1327,8 +1311,8 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B8%97%E9%80%8F-%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">渗透-漏洞学习</span>
+                    <a href="/tags/%E6%B8%97%E9%80%8F-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
+                        <span class="chip bg-color">渗透-信息收集</span>
                     </a>
                     
                 </div>
