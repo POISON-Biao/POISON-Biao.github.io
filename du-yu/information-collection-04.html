@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="04APP架构-封装&amp;原生态&amp;H5&amp;flutter, DU-玉 渗透测试 CTF PWN 护网行动 公安联考 考研 ">
-    <meta name="description" content="中国人民警察大学 | 渗透 | 护网 | 二进制 ">
+    <meta name="description" content="中国人民警察大学 | 电子取证 | 护网 | 二进制 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -232,7 +232,7 @@
         <div class="logo-name">DU-玉</div>
         <div class="logo-desc">
             
-            中国人民警察大学 | 渗透 | 护网 | 二进制 
+            中国人民警察大学 | 电子取证 | 护网 | 二进制 
             
         </div>
     </div>
@@ -478,8 +478,8 @@
     (function() {
         let pwd = '';
         if (pwd && pwd.length > 0) {
-            if (pwd !== CryptoJS.SHA256(prompt('干嘛，偷看隐私可不好哦 ~')).toString(CryptoJS.enc.Hex)) {
-                alert('别乱猜密码了，找DU-玉要正确的密码吧 ~');
+            if (pwd !== CryptoJS.SHA256(prompt('你干嘛，偷看隐私可不好哦 ~')).toString(CryptoJS.enc.Hex)) {
+                alert('猜密码是猜不到的哟，找DU-玉要正确的密码吧 ~');
                 location.href = '/';
             }
         }
