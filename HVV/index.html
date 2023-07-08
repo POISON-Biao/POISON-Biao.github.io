@@ -478,7 +478,7 @@
     (function() {
         let pwd = '';
         if (pwd && pwd.length > 0) {
-            if (pwd !== CryptoJS.SHA256(prompt('你干嘛，偷看隐私可不好哦 ~')).toString(CryptoJS.enc.Hex)) {
+            if (pwd !== CryptoJS.SHA256(prompt('你干嘛，DU-玉基本不可能会给外人密码的，偷看隐私可不好哦 ~')).toString(CryptoJS.enc.Hex)) {
                 alert('猜密码是猜不到的哟，找DU-玉要正确的密码吧 ~');
                 location.href = '/';
             }

@@ -6,7 +6,7 @@
   <link href="https://poison-biao.github.io/atom.xml" rel="self"/>
   
   <link href="https://poison-biao.github.io/"/>
-  <updated>2023-07-06T13:48:50.667Z</updated>
+  <updated>2023-07-08T10:11:55.301Z</updated>
   <id>https://poison-biao.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://poison-biao.github.io/du-yu/cppu-electronic-forensics-01.html"/>
     <id>https://poison-biao.github.io/du-yu/cppu-electronic-forensics-01.html</id>
     <published>2023-07-06T13:06:00.000Z</published>
-    <updated>2023-07-06T13:48:50.667Z</updated>
+    <updated>2023-07-08T10:11:55.301Z</updated>
     
     <content type="html"><![CDATA[<p>每日吐槽：蛙趣啊！~   该说不说，取证大师真的很强，但是也确实搞心态啊，取证三次，电脑崩掉2次，天选三太废物了啊~</p><p>1、cd082d248033cd557b42b5faa0de5b9f</p><p>(MD5: cd082d248033cd557b42b5faa0de5b9f<br>SHA1: b4b1c4145c599e7d232c3611317ed076495dafb9<br>SHA256: 78295b0b7a71c7dd7555cb2db923de6f78f5338a6aae9150a34fecd535487360<br>CRC32: b7ee2645)</p><p>2、6.1</p><p>3、2020-09-23 14:24:54</p><p>4、A</p><p>5、192.168.152.128</p><p>6、(UTC+08:00)</p><p>7、 ceabb038fdc3e2e55c1e78ad0a2e5fb9</p><img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702160238449.png" alt="image-20230702160238449" style="zoom:25%;"><img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702160401497.png" alt="image-20230702160401497" style="zoom:25%;"><p>8、6191e971cfdf5296ee7df7c2fed56377</p><p><img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702162304311.png" alt="image-20230702162304311"></p><p>9、HackBar V2   、    Proxy SwitchyOmega</p><p>（差点被LZJ骗了，这个就是对的）</p><img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702154910574.png" alt="image-20230702154910574" style="zoom:25%;"><p>10、7.2.</p><img src="C:\Users\asus\Pictures\Screenshots\Snipaste_2023-07-02_15-41-43.png" alt="Snipaste_2023-07-02_15-41-43" style="zoom:25%;"><p>11、192.168.152.150</p><img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702180300769.png" alt="image-20230702180300769" style="zoom:25%;"><p>12、00-0C-29-0F-B9-F7</p><img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702163500129.png" alt="image-20230702163500129" style="zoom:25%;"><p>13、CaiXX-PC</p><p>14、pico2020</p><p>15、105,906,176</p><p>16、A</p><p>17、B</p><img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702182224126.png" alt="image-20230702182224126" style="zoom:25%;"><p>18、12753</p><img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702193248514.png" alt="image-20230702193248514" style="zoom:25%;"><p>19、 8f8319bc3c1b8ed92aa5498dd98c8e87e5f888f7<img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702193115519.png" alt="image-20230702193115519" style="zoom:25%;"></p><p>20、Administrator   、    Guest 、  chaunchaun</p><p>22、shuandan</p><p><img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702193916532.png" alt="image-20230702193916532"></p><p>23、<a href="http://www.tpshop.com.tar.gz/">www.tpshop.com.tar.gz</a></p><p>24、120ac49800671dc383b6f3709c25c099</p><p>两都是一样，所以是同一个webshell<img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702195054106.png" alt="image-20230702195054106"></p><p>25、 tpshop / s13132312s<img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702195519596.png" alt="image-20230702195519596" style="zoom:25%;"></p><p>27、26</p><p>31、9176</p><p>37、101</p><p>（一个一个数）</p><p>38、B</p>]]></content>
     
@@ -214,35 +214,11 @@
   </entry>
   
   <entry>
-    <title>01web常规-系统&amp;中间件&amp;数据库&amp;源码</title>
-    <link href="https://poison-biao.github.io/du-yu/information-collection-01.html"/>
-    <id>https://poison-biao.github.io/du-yu/information-collection-01.html</id>
-    <published>2023-07-03T16:00:01.000Z</published>
-    <updated>2023-07-06T13:39:29.755Z</updated>
-    
-    <content type="html"><![CDATA[<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-04%20090622.png" alt="屏幕截图 2023-06-04 090622" style="zoom: 67%;"><h2 id="web四大件作用"><a href="#web四大件作用" class="headerlink" title="web四大件作用"></a>web四大件作用</h2><p>系统、中间件、数据库、源代码</p><h2 id="网站有哪些展示"><a href="#网站有哪些展示" class="headerlink" title="网站有哪些展示"></a>网站有哪些展示</h2><p>子域名模式 </p><p>端口模式</p><p>目录模式</p><p>公司发放的IP，扫描时扫描公司所有的IP</p><p>##文件访问解析</p><p>中间件、解析规则：中间解析规则决定上传到目标是什么类型</p><p>源文件的权限决定</p><p>锁图片文件，依旧可看，但没有执行了，有后门也不行</p><h2 id="源码配置文件"><a href="#源码配置文件" class="headerlink" title="源码配置文件"></a>源码配置文件</h2><p>1.数据库直接放在本地</p><p>2.数据库和网站分离，放在另外一个服务器上</p><p>数据库直接放到云端，拿到数据库账户密码也不行，云端只支持网站源码连接，可能只允许某些账号或目标访问</p><p>app.config数据库配置文件</p><h2 id="源码开源"><a href="#源码开源" class="headerlink" title="源码开源"></a>源码开源</h2><p>开源-源码可见</p><p>开源-源码不可见：各种加密，百度上有ASP加密     ，PHP加密什么的</p><p>语言特性决定：java运行以后就会改变                     </p><p>开源是为了白盒测试-代码审计</p><h2 id="源码结构目录"><a href="#源码结构目录" class="headerlink" title="源码结构目录"></a>源码结构目录</h2><p>admin后台管理相关</p><p>bin指引目录</p><p>database数据库相关</p><p>images图片相关</p><p>js前端文件</p><p>member会员</p><p>template模板</p><p>upfiles文件上传</p><p>webservice网站服务</p><p>##路由访问</p><p>常规：url+文件路径            url和文件目录对应不上，要根据路由配置决定</p><h1 id="小迪总结"><a href="#小迪总结" class="headerlink" title="小迪总结"></a>小迪总结</h1><h3 id="常规化"><a href="#常规化" class="headerlink" title="常规化"></a>常规化</h3><p>原理：源码数据都在同服务器</p><p>影响：无，常规安全测试手法</p><h3 id="站库分离："><a href="#站库分离：" class="headerlink" title="站库分离："></a>站库分离：</h3><p>原理：源码数据库不在同服务器</p><p>存储：其他服务器上数据库&amp;云数据库产品</p><p>影响：数据被单独存放，能连接才可影响数据</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;img src=&quot;https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-04%20090622.png&quot; alt=&quot;屏幕截图 202</summary>
-      
-    
-    
-    
-    <category term="渗透" scheme="https://poison-biao.github.io/categories/%E6%B8%97%E9%80%8F/"/>
-    
-    
-    <category term="渗透-信息收集" scheme="https://poison-biao.github.io/tags/%E6%B8%97%E9%80%8F-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Destiny-plan</title>
     <link href="https://poison-biao.github.io/du-yu/destiny-plan.html"/>
     <id>https://poison-biao.github.io/du-yu/destiny-plan.html</id>
     <published>2023-07-03T16:00:01.000Z</published>
-    <updated>2023-07-08T06:33:14.807Z</updated>
+    <updated>2023-07-08T10:12:17.038Z</updated>
     
     <content type="html"><![CDATA[<p>一、备忘录<br>美化终端</p><p>二、护网<br>1、面试</p><p>三、PWN</p><p>四、战队<br>WM<br>NUL_1<br>蓝水</p><p>五、电子取证</p>]]></content>
     
@@ -263,6 +239,30 @@
     
     
     <category term="plan" scheme="https://poison-biao.github.io/tags/plan/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>01web常规-系统&amp;中间件&amp;数据库&amp;源码</title>
+    <link href="https://poison-biao.github.io/du-yu/information-collection-01.html"/>
+    <id>https://poison-biao.github.io/du-yu/information-collection-01.html</id>
+    <published>2023-07-03T16:00:01.000Z</published>
+    <updated>2023-07-06T13:39:29.755Z</updated>
+    
+    <content type="html"><![CDATA[<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-04%20090622.png" alt="屏幕截图 2023-06-04 090622" style="zoom: 67%;"><h2 id="web四大件作用"><a href="#web四大件作用" class="headerlink" title="web四大件作用"></a>web四大件作用</h2><p>系统、中间件、数据库、源代码</p><h2 id="网站有哪些展示"><a href="#网站有哪些展示" class="headerlink" title="网站有哪些展示"></a>网站有哪些展示</h2><p>子域名模式 </p><p>端口模式</p><p>目录模式</p><p>公司发放的IP，扫描时扫描公司所有的IP</p><p>##文件访问解析</p><p>中间件、解析规则：中间解析规则决定上传到目标是什么类型</p><p>源文件的权限决定</p><p>锁图片文件，依旧可看，但没有执行了，有后门也不行</p><h2 id="源码配置文件"><a href="#源码配置文件" class="headerlink" title="源码配置文件"></a>源码配置文件</h2><p>1.数据库直接放在本地</p><p>2.数据库和网站分离，放在另外一个服务器上</p><p>数据库直接放到云端，拿到数据库账户密码也不行，云端只支持网站源码连接，可能只允许某些账号或目标访问</p><p>app.config数据库配置文件</p><h2 id="源码开源"><a href="#源码开源" class="headerlink" title="源码开源"></a>源码开源</h2><p>开源-源码可见</p><p>开源-源码不可见：各种加密，百度上有ASP加密     ，PHP加密什么的</p><p>语言特性决定：java运行以后就会改变                     </p><p>开源是为了白盒测试-代码审计</p><h2 id="源码结构目录"><a href="#源码结构目录" class="headerlink" title="源码结构目录"></a>源码结构目录</h2><p>admin后台管理相关</p><p>bin指引目录</p><p>database数据库相关</p><p>images图片相关</p><p>js前端文件</p><p>member会员</p><p>template模板</p><p>upfiles文件上传</p><p>webservice网站服务</p><p>##路由访问</p><p>常规：url+文件路径            url和文件目录对应不上，要根据路由配置决定</p><h1 id="小迪总结"><a href="#小迪总结" class="headerlink" title="小迪总结"></a>小迪总结</h1><h3 id="常规化"><a href="#常规化" class="headerlink" title="常规化"></a>常规化</h3><p>原理：源码数据都在同服务器</p><p>影响：无，常规安全测试手法</p><h3 id="站库分离："><a href="#站库分离：" class="headerlink" title="站库分离："></a>站库分离：</h3><p>原理：源码数据库不在同服务器</p><p>存储：其他服务器上数据库&amp;云数据库产品</p><p>影响：数据被单独存放，能连接才可影响数据</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;img src=&quot;https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-04%20090622.png&quot; alt=&quot;屏幕截图 202</summary>
+      
+    
+    
+    
+    <category term="渗透" scheme="https://poison-biao.github.io/categories/%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="渗透-信息收集" scheme="https://poison-biao.github.io/tags/%E6%B8%97%E9%80%8F-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
     
   </entry>
   
