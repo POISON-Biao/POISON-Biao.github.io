@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="电子取证红包赛, DU-玉 渗透测试 CTF PWN 护网行动 公安联考 考研 ">
+    <meta name="keywords" content="编译与链接, DU-玉 渗透测试 CTF PWN 护网行动 公安联考 考研 ">
     <meta name="description" content="中国人民警察大学 | 电子取证 | 护网 | 二进制 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>电子取证红包赛 | DU-玉</title>
+    <title>编译与链接 | DU-玉</title>
 
     <link rel="icon" type="image/jpeg" href="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/hsy-head.jpg">
 
@@ -476,7 +476,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = 'dd2d55f9e5d7c00ab3039a8ee7e8dd46eb5860db3c9366dd589b1dbf8e0c0b65';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('你干嘛，DU-玉基本不可能会给外人密码的，偷看隐私可不好哦 ~')).toString(CryptoJS.enc.Hex)) {
                 alert('猜密码是猜不到的哟，找DU-玉要正确的密码吧 ~');
@@ -489,12 +489,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/cppu-electronic-forensics.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/pwnbegain.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">电子取证红包赛</h1>
+                    <h1 class="description center-align post-title">编译与链接</h1>
                 </div>
             </div>
         </div>
@@ -615,8 +615,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%8F%96%E8%AF%81%E6%A0%A1%E8%B5%9B/">
-                                <span class="chip bg-color">取证校赛</span>
+                            <a href="/tags/PWN%E5%85%A5%E9%97%A8%E8%AF%BE%E7%A8%8B/">
+                                <span class="chip bg-color">PWN入门课程</span>
                             </a>
                         
                     </div>
@@ -627,8 +627,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/" class="post-category">
-                                电子取证
+                            <a href="/categories/PWN%E5%85%A5%E9%97%A8/" class="post-category">
+                                PWN入门
                             </a>
                         
                     </div>
@@ -640,28 +640,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-07-06
+                    2023-07-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-08
+                    2023-07-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    169
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -684,57 +684,104 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>每日吐槽：蛙趣啊！~   该说不说，取证大师真的很强，但是也确实搞心态啊，取证三次，电脑崩掉2次，天选三太废物了啊~</p>
-<p>1、cd082d248033cd557b42b5faa0de5b9f</p>
-<p>(MD5: cd082d248033cd557b42b5faa0de5b9f<br>SHA1: b4b1c4145c599e7d232c3611317ed076495dafb9<br>SHA256: 78295b0b7a71c7dd7555cb2db923de6f78f5338a6aae9150a34fecd535487360<br>CRC32: b7ee2645)</p>
-<p>2、6.1</p>
-<p>3、2020-09-23 14:24:54</p>
-<p>4、A</p>
-<p>5、192.168.152.128</p>
-<p>6、(UTC+08:00)</p>
-<p>7、 ceabb038fdc3e2e55c1e78ad0a2e5fb9</p>
-<img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702160238449.png" alt="image-20230702160238449" style="zoom:25%;">
+                <h1 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a><strong>编译和链接</strong></h1><h2 id="一、编译"><a href="#一、编译" class="headerlink" title="一、编译"></a>一、编译</h2><p>（GCC）编译环境</p>
+<h3 id="1、root-ubuntu-x2F-3-x2F-pwn-gcc-hello-c"><a href="#1、root-ubuntu-x2F-3-x2F-pwn-gcc-hello-c" class="headerlink" title="1、root@ubuntu ~/3/pwn# gcc hello.c"></a>1、root@ubuntu ~/3/pwn# gcc hello.c</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-12.jpg" alt="001-12"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-6.jpg" alt="001-6"></p>
+<h2 id="1、预编译"><a href="#1、预编译" class="headerlink" title="1、预编译"></a>1、预编译</h2><p>、</p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-7.jpg" alt="001-7"></p>
+<h3 id="1、root-ubuntu-x2F-3-x2F-pwn-gcc-E-ctf-c-o-ctf-i"><a href="#1、root-ubuntu-x2F-3-x2F-pwn-gcc-E-ctf-c-o-ctf-i" class="headerlink" title="1、root@ubuntu~/3/pwn# gcc-E ctf.c-o ctf.i"></a>1、root@ubuntu~/3/pwn# gcc-E ctf.c-o ctf.i</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-9.jpg" alt="001-9"></p>
+<h2 id="2、编译"><a href="#2、编译" class="headerlink" title="2、编译"></a>2、编译</h2><h3 id="1、root-ubuntu-x2F-3-x2F-pwn-gcc-S-ctf-c-o-ctf-s"><a href="#1、root-ubuntu-x2F-3-x2F-pwn-gcc-S-ctf-c-o-ctf-s" class="headerlink" title="1、root@ubuntu~/3/pwn# gcc -S ctf.c -o ctf.s"></a>1、root@ubuntu~/3/pwn# gcc -S ctf.c -o ctf.s</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-8.jpg" alt="001-8"></p>
+<h3 id="2、编译器原理"><a href="#2、编译器原理" class="headerlink" title="2、编译器原理"></a>2、编译器原理</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-10.jpg" alt="001-10"></p>
+<h3 id="3、汇编器"><a href="#3、汇编器" class="headerlink" title="3、汇编器"></a>3、汇编器</h3><h3 id="1、root-ubuntu-x2F-3-x2F-pwn-gcc-c-hello-s-m32-o-ctf-o"><a href="#1、root-ubuntu-x2F-3-x2F-pwn-gcc-c-hello-s-m32-o-ctf-o" class="headerlink" title="1、root@ubuntu~/3/pwn# gcc -c hello.s -m32 -o ctf.o"></a>1、root@ubuntu~/3/pwn# gcc -c hello.s -m32 -o ctf.o</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-11.jpg" alt="001-11"></p>
+<h2 id="二、objdump-常用工具"><a href="#二、objdump-常用工具" class="headerlink" title="二、objdump(常用工具)"></a>二、objdump(常用工具)</h2><p><strong><code>objdump</code>查看内存或文件中的数据时，这些工具通常会以十六进制的形式显示数据，因为十六进制比二进制更紧凑，而且比八进制和十进制更容易转换为二进制。</strong></p>
+<p><strong><code>objdump -h</code>命令用于显示二进制文件的节头信息</strong></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230709172305384.png" alt="image-20230709172305384"></p>
+<ol>
+<li><p>.text段 ：保存编译后的机器指令</p>
+</li>
+<li><p>.data段：保存全局变量和局部静态变量的数据  </p>
+</li>
+<li><p>.bss段：保存未初始化的全局变量和未初始化的局部静态变量</p>
+</li>
+<li><p>.comment：注释段                                                                                                                                                                      <strong>注：</strong><code>.comment</code>段是ELF文件中的一个可选段，通常包含了一些元数据，如编译器版本信息、操作系统版本信息、链接器版本信息等。这些信息对于程序的执行没有影响，但可能对调试、分析或理解二进制文件的来源和构建过程有帮助。</p>
+</li>
+<li><p>.note.GNU-stack:堆栈提示段    </p>
+</li>
+<li><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230709172053432.png" alt="image-20230709172053432"></p>
+</li>
+<li><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230709172825881.png"></p>
+</li>
+<li><p>root@ubuntu~/3/pwn# gcc -c SimpleSection.c -m32  #生成一个32位的文件</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt; // 引入标准输入输出库，这样我们就可以使用printf函数了
 
-<img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702160401497.png" alt="image-20230702160401497" style="zoom:25%;">
+int global_init_var = 84; // 定义并初始化一个全局变量global_init_var，初始值为84
+int global_uninit_var; // 定义一个全局变量global_uninit_var，未指定初始值，它会被自动初始化为0
 
-<p>8、6191e971cfdf5296ee7df7c2fed56377</p>
-<p><img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702162304311.png" alt="image-20230702162304311"></p>
-<p>9、HackBar V2   、    Proxy SwitchyOmega</p>
-<p>（差点被LZJ骗了，这个就是对的）</p>
-<img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702154910574.png" alt="image-20230702154910574" style="zoom:25%;">
+// 定义一个函数func1，它接受一个整数参数i
+void func1(int i) {
+    printf("%d\n", i); // 打印参数i的值
+}
 
-<p>10、7.2.</p>
-<img src="C:\Users\asus\Pictures\Screenshots\Snipaste_2023-07-02_15-41-43.png" alt="Snipaste_2023-07-02_15-41-43" style="zoom:25%;">
+// 定义主函数main，它是程序的入口点
+int main(void) {
+    static int static_var1 = 85; // 在函数内部定义并初始化一个静态变量static_var1，初始值为85
+    static int static_var2; // 在函数内部定义一个静态变量static_var2，未指定初始值，它会被自动初始化为0
+    int a = 1; // 在函数内部定义并初始化一个局部变量a，初始值为1
+    func1(static_var1 + static_var2 + a); // 调用函数func1，参数为static_var1、static_var2和a的和
+    return a; // main函数返回a的值，也就是1
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>11、192.168.152.150</p>
-<img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702180300769.png" alt="image-20230702180300769" style="zoom:25%;">
-
-<p>12、00-0C-29-0F-B9-F7</p>
-<img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702163500129.png" alt="image-20230702163500129" style="zoom:25%;">
-
-<p>13、CaiXX-PC</p>
-<p>14、pico2020</p>
-<p>15、105,906,176</p>
-<p>16、A</p>
-<p>17、B</p>
-<img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702182224126.png" alt="image-20230702182224126" style="zoom:25%;">
-
-<p>18、12753</p>
-<img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702193248514.png" alt="image-20230702193248514" style="zoom:25%;">
-
-<p>19、 8f8319bc3c1b8ed92aa5498dd98c8e87e5f888f7<img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702193115519.png" alt="image-20230702193115519" style="zoom:25%;"></p>
-<p>20、Administrator   、    Guest 、  chaunchaun</p>
-<p>22、shuandan</p>
-<p><img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702193916532.png" alt="image-20230702193916532"></p>
-<p>23、<a target="_blank" rel="noopener" href="http://www.tpshop.com.tar.gz/">www.tpshop.com.tar.gz</a></p>
-<p>24、120ac49800671dc383b6f3709c25c099</p>
-<p>两都是一样，所以是同一个webshell<img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702195054106.png" alt="image-20230702195054106"></p>
-<p>25、 tpshop / s13132312s<img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230702195519596.png" alt="image-20230702195519596" style="zoom:25%;"></p>
-<p>27、26</p>
-<p>31、9176</p>
-<p>37、101</p>
-<p>（一个一个数）</p>
-<p>38、B</p>
+<p>现在再查看一下文件</p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230709175505000.png" alt="image-20230709175505000"></p>
+<p><strong>注：.rodata段表示只读段</strong></p>
+<h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-13.jpg" alt="001-13"></h2></li>
+<li><p>查看txt代码段：root@ubuntu~/3/pwn# objdump -s -d SimSleSection.o<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-15.jpg" alt="001-15"></p>
+<p>二进制代码段</p>
+<p>汇编结果</p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-16.jpg" alt="001-16"></p>
+</li>
+<li><p>数据段</p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230709203945016.png" alt="image-20230709203945016"></p>
+<p>因为是16进制，所以两个字符占用一个字节</p>
+<p>右到左指的是字节</p>
+<p><strong>在编程中，我们通常会根据变量的初始化方式来推断它的进制</strong>：如果一个数值前面没有任何前缀，并且只包含0-9的数字，那么我们通常认为它是一个十进制数。如果一个数值前面有<code>0x</code>或<code>0X</code>前缀，那么我们认为它是一个十六进制数。如果一个数值前面有<code>0b</code>或<code>0B</code>前缀，那么我们认为它是一个二进制数。如果一个数值前面有<code>0</code>前缀，那么我们认为它是一个八进制数。</p>
+</li>
+<li><p>rodata段<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230709214554282.png" alt="image-20230709214554282"></p>
+</li>
+<li><p>BSS段<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230709215216928.png" alt="image-20230709215216928"></p>
+</li>
+<li><p>其他段<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-19.jpg" alt="001-19"></p>
+</li>
+<li><p>目标程序编译程序时自定义段不能是.开头</p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230709220506695.png" alt="image-20230709220506695"></p>
+</li>
+<li><p><strong>elf文件结构描述</strong></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-20.jpg" alt="001-20"></p>
+</li>
+<li><p><strong>elf文件头（root@ubuntu~/3/pwnf readelf -h SimpleSection.o）</strong></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230709230802832.png" alt="image-20230709230802832"></p>
+<p><strong>魔数</strong>：第一个字节表示<strong>delete</strong>，后面三个字节分别是<strong>e 、l 、 f</strong> 的<strong>ASCII</strong>值</p>
+<p><strong>注：</strong>当操作系统加载一个可执行文件时，它会检查这个魔数来确定文件的格式，以便知道如何处理这个文件。如果这个魔数不是正确，那么操作系统不会按照ELF文件的方式来处理</p>
+<p>魔数后的<strong>第五个字节01</strong>代表的<strong>32位</strong>，<strong>02</strong>代表<strong>64位</strong>，00代表是<strong>无效文件</strong> </p>
+<p><strong>第六个字节01</strong>代表的是<strong>字节序</strong>，规定elf文件的<strong>大端小端（现在简单理解为存储顺序）</strong></p>
+<p><strong>第七个字节01</strong>代表<strong>版本号<em>（一般固定为1）</em></strong></p>
+<p>后面<strong>9个字节</strong>是<strong>扩展字节</strong>，<strong>没有定义</strong>，编译器可以加入自己的字节</p>
+<p> <strong>“Start of sections headers”（节头开始）</strong>指的是ELF文件中<strong>节头表</strong>（Section Header Table）的起始位置。节头表是ELF文件中存储了各个节（Sections）信息的数据结构。每个节都包含了特定类型的数据，如代码、数据、符号表等。</p>
+</li>
+<li><p><strong>elf文件段表</strong><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230709231031674.png" alt="image-20230709231031674"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230709233939056.png" alt="image-20230709233939056"></p>
+<p><strong>注：</strong>如果一个段表是由40个0组成，那么它是由40个字节的值为0的连续内存组成的，每个0表示一个字节！！！(必须都为0才行)</p>
+<p><strong>偏移地址</strong>：1092+15x40（15表示第十五个段）</p>
+<p><strong>段描述</strong>：</p>
+<p>段名索引：<strong>11</strong>表示接下来11个字节用来<strong>储存段的名字</strong></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230710003751127.png" alt="image-20230710003751127"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230710003604077.png" alt="image-20230710003604077"></p>
+</li>
+<li></li>
+<li></li>
+<li></li>
+</ol>
 
                 
             </div>
@@ -761,7 +808,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://POISON-Biao.github.io/du-yu/cppu-electronic-forensics-01.html">https://POISON-Biao.github.io/du-yu/cppu-electronic-forensics-01.html</a>
+                    <a href="https://POISON-Biao.github.io/du-yu/pwn-begain-study02.html">https://POISON-Biao.github.io/du-yu/pwn-begain-study02.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -799,8 +846,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%8F%96%E8%AF%81%E6%A0%A1%E8%B5%9B/">
-                                    <span class="chip bg-color">取证校赛</span>
+                                <a href="/tags/PWN%E5%85%A5%E9%97%A8%E8%AF%BE%E7%A8%8B/">
+                                    <span class="chip bg-color">PWN入门课程</span>
                                 </a>
                             
                         </div>
@@ -1272,28 +1319,29 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/du-yu/pwn-begain-study01.html">
+                <a href="/du-yu/pwn-begain-study02.html">
                     <div class="card-image">
                         
-                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/pwnbegain.png" class="responsive-img" alt="计算机基础">
+                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/pwnbegain.png" class="responsive-img" alt="编译与链接">
                         
-                        <span class="card-title">计算机基础</span>
+                        <span class="card-title">编译与链接</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            计算机基础
+                            编译与链接
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1306,6 +1354,7 @@ new Valine({
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1324,30 +1373,30 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/du-yu/vulnerability-learning-02.html">
+                <a href="/du-yu/pwn-begain-study01.html">
                     <div class="card-image">
                         
-                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/WebCaveStudy.png" class="responsive-img" alt="050文件上传漏洞">
+                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/pwnbegain.png" class="responsive-img" alt="计算机基础">
                         
-                        <span class="card-title">050文件上传漏洞</span>
+                        <span class="card-title">计算机基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            计算机基础
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B8%97%E9%80%8F/" class="post-category">
-                                    渗透
+                            <a href="/categories/PWN%E5%85%A5%E9%97%A8/" class="post-category">
+                                    PWN入门
                                 </a>
                             
                             
@@ -1357,8 +1406,8 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B8%97%E9%80%8F-%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">渗透-漏洞学习</span>
+                    <a href="/tags/PWN%E5%85%A5%E9%97%A8%E8%AF%BE%E7%A8%8B/">
+                        <span class="chip bg-color">PWN入门课程</span>
                     </a>
                     
                 </div>
