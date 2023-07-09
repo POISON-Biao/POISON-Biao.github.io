@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="03Web拓展-CDN&amp;WAF&amp;OSS&amp;反向&amp;负载均衡, DU-玉 渗透测试 CTF PWN 护网行动 公安联考 考研 ">
+    <meta name="keywords" content="计算机基础, DU-玉 渗透测试 CTF PWN 护网行动 公安联考 考研 ">
     <meta name="description" content="中国人民警察大学 | 电子取证 | 护网 | 二进制 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>03Web拓展-CDN&amp;WAF&amp;OSS&amp;反向&amp;负载均衡 | DU-玉</title>
+    <title>计算机基础 | DU-玉</title>
 
     <link rel="icon" type="image/jpeg" href="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/hsy-head.jpg">
 
@@ -489,12 +489,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/InformationCollection.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/pwnbegain.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">03Web拓展-CDN&amp;WAF&amp;OSS&amp;反向&amp;负载均衡</h1>
+                    <h1 class="description center-align post-title">计算机基础</h1>
                 </div>
             </div>
         </div>
@@ -615,8 +615,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%B8%97%E9%80%8F-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
-                                <span class="chip bg-color">渗透-信息收集</span>
+                            <a href="/tags/PWN%E5%85%A5%E9%97%A8%E8%AF%BE%E7%A8%8B/">
+                                <span class="chip bg-color">PWN入门课程</span>
                             </a>
                         
                     </div>
@@ -627,8 +627,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%B8%97%E9%80%8F/" class="post-category">
-                                渗透
+                            <a href="/categories/PWN%E5%85%A5%E9%97%A8/" class="post-category">
+                                PWN入门
                             </a>
                         
                     </div>
@@ -640,28 +640,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-07-04
+                    2023-07-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-06
+                    2023-07-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    463
+                    639
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -684,43 +684,27 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、WAF-：web-Application-firewall"><a href="#一、WAF-：web-Application-firewall" class="headerlink" title="一、WAF ：web Application firewall"></a>一、WAF ：web Application firewall</h2><p>原理：web应用防火墙，保护web</p>
-<p>影响：安全测试手法被拦截</p>
-<p>很难绕过</p>
-<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604195810154.png" alt="image-20230604195810154"></p>
-<p>、<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604195848213.png" alt="image-20230604195848213"></p>
-<h2 id="二、CDN（Content-Delivery-Network-）"><a href="#二、CDN（Content-Delivery-Network-）" class="headerlink" title="二、CDN（Content Delivery Network ）"></a>二、CDN（Content Delivery Network ）</h2><p>开通后全国分布有节点，超级ping能查到ping通的IP地址</p>
-<p>原理：内容分发服务，旨在提高访问速度 </p>
-<p>影响：隐藏真实源IP，导致对目标测试错误，看到的是节点</p>
-<p>演示：阿里云备案域名全局CDN加速服务</p>
-<p>Windows2012 + BT宝塔面板 + CDN服务</p>
-<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604195914239.png" alt="image-20230604195914239"></p>
-<h2 id="三、OSS（Object-Storage-Service）"><a href="#三、OSS（Object-Storage-Service）" class="headerlink" title="三、OSS（Object Storage Service）"></a>三、OSS（Object Storage Service）</h2><p>云存储服务，旨在提高访问速度</p>
-<p>阿里云OSS:</p>
-<p>开OSS</p>
-<p>2、新建Bucket</p>
-<p>3、配置Bucket属性</p>
-<p>4、配置Access访问</p>
-<p>原理：</p>
-<p>为什么要使用第三方存储？</p>
-<p>1）静态文件会占用大量带宽</p>
-<p>2）加载速度</p>
-<p>3）存储空间</p>
-<p>影响：</p>
-<p>上传的文件或解析的文件均来自于OSS资源，无法解析，单独存储</p>
-<p>1、修复上传安全</p>
-<p>2、文件解析不一样</p>
-<p>3、但Accesskey隐患</p>
-<h2 id="四、反向代理"><a href="#四、反向代理" class="headerlink" title="四、反向代理"></a>四、反向代理</h2><h3 id="1、正向代理，挂VPN一个意思"><a href="#1、正向代理，挂VPN一个意思" class="headerlink" title="1、正向代理，挂VPN一个意思"></a>1、正向代理，挂VPN一个意思</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604195939721.png" alt="image-20230604195939721"></p>
-<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604200708819.png" alt="image-20230604200708819"></p>
-<h3 id="2、反向代理"><a href="#2、反向代理" class="headerlink" title="2、反向代理"></a>2、反向代理</h3><h4 id="将真实的目标指向任意一个站点"><a href="#将真实的目标指向任意一个站点" class="headerlink" title="将真实的目标指向任意一个站点"></a>将真实的目标指向任意一个站点</h4><p>主机只能访问服务器1，服务器2将数据放到服务器1，主机间接访问服务器2 </p>
-<p><img src="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20230604200708819.png" alt="image-20230604200708819"></p>
-<h4 id="如果设置了反向代理，比如反向代理设置为baidu-com-x2F"><a href="#如果设置了反向代理，比如反向代理设置为baidu-com-x2F" class="headerlink" title="如果设置了反向代理，比如反向代理设置为baidu.com/"></a>如果设置了反向代理，比如反向代理设置为baidu.com/</h4><h4 id="那么你访问设置了反向代理的网站，就会直接跳转到baidu-com-x2F"><a href="#那么你访问设置了反向代理的网站，就会直接跳转到baidu-com-x2F" class="headerlink" title="那么你访问设置了反向代理的网站，就会直接跳转到baidu.com/"></a>那么你访问设置了反向代理的网站，就会直接跳转到baidu.com/</h4><h2 id="五、负载均衡"><a href="#五、负载均衡" class="headerlink" title="五、负载均衡"></a>五、负载均衡</h2><p>原理：分摊到多个操作单元上进行执行，共同完成工作任务</p>
-<p>影响：有多个服务器加载服务，  测试过程中存在多个目标情况</p>
-<p>演示：Nginx负载均衡配置</p>
-<p>Windows2012 + BT宝塔面板 + Nginx</p>
-<h4 id="定义负载设置（和ISCC实战poc-exe设置原理一样，恶心啊！！ISCC不能在脚本里设置代理，搞了三天！！！）"><a href="#定义负载设置（和ISCC实战poc-exe设置原理一样，恶心啊！！ISCC不能在脚本里设置代理，搞了三天！！！）" class="headerlink" title="定义负载设置（和ISCC实战poc.exe设置原理一样，恶心啊！！ISCC不能在脚本里设置代理，搞了三天！！！）"></a>定义负载设置（和ISCC实战poc.exe设置原理一样，恶心啊！！ISCC不能在脚本里设置代理，搞了三天！！！）</h4><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230604204133704.png" alt="image-20230604204133704"></p>
-<h1 id="小迪总结"><a href="#小迪总结" class="headerlink" title="小迪总结"></a>小迪总结</h1><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-04%20204854.png" alt="屏幕截图 2023-06-04 204854"></p>
+                <h1 id="计算机基础"><a href="#计算机基础" class="headerlink" title="计算机基础"></a><strong>计算机基础</strong></h1><h2 id="一、操作系统"><a href="#一、操作系统" class="headerlink" title="一、操作系统"></a>一、操作系统</h2><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-1.jpg" alt="001-1" style="zoom:50%;">
+
+<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-2.jpg" alt="001-2" style="zoom:50%;">
+
+<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-3.jpg" alt="001-3" style="zoom:50%;">
+
+<img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/001-4.jpg" alt="001-4" style="zoom: 50%;">
+
+<h3 id="1、程序运行只在乎和编辑虚拟地址"><a href="#1、程序运行只在乎和编辑虚拟地址" class="headerlink" title="1、程序运行只在乎和编辑虚拟地址"></a>1、程序运行只在乎和编辑虚拟地址</h3><p>虚拟地址是由CPU和操作系统共同提供的一种内存管理技术。在现代计算机系统中，<strong>每个运行的程序都认为自己独占了所有的内存</strong>，<strong>这些内存地址就是虚拟地址</strong>。实际上，这些虚拟地址是由操作系统通过内存管理单元（MMU）映射到物理内存地址的。</p>
+<h2 id="2、思考"><a href="#2、思考" class="headerlink" title="2、思考:"></a>2、思考:</h2><p> 在一个内存为256M的计算机上:执行程序A(需要内存10M),程序A连续计算并输出所得的质数。同时执行程序B(需要内存5M)，B程序从a.txt读入130MB数据，从b.xt读入50MB数据,数据合并后,存入c.txt. CPU是加何运作的? </p>
+<ol>
+<li><h3 id="程序加载："><a href="#程序加载：" class="headerlink" title="程序加载："></a><strong>程序加载</strong>：</h3><p>首先，操作系统会将程序A和程序B加载到内存中。由于程序A需要10MB内存，程序B需要5MB内存，总共需要15MB内存，这在256MB的内存中是完全可以容纳的。</p>
+</li>
+<li><h3 id="CPU调度："><a href="#CPU调度：" class="headerlink" title="CPU调度："></a><strong>CPU调度</strong>：</h3><p>操作系统会使用一种叫做进程调度的技术，将CPU的时间分配给程序A和程序B。例如，它可能先让程序A运行一段时间，然后再让程序B运行一段时间，如此反复，使得两个程序看起来像是在同时运行。</p>
+</li>
+<li><h3 id="虚拟内存和磁盘I-x2F-O："><a href="#虚拟内存和磁盘I-x2F-O：" class="headerlink" title="虚拟内存和磁盘I/O："></a><strong>虚拟内存和磁盘I/O</strong>：</h3><p>对于程序B，它需要读取的数据总量（130MB + 50MB）超过了物理内存的大小（256MB）。在这种情况下，操作系统会使用一种叫做虚拟内存的技术，将部分数据暂时存储在硬盘上，然后在需要的时候将这些数据加载到内存中。这种技术叫做页面交换（Page Swapping）或者换页（Paging）。同时，操作系统会使用缓冲技术，将读取和写入的数据暂时存储在内存中，然后在合适的时候再进行实际的磁盘I/O操作。</p>
+</li>
+<li><h3 id="数据合并和存储："><a href="#数据合并和存储：" class="headerlink" title="数据合并和存储："></a><strong>数据合并和存储</strong>：</h3><p>程序B在读取完所有数据并进行合并后，会将结果写入c.txt文件。这个过程可能会涉及到磁盘I/O操作，操作系统会负责管理这些操作。</p>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>CPU和操作系统会共同工作，通过进程调度、虚拟内存、磁盘I/O等技术，使得程序A和程序B可以在有限的内存和CPU资源中同时运行，并完成各自的任务。</p>
 
                 
             </div>
@@ -747,7 +731,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://POISON-Biao.github.io/du-yu/information-collection-03.html">https://POISON-Biao.github.io/du-yu/information-collection-03.html</a>
+                    <a href="https://POISON-Biao.github.io/du-yu/pwn-begain-study.html">https://POISON-Biao.github.io/du-yu/pwn-begain-study.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -785,8 +769,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%B8%97%E9%80%8F-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
-                                    <span class="chip bg-color">渗透-信息收集</span>
+                                <a href="/tags/PWN%E5%85%A5%E9%97%A8%E8%AF%BE%E7%A8%8B/">
+                                    <span class="chip bg-color">PWN入门课程</span>
                                 </a>
                             
                         </div>
@@ -1262,30 +1246,30 @@ new Valine({
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/du-yu/information-collection-04.html">
+                <a href="/du-yu/pwn-begain-study.html">
                     <div class="card-image">
                         
-                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/InformationCollection.png" class="responsive-img" alt="04APP架构-封装&amp;原生态&amp;H5&amp;flutter">
+                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/pwnbegain.png" class="responsive-img" alt="编译与链接">
                         
-                        <span class="card-title">04APP架构-封装&amp;原生态&amp;H5&amp;flutter</span>
+                        <span class="card-title">编译与链接</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            编译与链接
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-04
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-10
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B8%97%E9%80%8F/" class="post-category">
-                                    渗透
+                            <a href="/categories/PWN%E5%85%A5%E9%97%A8/" class="post-category">
+                                    PWN入门
                                 </a>
                             
                             
@@ -1295,8 +1279,8 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B8%97%E9%80%8F-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
-                        <span class="chip bg-color">渗透-信息收集</span>
+                    <a href="/tags/PWN%E5%85%A5%E9%97%A8%E8%AF%BE%E7%A8%8B/">
+                        <span class="chip bg-color">PWN入门课程</span>
                     </a>
                     
                 </div>
@@ -1310,30 +1294,30 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/du-yu/information-collection-02.html">
+                <a href="/du-yu/cppu-electronic-forensics-01.html">
                     <div class="card-image">
                         
-                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/InformationCollection.png" class="responsive-img" alt="02Web其他-前后端&amp;软件&amp;Docker&amp;分配站">
+                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/cppu-electronic-forensics.png" class="responsive-img" alt="电子取证红包赛">
                         
-                        <span class="card-title">02Web其他-前后端&amp;软件&amp;Docker&amp;分配站</span>
+                        <span class="card-title">电子取证红包赛</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            涉密，未经作者允许，禁止破坏密码保护查看!!!
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B8%97%E9%80%8F/" class="post-category">
-                                    渗透
+                            <a href="/categories/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/" class="post-category">
+                                    电子取证
                                 </a>
                             
                             
@@ -1343,8 +1327,8 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B8%97%E9%80%8F-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
-                        <span class="chip bg-color">渗透-信息收集</span>
+                    <a href="/tags/%E5%8F%96%E8%AF%81%E6%A0%A1%E8%B5%9B/">
+                        <span class="chip bg-color">取证校赛</span>
                     </a>
                     
                 </div>
