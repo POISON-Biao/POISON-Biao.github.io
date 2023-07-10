@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>DU-玉</title>
   
-  <subtitle>专心、坚持</subtitle>
+  <subtitle>专心、追寻、珍惜</subtitle>
   <link href="https://poison-biao.github.io/atom.xml" rel="self"/>
   
   <link href="https://poison-biao.github.io/"/>
@@ -242,7 +242,7 @@
     <link href="https://poison-biao.github.io/du-yu/information-collection-02.html"/>
     <id>https://poison-biao.github.io/du-yu/information-collection-02.html</id>
     <published>2023-07-03T16:00:02.000Z</published>
-    <updated>2023-07-10T03:31:05.023Z</updated>
+    <updated>2023-07-10T03:39:56.811Z</updated>
     
     <content type="html"><![CDATA[<h2 id="一、-前后端分离"><a href="#一、-前后端分离" class="headerlink" title="一、 前后端分离"></a>一、 前后端分离</h2><h3 id="源码不同，前端源码和后端源码分离"><a href="#源码不同，前端源码和后端源码分离" class="headerlink" title="源码不同，前端源码和后端源码分离"></a>源码不同，前端源码和后端源码分离</h3><p>安全速度快，但大量数据传输不如传统网站</p><p>开发的框架，API传输数据</p><p>前端页面通过api接口传到后端，后台单独管理（类似于两个网站 ） </p><h3 id="1-前台只负责呈现（so基本没有漏洞）"><a href="#1-前台只负责呈现（so基本没有漏洞）" class="headerlink" title="1.前台只负责呈现（so基本没有漏洞）"></a>1.前台只负责呈现（so基本没有漏洞）</h3><p>js网站传输几乎都是API，基本不会有代码的逻辑性，页面光秃秃 </p><h3 id="2-后台更新影响前台"><a href="#2-后台更新影响前台" class="headerlink" title="2.后台更新影响前台"></a>2.后台更新影响前台</h3><p>后台域名大部分不在前端同域名中（so获取前端权限有可能不会影响后端） 能连接才能影响数据</p><p>扫描的时候找后端域名，如果找不到，查看前端框架有无历史漏洞，如果没有，只能尝试社工或者其他方法了</p><h2 id="二、宝塔-phpstudy（软件搭建的网站）"><a href="#二、宝塔-phpstudy（软件搭建的网站）" class="headerlink" title="二、宝塔+phpstudy（软件搭建的网站）"></a>二、宝塔+phpstudy（软件搭建的网站）</h2><p>(购买阿里云服务器，打开所有安全组，255端口要申请) </p><p>用不同软件搭建网站时，要关闭当前的网站</p><p>一个服务器只能支持一个软件搭建网站，端口会冲突</p><p>所需数据库，中间件不一样的话，也要关</p><p>###1.原理：打包类集成化环境，权限配置或受控制</p><h3 id="2-影响：攻击者权限对比区别（不同软件影响也不同）"><a href="#2-影响：攻击者权限对比区别（不同软件影响也不同）" class="headerlink" title="2.影响：攻击者权限对比区别（不同软件影响也不同）"></a>2.影响：攻击者权限对比区别（不同软件影响也不同）</h3><p>和常规搭建的网站最大区别就是权限区别 </p><p>宝塔：拿到权限后，webshell执行不了，文件管理锁定目录，只能看到当前网站目录，其他目录看不到，没有权限，宝塔自动加了限制    </p><p>phpstudy：whoami 获取用户权限 -administartor</p><p>自己IIS搭建有一半webshell能执行,目录也能查看一般</p><h2 id="三、docker-容器（都是假的，除非逃逸出去）"><a href="#三、docker-容器（都是假的，除非逃逸出去）" class="headerlink" title="三、docker 容器（都是假的，除非逃逸出去）"></a>三、docker 容器（都是假的，除非逃逸出去）</h2><p>原理：虚拟化技术独立磁盘空间，非真实物理环境</p><p>影响：攻击者虚拟空间磁盘 </p><h2 id="四、建站分配站（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）"><a href="#四、建站分配站（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）" class="headerlink" title="四、建站分配站（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）"></a>四、建站分配站（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）</h2><h3 id="1-托管（有版权）（面对的是安全公司）"><a href="#1-托管（有版权）（面对的是安全公司）" class="headerlink" title="1.托管（有版权）（面对的是安全公司）"></a>1.托管（有版权）（面对的是安全公司）</h3><h3 id="2-申请（没有版权）（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）"><a href="#2-申请（没有版权）（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）" class="headerlink" title="2.申请（没有版权）（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）"></a>2.申请（没有版权）（攻击的不是目标是建站平台，信息收集的时候先搜索下域名）</h3><p>原理：利用别人域名模版建立  </p><p>影响：实质安全测试非目标资产</p><h2 id="五、静态Web"><a href="#五、静态Web" class="headerlink" title="五、静态Web"></a>五、静态Web</h2><p>例子：大学学的html设计的网站（单一，想修改页面只能改源代码）</p><p>原理：数据没有传输性（js传输不算）</p><p>影响：无漏洞</p><h2 id="六、伪静态"><a href="#六、伪静态" class="headerlink" title="六、伪静态"></a>六、伪静态</h2><p>动态转为静态技术，伪装的静态</p><h1 id="小迪总结"><a href="#小迪总结" class="headerlink" title="小迪总结"></a>小迪总结</h1><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-04%20181607.png" alt="屏幕截图 2023-06-04 181607"></p>]]></content>
     
