@@ -6,7 +6,7 @@
   <link href="https://poison-biao.github.io/atom.xml" rel="self"/>
   
   <link href="https://poison-biao.github.io/"/>
-  <updated>2023-07-23T18:27:51.853Z</updated>
+  <updated>2023-07-24T06:00:06.411Z</updated>
   <id>https://poison-biao.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://poison-biao.github.io/du-yu/dasctf.html"/>
     <id>https://poison-biao.github.io/du-yu/dasctf.html</id>
     <published>2023-07-23T18:15:00.000Z</published>
-    <updated>2023-07-23T18:27:51.853Z</updated>
+    <updated>2023-07-24T06:00:06.411Z</updated>
     
     <content type="html"><![CDATA[<h2 id="一、PWN"><a href="#一、PWN" class="headerlink" title="一、PWN"></a>一、PWN</h2><h3 id="1、FileEditor（附件pwn）"><a href="#1、FileEditor（附件pwn）" class="headerlink" title="1、FileEditor（附件pwn）"></a>1、FileEditor（附件pwn）</h3><p>题目：T1d师傅设计了一个文件编辑器，但是好像漏洞百出，请你帮他看看吧。</p><h3 id="2、signin（附件atta）"><a href="#2、signin（附件atta）" class="headerlink" title="2、signin（附件atta）"></a>2、signin（附件atta）</h3><p><strong>题目</strong>：Lotus听说0x401要办比赛，连夜出了一个签到题，快来看看吧</p><p>这些文件看起来像是一个Linux的内核映像（bzImage）、一个内核配置文件（config）、一个文件系统映像（roots.img）以及一个可能用于启动这些的脚本文件（run.sh）。</p><p>处理这些文件的具体方式取决于他们具体的内容和你的目标，但以下是一些一般性的步骤：</p><ol><li><strong>分析run.sh脚本</strong>：看一下run.sh文件中的内容。这个脚本可能会在虚拟环境（如QEMU）中启动bzImage和roots.img。如果脚本中存在命令行参数，那么这些参数可能在漏洞寻找过程中提供线索。</li><li><strong>分析bzImage文件</strong>：这是一个压缩的Linux内核映像。如果你怀疑内核中存在漏洞，你可能需要对其进行反汇编或者使用工具如IDA Pro进行深入的分析。你可以用像binwalk这样的工具查看bzImage中的内容。</li><li><strong>分析config文件</strong>：这是内核配置文件，可能包含有关内核构建选项的信息。查看此文件可能会提供有关可能存在的漏洞的线索。</li><li><strong>挂载和分析roots.img文件</strong>：这是文件系统映像。你可以在你的Linux系统上挂载它以查看其内容。分析文件系统中的文件和程序可能会发现一些有用的信息。</li><li><strong>启动虚拟机</strong>：最后，你应该使用run.sh脚本（或者类似的方式）在虚拟环境中启动这些文件，然后尝试找出并利用漏洞。</li></ol><h3 id="3、VIPhouse（附件）"><a href="#3、VIPhouse（附件）" class="headerlink" title="3、VIPhouse（附件）"></a>3、VIPhouse（附件）</h3><p><strong>题目</strong>：欢迎来到VIPhouse，听说你很了解canary，fmt，uaf，那来试试吧！</p><p>nc 118.24.24.233 9999</p><h3 id="4、DDLbook（pwn1-zip）"><a href="#4、DDLbook（pwn1-zip）" class="headerlink" title="4、DDLbook（pwn1.zip）"></a>4、DDLbook（pwn1.zip）</h3><p>T1d师傅总是忘记ddl，因此他给自己设计了一个ddl记事本，请你帮他把ddl记上去。</p><p>nc 132.232.105.182 8887</p>]]></content>
     
@@ -33,10 +33,10 @@
     
     
     
-    <category term="DASCTF" scheme="https://poison-biao.github.io/categories/DASCTF/"/>
+    <category term="CTF" scheme="https://poison-biao.github.io/categories/CTF/"/>
     
     
-    <category term="CTF" scheme="https://poison-biao.github.io/tags/CTF/"/>
+    <category term="DASCTF" scheme="https://poison-biao.github.io/tags/DASCTF/"/>
     
   </entry>
   
