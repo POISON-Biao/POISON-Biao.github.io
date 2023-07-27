@@ -476,7 +476,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = 'dd2d55f9e5d7c00ab3039a8ee7e8dd46eb5860db3c9366dd589b1dbf8e0c0b65';
+        let pwd = 'dd2d55f9e5d7c00ab3039a8ee7e8dd46eb5860db3c9366dd589b1dbf8e0c0b65yi';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('你干嘛，DU-玉基本不可能会给外人密码的，偷看隐私可不好哦 ~')).toString(CryptoJS.enc.Hex)) {
                 alert('猜密码是猜不到的哟，找DU-玉要正确的密码吧 ~');
@@ -647,21 +647,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-24
+                    2023-07-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    3.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    12 分
                 </div>
                 
 
@@ -689,7 +689,148 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="一、摄像头01（IOT）"><a href="#一、摄像头01（IOT）" class="headerlink" title="一、摄像头01（IOT）"></a>一、摄像头01（IOT）</h2><p>题目：</p>
+<p>可接入设备号：2台<br>设备型号：IPC-MFW8443XS-ZRL-4E2-0832<br>用户名：cyberpeace<br>密码：MtRa4qdt6V78v2et<br>状态为进行中时显示设备接入IP<br>提示：请接入考生不要修改给出的密码一经发现影响后续线索机会</p>
+<p>硬件接入IP：</p>
+<p>10.90.1.1</p>
+<p>问题更像是IoT（Internet of Things，物联网）安全，同时涵盖了PWN（从系统级别找到并利用漏洞）和Web安全（从Web应用角度找到并利用漏洞）两个方向。</p>
+<p>根据设备型号以及其他信息，看起来这个设备是一个网络摄像头，可以从多个角度进行攻击。</p>
+<ul>
+<li><p><strong>硬件/PWN</strong>：你可以寻找固件中可能存在的安全漏洞，例如未授权的远程访问、缓冲区溢出、使用默认或弱密码等。根据题目要求，如果你能实现远程代码执行或造成设备拒绝服务，都可以得到分数。</p>
+</li>
+<li><p><strong>Web</strong>：你也可以从Web应用的角度寻找漏洞。例如，摄像头的Web接口可能存在XSS、CSRF、SQL注入等常见的Web安全问题。此外，你还可以检查设备是否允许未授权的访问，或者是否可以通过Web接口获取到敏感信息（例如监控数据）。</p>
+</li>
+</ul>
+<p>建议你先根据设备的信息去查找可能存在的已知漏洞，如果没有找到，再根据你的特长和兴趣选择一个方向进行深入的挖掘。</p>
+<h4 id="1-刚开始以为是ssh连接，连不上，ping了一下发现可以ping通"><a href="#1-刚开始以为是ssh连接，连不上，ping了一下发现可以ping通" class="headerlink" title="1.刚开始以为是ssh连接，连不上，ping了一下发现可以ping通"></a>1.刚开始以为是ssh连接，连不上，ping了一下发现可以ping通</h4><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230727110944619.png" alt="image-20230727110944619"></p>
+<h4 id="2-搜网址然后登录"><a href="#2-搜网址然后登录" class="headerlink" title="2.搜网址然后登录"></a>2.搜网址然后登录</h4><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230727111129707.png" alt="image-20230727111129707"></p>
+<h4 id="3-无脑查看了一下，感觉唯有用的就是设备信息？"><a href="#3-无脑查看了一下，感觉唯有用的就是设备信息？" class="headerlink" title="3.无脑查看了一下，感觉唯有用的就是设备信息？"></a>3.无脑查看了一下，感觉唯有用的就是设备信息？</h4><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230727112049550.png" alt="image-20230727112049550"></p>
+<h4 id="4-找师傅帮忙"><a href="#4-找师傅帮忙" class="headerlink" title="4.找师傅帮忙"></a>4.找师傅帮忙</h4><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230727114422085.png" alt="image-20230727114422085"></p>
+<h4 id="5-问GPT（真丢人哈哈哈哈）"><a href="#5-问GPT（真丢人哈哈哈哈）" class="headerlink" title="5.问GPT（真丢人哈哈哈哈）"></a>5.问GPT（真丢人哈哈哈哈）</h4><p>你的指导者建议你寻找设备的固件和查看端口对应的服务程序。这些都是在设备安全评估中非常重要的步骤。</p>
+<p><strong>查找固件</strong></p>
+<p>你可能需要找到设备的固件，这通常包括设备的操作系统和其他关键软件。有时候，设备的制造商会在其网站上提供固件的下载链接。你可以通过设备型号IPC-MFW8443XS-ZRL-4E2-0832进行搜索。如果你找到了固件，你可以下载并进行分析。固件分析可以揭示设备的工作原理，可能存在的漏洞，以及如何利用这些漏洞。</p>
+<p><strong>查看端口和服务</strong></p>
+<p>你需要查看设备开放的端口和这些端口对应的服务。这可以通过网络扫描工具，如Nmap进行。这个工具可以显示设备开放的端口，以及这些端口上运行的服务。例如，SSH服务通常运行在22端口，HTTP服务运行在80端口，HTTPS服务运行在443端口。</p>
+<p>在你的情况下，你可以在你的计算机上安装Nmap，然后运行以下命令进行扫描：</p>
+<pre class="line-numbers language-none"><code class="language-none">nmap -sV 10.90.1.1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这个命令会扫描目标IP地址（在这个例子中是10.90.1.1），并尝试确定每个开放端口上运行的服务。</p>
+<p>通过分析固件和端口服务，你可能会发现设备的一些弱点，这可能会帮助你在比赛中取得优势。在这个过程中，你需要遵守比赛规则和法律要求，不要进行未经授权的行为。</p>
+<h4 id="6-查找固件"><a href="#6-查找固件" class="headerlink" title="6.查找固件"></a>6.查找固件</h4><h4 id="1-alhua-浙江大华技术股份有限公司"><a href="#1-alhua-浙江大华技术股份有限公司" class="headerlink" title="(1)    alhua:  浙江大华技术股份有限公司"></a>(1)    <strong>alhua</strong>:  浙江大华技术股份有限公司</h4><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230727185748222.png" alt="image-20230727185748222"></p>
+<h4 id="2-上官网没找到对应型号"><a href="#2-上官网没找到对应型号" class="headerlink" title="(2)上官网没找到对应型号"></a>(2)上官网没找到对应型号</h4><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230727190941995.png" alt="image-20230727190941995"></p>
+<h4 id="3-联系客服要程序包（固件）"><a href="#3-联系客服要程序包（固件）" class="headerlink" title="(3)联系客服要程序包（固件）"></a>(3)联系客服要程序包（固件）</h4><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230727193654554.png" alt="image-20230727193654554"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230727193716940.png" alt="image-20230727193716940"></p>
+<p>笑死，程序包都没有，我超啊！</p>
+<p>如果你无法获取到这个设备型号的固件包，确实可能会在寻找和利用PWN方向的漏洞时遇到一些挑战。通常情况下，能够获取到设备固件会大大方便漏洞的发现和利用，因为你可以在本地环境中反汇编、调试和测试。</p>
+<p>但即使无法获取固件，你依然有一些其他的选择：</p>
+<ol>
+<li><p><strong>黑盒测试</strong>：你可以尝试对设备进行黑盒测试，也就是只依靠设备提供的接口和服务，通过发送各种各样的输入来尝试触发漏洞。这种方法可能需要一些创新和深度的理解，但在某些情况下可以发现一些出乎意料的漏洞。</p>
+</li>
+<li><p><strong>网络服务和Web接口</strong>：从你提供的nmap扫描结果来看，设备开放了80（HTTP）和554（RTSP）端口，你可以尝试通过这些服务和接口来寻找漏洞。例如，HTTP服务可能存在Web安全漏洞，而RTSP服务可能存在流媒体相关的漏洞。</p>
+</li>
+<li><p><strong>公开的漏洞数据库</strong>：你可以查找一些公开的漏洞数据库，如CVE（Common Vulnerabilities and Exposures），看是否有这个设备型号或其相近型号的已知漏洞。</p>
+</li>
+<li><p><strong>硬件测试</strong>：虽然这可能不适用于你当前的比赛，但在实际的安全评估中，你可以尝试对设备硬件进行测试，例如通过JTAG接口进行调试，或者直接从闪存芯片中提取固件。</p>
+</li>
+</ol>
+<p>请记住，即使你不能通过PWN方向来找到漏洞，你依然可以通过其他方法（如Web安全漏洞）来满足题目的要求并获得分数。</p>
+<h4 id="7-查看端口服务"><a href="#7-查看端口服务" class="headerlink" title="7.查看端口服务"></a>7.查看端口服务</h4><p>你的Nmap扫描结果显示，你的目标设备（IP地址10.90.1.1）在两个端口上提供服务：</p>
+<ol>
+<li>80端口：运行HTTP服务，可能是用于设备配置的web界面。</li>
+<li>554端口：运行RTSP服务，这是一个网络流媒体协议，通常用于IP摄像头等设备发送视频流。</li>
+</ol>
+<p>这些结果告诉你可以通过这两个端口进行进一步的探索。</p>
+<p>对于80端口，你可以尝试在浏览器中访问 <a target="_blank" rel="noopener" href="http://10.90.1.1,看看是否可以打开一个配置页面或者其他有用的信息.同时,你也可以通过工具如burp/">http://10.90.1.1，看看是否可以打开一个配置页面或者其他有用的信息。同时，你也可以通过工具如Burp</a> Suite等对其进行爬取和渗透测试。</p>
+<p>对于554端口，你可能需要了解更多关于RTSP协议的知识。通常来说，RTSP服务可能会包含认证机制，来防止未经授权的用户接入视频流。你可以使用专门的RTSP客户端软件（如VLC）尝试连接到 rtsp://10.90.1.1，看看是否需要用户名和密码。</p>
+<p>同时，你也可以查找这两个服务的已知漏洞。可以通过搜索设备型号、服务类型（如HTTP或RTSP）、以及具体的服务版本号（如果有）来查找可能存在的已知漏洞。这些漏洞可能已经被列入CVE数据库，你可以在其中查找可能的攻击向量。但是请记住，在没有明确的授权情况下，不要对任何设备进行攻击行为。</p>
+<p>你还可以尝试通过固件分析查找漏洞。尝试下载和分析设备的固件，可能会发现未公开的漏洞或者更深入的设备工作机制。</p>
+<p>以上都是一些可能的方向，你需要结合实际情况进行选择和深入。在这个过程中，也需要遵守比赛规则和法律要求，进行合法的行为。</p>
+<h5 id="1-一大堆代码的作用"><a href="#1-一大堆代码的作用" class="headerlink" title="1.一大堆代码的作用"></a>1.一大堆代码的作用</h5><p>这些数据是Nmap提供的服务指纹，它是对设备上运行的服务响应的一个描述。这些信息在确定具体运行服务的版本上可能有用，尤其是对于那些Nmap无法直接识别的服务。这些信息可以提供一些线索，用于在CVE数据库或者其他漏洞库中搜索已知的漏洞。</p>
+<p>在这个例子中，Nmap并未准确识别出服务的版本，但是给出了HTTP和RTSP服务的一些信息。例如，对于HTTP服务，返回的头信息包括”X-Frame-Options: SAMEORIGIN”，”Strict-Transport-Security: max-age=604800; includeSubDomains”等安全性相关的头信息，这可能提示这个服务有一定的安全配置。对于RTSP服务，返回的信息中包括一些RTSP协议的命令，如”OPTIONS, DESCRIBE, ANNOUNCE, SETUP, PLAY, RECORD, PAUSE, TEARDOWN, SET_PARAMETER, GET_PARAMETER”等，这可能提示服务的功能和可能的操作。</p>
+<p>虽然这些信息可能没有直接的用途，但它们可以提供更多关于设备和服务的细节信息，帮助你更好地理解设备的工作机制，并找到可能的攻击点。在某些情况下，这些信息也可能揭示一些隐藏的服务或者功能，或者帮助识别一些非标准的配置或者行为，这都可能是你寻找漏洞的线索。</p>
+<h4 id="8-思路"><a href="#8-思路" class="headerlink" title="8.思路"></a>8.思路</h4><p>你的比赛目标是找到设备的三种类型的漏洞：远程代码执行、远程获取设备监控数据和远程拒绝服务。为了达到这个目标，你可以考虑以下步骤：</p>
+<ol>
+<li><p><strong>远程代码执行（RCE）</strong>：RCE通常是由于服务端存在严重的安全漏洞，如反序列化漏洞、命令注入、路径遍历等。通过这些漏洞，攻击者可以在远程执行代码，通常可以获取root权限。你可以在Web服务和RTSP服务中寻找这些类型的漏洞。使用如Burp Suite等渗透工具进行模糊测试，尝试常见的攻击向量。</p>
+</li>
+<li><p><strong>远程获取设备监控数据</strong>：这个目标通常可以通过绕过或破解RTSP服务的认证机制来实现。这可能需要通过密码猜测、会话劫持、加密破解等手段。如果你能访问设备的Web界面，可能会找到某些配置选项或信息可以帮助你。</p>
+</li>
+<li><p><strong>远程拒绝服务（DoS）</strong>：DoS通常通过发送大量的数据或特殊构造的请求来实现，使设备无法处理正常的请求。你需要研究设备的网络服务，查找可能的漏洞或弱点。例如，如果设备的HTTP服务不能处理大量的请求，或者RTSP服务在处理特定格式的请求时会崩溃，那么这都可能成为DoS的攻击向量。</p>
+</li>
+</ol>
+<p>此外，还要注意固件分析。从设备的固件中，你可能能找到隐藏的服务、硬编码的凭据、未公开的API等，这些都可能帮助你找到漏洞。如果可能，尝试从制造商的网站或其他资源下载设备的固件，然后使用如Binwalk、Ghidra等工具进行分析。</p>
+<p>最后，请记住在进行所有操作时都要遵守比赛的规则和法律。祝你在比赛中取得好成绩！</p>
+<h4 id="9-DOS和DDOS的区别"><a href="#9-DOS和DDOS的区别" class="headerlink" title="9.DOS和DDOS的区别"></a>9.DOS和DDOS的区别</h4><p>DoS和DDoS都是拒绝服务攻击，但他们有一些关键的区别。</p>
+<ol>
+<li><p><strong>DoS（Denial of Service）</strong>：拒绝服务攻击是一种阻止合法用户访问特定的网络资源或服务的攻击手法。这通常通过利用特定的漏洞或弱点来实现，例如发送大量数据或特殊构造的请求，导致服务器崩溃或无法处理正常的请求。</p>
+</li>
+<li><p><strong>DDoS（Distributed Denial of Service）</strong>：分布式拒绝服务攻击是一种更加复杂的拒绝服务攻击。在DDoS攻击中，攻击者会利用多台计算机（称为“僵尸网络”）同时向目标服务器发送大量的请求，目的是让服务器无法处理正常的请求。</p>
+</li>
+</ol>
+<p>在你的比赛中，如果只需要使设备无法提供正常服务，那么可能只需要执行DoS攻击。如果需要在多个设备之间协调攻击，才需要使用DDoS攻击。尽管在实践中，DDoS攻击通常更具破坏力，但这并不意味着DoS攻击不重要。任何可以影响设备正常运行的攻击，都需要被认真对待。</p>
+<h2 id="二、操作系统01"><a href="#二、操作系统01" class="headerlink" title="二、操作系统01"></a>二、操作系统01</h2><p>端口全放行<br>原始账号：root<br>原始密码：@Twb_202307#@!</p>
+<p>IP地址：122.9.97.54</p>
+<p>服务状态：运行中</p>
+<p>用户名：root</p>
+<p>密码：iDJwiDRZhuf3@1aA</p>
+<p><strong>镜像：</strong>uos_desktop.qcow2</p>
+<h2 id="三、操作系统02"><a href="#三、操作系统02" class="headerlink" title="三、操作系统02"></a>三、操作系统02</h2><p>端口全放行<br>原始账号：root<br>原始密码：@Twb_202307#@!</p>
+<p>IP地址：218.245.100.161</p>
+<p>服务状态：运行中</p>
+<p>用户名：root</p>
+<p>密码：mO5bnZ34T32D@1aA</p>
+<p><strong>镜像：</strong> uos_serve_os.qcow2</p>
+<h2 id="四、操作系统03"><a href="#四、操作系统03" class="headerlink" title="四、操作系统03"></a>四、操作系统03</h2><p>端口全放行<br>原始账号：nfs<br>原始密码：nfschina123</p>
+<p>IP地址：</p>
+<p>116.63.95.224</p>
+<p>服务状态：运行中</p>
+<p>用户名：nfs</p>
+<p>密码：7l7txK0G1RPF@1aA</p>
+<p><strong>镜像：</strong>fangde_desktop.qcow2</p>
+<h2 id="五、操作系统04"><a href="#五、操作系统04" class="headerlink" title="五、操作系统04"></a>五、操作系统04</h2><p>端口全放行<br>原始账号：root<br>原始密码：P!ssw9rd</p>
+<p>IP地址：122.9.106.178</p>
+<p>服务状态：运行中</p>
+<p>用户名：root</p>
+<p>密码：UgiW63RxbfPK@1aA</p>
+<p><strong>镜像：</strong>fangde_desktop.qcow2</p>
+<h2 id="六、操作系统05"><a href="#六、操作系统05" class="headerlink" title="六、操作系统05"></a>六、操作系统05</h2><p>端口:全放行<br>原始账号：root<br>原始密码：Qwe123,./l;’</p>
+<p>IP地址：218.245.102.203</p>
+<p>服务状态：运行中</p>
+<p>用户名：root</p>
+<p>密码：yDdk7tsLvFsE@1aA</p>
+<p>**镜像:**kyln0717.qcow2</p>
+<h2 id="七、数据库01"><a href="#七、数据库01" class="headerlink" title="七、数据库01"></a>七、数据库01</h2><p>放行端口： 2003/tcp 22/tcp<br>原始账号：root<br>原始密码：oo3Ymn%MLM5Q</p>
+<p>IP地址：116.63.79.7</p>
+<p>服务状态：运行中</p>
+<p>用户名：root</p>
+<p>密码：wlwaAe3dwGeX@1aA</p>
+<p><strong>镜像：</strong>shenzhou_database.qcow2</p>
+<h2 id="八、数据库02"><a href="#八、数据库02" class="headerlink" title="八、数据库02"></a>八、数据库02</h2><p>端口放行：22,10011/tcp<br>原始账号：root<br>原始密码：Sx33F44EL22r</p>
+<p>IP地址：122.9.48.253</p>
+<p>服务状态：运行中</p>
+<p>用户名：root</p>
+<p>密码：Bybg6nFoMr9p@1aA</p>
+<p><strong>镜像：</strong>nanda_database.qcow2</p>
+<h2 id="九、数据库03"><a href="#九、数据库03" class="headerlink" title="九、数据库03"></a>九、数据库03</h2><p>放行端口：22,54322/tcp<br>原始账号：root<br>原始密码：snwa@123</p>
+<p>IP地址：218.245.100.154</p>
+<p>服务状态：运行中</p>
+<p>用户名：root</p>
+<p>密码：ePwJbiA8DADA@1aA</p>
+<p><strong>镜像：</strong>jingcan_database.qcow2</p>
+<h2 id="十、网络安全产品01"><a href="#十、网络安全产品01" class="headerlink" title="十、网络安全产品01"></a>十、网络安全产品01</h2><p>端口放行：3000-3006/tcp<br>原始账号：root<br>原始密码：E4QXkgbkmhia</p>
+<p>IP地址：116.63.74.152</p>
+<p>服务状态：运行中</p>
+<p>用户名：root</p>
+<p>密码：36zLp6Uuzifl@1aA</p>
+<p><strong>镜像：</strong>beixinyaun3.0.qcow2</p>
+<p><strong>附件：</strong>linux服务器客户端</p>
+<h2 id="申请的战队截图"><a href="#申请的战队截图" class="headerlink" title="申请的战队截图"></a>申请的战队截图</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230726215039230.png" alt="image-20230726215039230"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230726215120153.png" alt="image-20230726215120153"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230726215140934.png" alt="image-20230726215140934"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230727114830521.png" alt="image-20230727114830521"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230727131410333.png" alt="image-20230727131410333"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230727181601670.png" alt="image-20230727181601670"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230727195757515.png" alt="image-20230727195757515"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230727195812052.png" alt="image-20230727195812052"></p>
+
                 
             </div>
             <hr/>
@@ -1552,7 +1693,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">45.2k</span>&nbsp;字
+                class="white-color">48.6k</span>&nbsp;字
             
             
             
