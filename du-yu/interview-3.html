@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="DU-玉 渗透测试 CTF PWN 护网行动 公安联考 考研 ">
+    <meta name="keywords" content="彪HW面经, DU-玉 渗透测试 CTF PWN 护网行动 公安联考 考研 ">
     <meta name="description" content="中国人民警察大学 | 电子取证 | 护网 | 二进制 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>DU-玉</title>
+    <title>彪HW面经 | DU-玉</title>
 
     <link rel="icon" type="image/jpeg" href="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/hsy-head.jpg">
 
@@ -489,12 +489,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/null')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731020619406.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">彪HW面经</h1>
                 </div>
             </div>
         </div>
@@ -613,12 +613,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/HW%E9%9D%A2%E7%BB%8F/">
+                                <span class="chip bg-color">HW面经</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/HW/" class="post-category">
+                                HW
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -627,28 +640,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-06-17
+                    2023-08-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-17
+                    2023-08-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5
+                    6.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    23 分
                 </div>
                 
 
@@ -676,7 +689,271 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                google-site-verification: google110e5e5e14c8dcf0.html
+                <h2 id="一、TOP10"><a href="#一、TOP10" class="headerlink" title="一、TOP10"></a>一、TOP10</h2><pre class="line-numbers language-none"><code class="language-none">1.SQL注入
+2.失效的身份认证和会话管理
+3.跨站脚本攻击XSS
+4.直接引用不安全的对象
+5.安全配置错误
+6.敏感信息泄露
+7.缺少功能级的访问控制
+8.跨站请求伪造CSRF
+9.实验含有已知漏洞的组件
+10.未验证的重定向和转发<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="一、sql注入"><a href="#一、sql注入" class="headerlink" title="一、sql注入"></a>一、sql注入</h2><p>sql注入的<strong>原理</strong>：<strong>利用应用程序没有正确过滤或转义用户输入的数据</strong>，<strong>导致恶意用户可以在 应用的查询语句中插入自己的SQL代码并传递</strong></p>
+<p><strong>给后台SQL服务器时加以解析并执行</strong>。这通常是因为应用程序没有有效地验证和处理用户输入数据，从而允许攻击者在输入框中输入特定的字符或语句，以绕过应用程序的安全性措施。</p>
+<p>例如，如果一个应用程序允许用户在登录时输入用户名和密码，但没有正确地过滤输入的数据，那么攻击者可以尝试在用户名或密码字段中输入SQL查询的一部分，从而绕过身份验证，甚至执行任意的数据库操作。</p>
+<p>因此，要防止SQL注入攻击，应用程序需要对所有用户输入进行严格的验证和处理，以确保任何输入的数据都被正确地过滤、转义或编码，从而避免可能导致注入攻击的特殊字符或语句被传递到数据库服务器。</p>
+<p><strong>sql的类型有什么</strong>：常见（联合查询，布尔，延时，报错），其他（宽字节，堆叠，等等）</p>
+<p><strong>sql注入宽字节的原理：</strong>目标站点对于特殊字符的转义（单双引号）前面会添加斜杠/，斜杠/ url 编码是 %5c，如果目标站点使用的是 gbk 编码，则可以构造 payload %df 加 单引号，%df 与%5c 进行结合成为一个汉字，而单引号则逃逸了出去。</p>
+<p><strong>sql类型介绍</strong>：</p>
+<ol>
+<li>基于错误的注入（Error-Based Injection）：该类型的 SQL 注入利用应用程序返回的错误信息来进行攻击，例如通过构造带有语法错误的查询来触发错误信息，攻击者可以从错误消息中获得关于数据库架构和数据的重要信息。</li>
+<li>盲注注入（Blind Injection）：在盲注注入中，攻击者无法直接获取数据库返回的信息，因此需要通过其他方式来推断相关数据。例如，攻击者可以<strong>利用时间延迟等机制来判断是否成功注入恶意的SQL语句。</strong></li>
+<li>基于联合查询的注入（Union-Based Injection）：攻击者可以利用 UNION SELECT 语句将两个或多个结果集组合在一起，以获取额外的信息或绕过认证检查。攻击者通常会尝试通过添加 UNION SELECT 语句来向查询中添加恶意代码，例如向<strong>查询结果集中添加用户列表或密码信息。</strong></li>
+<li>基于布尔逻辑的注入（Boolean-Based Injection）：在这种类型的 SQL 注入中，攻击者会构造一个查询，<strong>该查询会返回一个布尔值</strong>，例如真或假。攻击者可以<strong>利用这些查询来推断数据库中的数据，例如使用 WHERE 子句构造一个布尔查询来检查某个字段是否存在。</strong></li>
+<li>时间延迟注入（Time-Based Injection）：在时间延迟注入中，攻击者通过<strong>向查询中添加时间延迟语句来判断查询是否成功执行</strong>。例如，攻击者可以使用 <strong>SLEEP()</strong> 函数来强制查询等待一段时间，在等待期间<strong>观察程序的响应时间来确定注入点是否存在</strong>。</li>
+</ol>
+<p>总之，在实际的 SQL 注入攻击中，攻击者通常会结合多种技术和手段，以达到其攻击目的。因此，开发人员需要采取适当的防御措施，例如输入验证、参数化查询、白名单过滤等，来避免 SQL 注入漏洞的出现。</p>
+<p><strong>1、sql注入延时函数sleep禁用怎么办：</strong></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731175502879.png" alt="image-20230731175502879"></p>
+<p><strong>2、sql报错注入的函数有哪些：</strong></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731170738154.png" alt="image-20230731170738154"></p>
+<p><strong>报错注入函数</strong></p>
+<p>报错注入也被称为盲注入，是一种 SQL 注入技术。在报错注入中，攻击者试图向目标系统发送恶意的 SQL 查询并观察系统返回的错误消息，从而了解数据库中存储的敏感数据或执行其它攻击。</p>
+<p>您提到的“报错注入函数”，可能是指用于触发报错注入的 SQL 函数。以下是一些常见的用于报错注入的 SQL 函数：</p>
+<ol>
+<li>substring() 函数：该函数用于从字符串中获取子串。通过构造包含错误的语句，攻击者可以利用该函数来确定字符串值的长度和内容，例如：</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">SELECT SUBSTRING((SELECT column_name FROM information_schema.columns WHERE table_name='users' LIMIT 1),1,1);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol>
+<li>length() 函数：该函数返回字符串的长度。攻击者可以使用该函数来确定查询结果的长度，并进一步推断数据的内容，例如：</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">SELECT LENGTH((SELECT username from users WHERE id=1));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol>
+<li>ASCII() 函数：该函数返回字符的 ASCII 值。攻击者可以结合其他函数，例如 SUBSTRING() 和 LENGTH()，来识别字符串值的每个字符，例如：</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">SELECT ASCII(SUBSTRING((SELECT password from users WHERE username='admin'),1,1));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>总之，报错注入是一种危险的攻击方式，可以导致泄漏敏感信息、执行未经授权的操作等安全问题。因此，开发人员必须采取适当的安全措施，例如对所有输入数据进行验证和过滤，不要直接拼接 SQL 语句，使用参数化查询等。同时，也应该定期测试应用程序以检测是否存在 SQL 注入漏洞。</p>
+<p><strong>支持报错注入的数据库都有哪些</strong></p>
+<p>报错注入是一种比较常见的 SQL 注入技术，不同的数据库在报错注入方面的支持程度不同。以下是一些主要的数据库和它们在报错注入方面的支持情况：</p>
+<ol>
+<li>MySQL：MySQL 是一个流行的开源关系型数据库管理系统，它对报错注入提供了很好的支持。</li>
+<li>Microsoft SQL Server：Microsoft SQL Server 是微软开发的关系型数据库管理系统，它对报错注入也提供了很好的支持。</li>
+<li>Oracle：Oracle 是一个功能强大的商业级数据库管理系统，它对报错注入的支持相对较差。</li>
+<li>PostgreSQL：PostgreSQL 是一个开源的对象关系型数据库管理系统，它对报错注入的支持相对较好。</li>
+<li>SQLite：SQLite 是一个嵌入式关系型数据库管理系统，它对报错注入的支持较弱。</li>
+</ol>
+<p>总之，在进行 SQL 注入测试时，我们需要针对目标数据库的特定版本和配置进行适当的测试，并注意不同数据库之间在报错注入方面的区别。同时，开发人员在编写应用程序时，应该采取适当的安全措施来防止 SQL 注入攻击。</p>
+<p><strong>3、SQL 注入如何进行检测</strong></p>
+<ol>
+<li>数据库异常日志：在数据库服务器上查看异常日志或错误日志，如果发现异常 SQL 语句，或者 SQL 语句中包含可疑代码或关键字，就可能存在 SQL 注入攻击。</li>
+<li>应用服务器日志：在应用服务器上查看访问日志或错误日志，如果发现访问异常、错误码增多，或者包含可疑的 URL 参数等信息，也可能表明存在 SQL 注入攻击。</li>
+<li>漏洞扫描工具：使用专业的漏洞扫描工具，可以自动化地检测应用程序中可能存在的 SQL 注入漏洞，并提供修补建议。</li>
+<li>安全审计：通过记录用户行为和操作日志，可以检测和追踪可能存在的 SQL 注入攻击。</li>
+<li>手动测试：模拟攻击者的行为，手动输入特定的 SQL 语句或注入代码，来验证是否存在 SQL 注入漏洞。</li>
+</ol>
+<p>需要注意的是，以上方法只是其中一部分，实际应用中还有很多其他的 SQL 注入检测方法。在进行 SQL 注入检测时，需要综合使用多种方法，并不断更新和完善自身的防御措施，以提高安全水平和减少被攻击的风险。同时，如果确实发现了 SQL 注入攻击，应及时采取措施来修复漏洞并保护数据库中的数据。</p>
+<p>以下是一些<strong>SQL注入常见的关键字：</strong></p>
+<ol>
+<li><code>UNION</code>：<code>UNION</code>操作符用于结合两个或更多的<code>SELECT</code>语句的结果集，并移除重复的数据。</li>
+<li><code>OR</code> / <code>AND</code>：这些逻辑操作符可以用于创建更复杂的查询条件。</li>
+<li><code>--</code>、<code>#</code>、<code>/*</code>：这些都是SQL注释符，可以用来结束原始SQL语句，从而使注入的SQL代码生效。</li>
+<li><code>';</code>：这是SQL语句的结束符，也可以用来结束原始SQL语句，从而使注入的SQL代码生效。</li>
+<li><code>'='</code>、<code>'LIKE'</code>：这些操作符可以用于创建查询条件。</li>
+<li><code>' ' or 'x'='x'</code>：这是一个经典的SQL注入例子，如果应用程序没有对用户输入进行适当的处理，那么这个查询条件就会永远为真。</li>
+</ol>
+<p><strong>4、Sql 注入加固措施？</strong></p>
+<p>为了防止 SQL 注入攻击，可以采取以下一些常见的加固措施：</p>
+<ol>
+<li>输入验证：对用户输入数据进行验证和过滤，特别是对单引号、双引号、分号等特殊字符进行处理。可以使用输入过滤函数或正则表达式等方式来实现。</li>
+<li>参数化查询：使用参数化查询操作数据库，可以将用户输入的数据视为参数而不是 SQL 代码的一部分，从而避免 SQL 注入攻击。</li>
+<li>最小化权限原则：在应用程序连接数据库时，给予最小必要的权限，并严格控制数据库访问权限，以减少攻击者利用 SQL 注入漏洞获取敏感信息的可能性。</li>
+<li>安全编码标准：在开发应用程序时，遵循安全编码标准，避免使用拼接 SQL 语句的方式，而是采用参数化查询等安全方式来操作数据库。</li>
+<li>异常信息处理：在应用程序中添加异常处理机制，可以及时捕获和记录 SQL 注入攻击产生的异常信息，便于管理员及时发现和修复问题。</li>
+<li>安全审计：通过记录用户行为和操作日志，可以检测和追踪可能存在的 SQL 注入攻击。</li>
+</ol>
+<p>需要注意的是，以上只是其中一部分常见的 SQL 注入加固措施，针对不同的应用和场景，可能需要采用不同的加固措施。在进行 SQL 注入防御时，需要综合考虑多种因素，并不断更新和完善自身的防御措施，以提高安全水平并减少被攻击的风险。</p>
+<p><strong>sql注入怎么修复</strong></p>
+<p>修复SQL注入漏洞的主要方法之一是使用<strong>参数化查询</strong>。这种技术可以将用户输入作为参数传递给数据库查询，而不是将其拼接到查询字符串中。通过这种方式，应用程序可以避免恶意用户在输入中注入任何SQL代码。</p>
+<p>另一个修复SQL注入漏洞的方法是<strong>对输入数据进行严格的验证和过滤</strong>。这需要开发人员仔细检查所有用户输入数据，并确保它们只包含有效的字符和格式。例如，如果一个输入字段只接受数字，则必须验证输入是否仅包含数字，并拒绝包含其他字符的输入。</p>
+<p>最后，还可以使用安全的编程实践来保护应用程序免受SQL注入攻击。这包括限制应用程序的权限以及使用加密和身份验证等安全措施来保护数据库服务器和应用程序。</p>
+<p>总之，修复SQL注入漏洞的关键是开发人员需要了解并理解如何处理用户输入，并采取必要的措施来确保输入数据的完整性和安全性。</p>
+<p><strong>sql注入遇到waf，怎么绕过</strong></p>
+<p>以下是几种常见的方法：</p>
+<ol>
+<li>使用编码：攻击者可以对注入负载进行编码，例如使用十六进制或Unicode编码等方式，以绕过WAF对字符集的检查。攻击者还可以使用字符串分割、大小写转换等技术手段，以使WAF无法识别恶意代码。</li>
+<li>使用注入器：SQL注入攻击工具如<strong>Sqlmap</strong>、Havij、SQLi-hunter等，可以自动检测和利用各种SQL注入漏洞，并通过绕过WAF来获取敏感数据。</li>
+<li>盲注：在盲注攻击中，攻击者不直接获取查询结果，而是根据应用程序的响应来判断是否存在漏洞。攻击者可以<strong>使用时间延迟或错误信息来判断是否存在漏洞，并以此来推断数据库中的数据。</strong></li>
+<li>变形注入：变形注入攻击是一种多次执行的注入攻击，使用变体的注入负载，使注入负载不同于以前的攻击负载，从而逃避WAF的检测。</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">1，关键字可以用%（只限 IIS 系列）。比如 select，可以 sel%e%ct
+2，通杀的，内联注释，如 /*!select*/
+3，编码，可两次编码
+4，multipart 请求绕过，在 POST 请求中添加一个上传文件，绕过了
+绝大多数 WAF
+5，参数绕过，复制参数，id=1&amp;id=1
+6，组合法 如 and 可以用&amp;&amp;再 URL 编码
+7、替换法，如 and 改成&amp;&amp;;=可以用 like 或 in 等<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>7、sql注入如何写shell</strong></p>
+<p><strong>root权限，网络路径：</strong></p>
+<p>在SQL注入攻击中，如果攻击者成功地注入了一些恶意的SQL代码，则可以利用这些漏洞来执行各种操作，包括编写shell。以下是攻击者可能使用的几种技术：</p>
+<ol>
+<li>利用UNION SELECT语句：通过构造一个带有UNION SELECT语句的SQL查询，攻击者可以在结果集中插入一些命令，并通过这些命令来编写shell，例如在 MySQL 中可以使用 INTO OUTFILE 来将结果输出到文件中。</li>
+</ol>
+<p>例如，以下语句可以在MySQL中编写shell：</p>
+<pre class="line-numbers language-none"><code class="language-none">http://example.com/products.php?id=1 UNION SELECT "&lt;?php system($_GET['cmd']); ?&gt;",2 INTO OUTFILE "/var/www/html/shell.php";<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol>
+<li>利用LOAD_FILE函数：如果应用程序允许使用LOAD_FILE函数加载文件，攻击者可以使用该函数来读取并执行任意的本地shell脚本文件。</li>
+</ol>
+<p>例如，在MySQL中，攻击者可以使用以下代码来读取并执行一个本地shell脚本：</p>
+<pre class="line-numbers language-none"><code class="language-none">http://example.com/products.php?id=-1' UNION SELECT LOAD_FILE('/path/to/malicious/script.sh'),'',''<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol>
+<li>利用指定数据库的存储过程：攻击者可以使用存储过程来创建和执行恶意的shell脚本，例如在Microsoft SQL Server中，可以使用以下代码来创建并执行一个命令解释器：</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">CREATE PROCEDURE sp_ExecCmd (@cmd varchar(1000))
+AS
+BEGIN
+DECLARE @ret int
+EXEC @ret = master..xp_cmdshell @cmd
+END
+GO
+
+EXEC sp_ExecCmd 'command'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>攻击者利用SQL注入漏洞来执行命令或编写shell是非常危险的，因此，在编写应用程序时必须采用适当的安全措施，例如对所有输入数据进行严格的验证和过滤，并使用参数化查询来避免SQL注入攻击。</p>
+<p><strong>8、sqlmap中risk和levels区别</strong></p>
+<p>在SQL注入扫描器sqlmap中，-r 参数表示风险等级，-level 参数表示扫描等级。这两个参数的区别如下：</p>
+<ol>
+<li>风险等级（-r 或 –risk）：表示发现漏洞的可能性，取值范围是 1-3，越高表示发现漏洞的可能性越大。在较低的风险等级下，sqlmap只执行少量测试，而在更高的风险等级下，sqlmap会进行更多的测试。</li>
+<li>扫描等级（-level 或 –level）：表示扫描深度和测试量，取值范围是 1-5，越高表示扫描深度越深、测试量越大。在较低的扫描等级下，sqlmap只执行一些基本的测试，而在更高的扫描等级下，sqlmap会执行更多的测试，并探测更多的漏洞类型。</li>
+</ol>
+<p>总之，在使用 sqlmap 进行 SQL 注入扫描时，我们需要根据情况调整风险等级和扫描等级，以达到最优的扫描效果。同时，还需要注意 sqlmap 执行测试过程中对目标系统造成的影响，避免对目标系统产生不必要的影响。</p>
+<p><strong>sqlmap常用命令</strong></p>
+<p>SQLMap是一种常用的自动化SQL注入攻击工具，可以对目标网站进行全自动的SQL注入漏洞扫描和利用。以下是一些SQLMap的常用命令：</p>
+<ol>
+<li>基本扫描命令：</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">sqlmap -u "http://target.com/page.php?id=1" --dbs &nbsp; &nbsp; &nbsp; # 获取所有可利用的数据库sqlmap -u "http://target.com/page.php?id=1" -D dbname --tables  # 获取指定数据库中的所有表sqlmap -u "http://target.com/page.php?id=1" -D dbname -T tablename --columns &nbsp; # 获取指定表中的所有列sqlmap -u "http://target.com/page.php?id=1" -D dbname -T tablename -C columnname --dump &nbsp;  # 获取指定列中的数据<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>POST请求和Cookie：</p>
+<pre class="line-numbers language-none"><code class="language-none">
+sqlmap -u "http://target.com/login.php" --data="username=admin&amp;password=1234" --cookie="PHPSESSID=abcd1234" --level=5 --risk=3   # 向登录页面发送POST请求和Cookie，并对网站进行深度扫描<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>手动指定注入点：</p>
+<pre class="line-numbers language-none"><code class="language-none">
+sqlmap -u "http://target.com/page.php?id=1" --dbms=mysql --technique=T --random-agent --level=5 --risk=3 --current-db --users --passwords --privileges --threads=10 --batch --skip-waf --tamper=randomcomments -p id   # 指定注入点为id参数，绕过WAF设置，使用随机HTTP头和注入负载进行扫描<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>高级命令：</p>
+<pre class="line-numbers language-none"><code class="language-none">
+sqlmap -u "http://target.com/page.php?id=1" --os-shell     # 获取操作系统Shell
+sqlmap -u "http://target.com/page.php?id=1" --os-pwn       # 获取操作系统级别的访问权限
+sqlmap -u "http://target.com/page.php?id=1" --file-read="/var/www/config.php"  # 读取指定文件内容
+sqlmap -u "http://target.com/page.php?id=1" --file-write="/var/www/shell.php" --file-dest="/var/www/html/" --tamper="apostrophemask.py" --batch   # 向目标服务器写入Web Shell<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="一、木马挖矿特征分析"><a href="#一、木马挖矿特征分析" class="headerlink" title="一、木马挖矿特征分析"></a>一、木马挖矿特征分析</h2><p>当服务器或PC处于什么样的状态时，我们可以判定为被挖矿。通常来说，当我们的服务器或PC资源(CPU)使用率接近或超过100%，并持续高居不下导致服务器或PC操作延缓，我们就可以判定被挖矿。</p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731170128534.png" alt="image-20230731170128534"></p>
+<p><strong>一、Linux确认挖矿</strong></p>
+<p>a. 使用<code>top</code>命令查看系统性能，找出消耗资源较高的进程PID；</p>
+<p>b. 根据获取的PID信息利用<code>ps -ef -p PID</code>命令找出系统进程详细信息；</p>
+<p>c. 根据进程详细信息定位到文件位置，进入文件位置进行文件分析，确认是否属于挖矿程序。</p>
+<p>d.crontab查看计划任务</p>
+<p>netstat查看端口</p>
+<p>停止服务：<code>systemctl stop *.service</code>；</p>
+<ul>
+<li>杀掉进程：<code>kill 9 PID</code>，很多时候不光杀掉一个进程；</li>
+<li>删除文件：<code>rm -fr abnormal_file</code>，删除文件时可以使用<code>find / -name abnormal_file</code>查找出系统中所有的恶意文件；</li>
+<li>清理定时任务：<code>crontab -e</code>；</li>
+</ul>
+<p><strong>一、Windows确认挖矿</strong></p>
+<ul>
+<li><p>使用图形化界面分析确认</p>
+<p>a. 打开<code>任务管理器</code>：<code>Ctrl + Alt + Delete</code> 快捷键 或者 <code>win + r</code> 快捷键，输入 <code>taskmgr</code>；</p>
+<p>b. 在<code>任务管理器</code>中找到<code>资源管理器</code>；</p>
+<p>c. 通过<code>资源管理器</code>找到占用CPU资源较高的服务或进程，获取其PID信息；</p>
+<p>d. 利用获取的PID信息在<code>任务管理器</code>中的<code>详细信息</code>一栏中找到对应的程序，右键<code>打开文件位置</code>，获取异常文件目录；</p>
+<p>e. 进入到异常文件目录中，对文件进行分析，确认是否属于挖矿程序；</p>
+<p>f. 确认挖矿程序后，先对挖矿程序进行备份。然后先关闭对应的服务与进程，再删除对应的定时任务，最后删除对应的文件。在删除文件之后，反向再查询一遍定时任务、进程与服务，最好是在间隔一定时间段后再复查一次</p>
+<p>应急响应流程：</p>
+</li>
+</ul>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731170501965.png" alt="image-20230731170501965"></p>
+<p>java漏洞：shiro，fastjson之类的，常问这俩。</p>
+<p>shiro原理：</p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731170615823.png" alt="image-20230731170615823"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731170624443.png" alt="image-20230731170624443"></p>
+<h2 id="一、CSRF漏洞"><a href="#一、CSRF漏洞" class="headerlink" title="一、CSRF漏洞"></a>一、<strong>CSRF</strong>漏洞</h2><h2 id="二、冰蝎3-0流量特征："><a href="#二、冰蝎3-0流量特征：" class="headerlink" title="二、冰蝎3.0流量特征："></a>二、冰蝎3.0流量特征：</h2><ol>
+<li><h3 id="content-type"><a href="#content-type" class="headerlink" title="content-type"></a>content-type</h3></li>
+<li><h3 id="Accept-amp-Cache-Control"><a href="#Accept-amp-Cache-Control" class="headerlink" title="Accept&amp;Cache-Control"></a>Accept&amp;Cache-Control</h3></li>
+<li><h3 id="user-Agent"><a href="#user-Agent" class="headerlink" title="user-Agent"></a>user-Agent</h3></li>
+<li><h3 id="请求中content-length"><a href="#请求中content-length" class="headerlink" title="请求中content-length"></a>请求中content-length</h3></li>
+</ol>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731170930747.png" alt="image-20230731170930747"></p>
+<h2 id="二、shiro550和721的区别"><a href="#二、shiro550和721的区别" class="headerlink" title="二、shiro550和721的区别"></a>二、shiro550和721的区别</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731171017047.png" alt="image-20230731171017047"></p>
+<h2 id="二、cs的流量特征：50050端口，心跳包"><a href="#二、cs的流量特征：50050端口，心跳包" class="headerlink" title="二、cs的流量特征：50050端口，心跳包"></a>二、cs的流量特征：50050端口，心跳包</h2><h2 id="二、冰蝎4-0的流量特征（和3-0对比观看）："><a href="#二、冰蝎4-0的流量特征（和3-0对比观看）：" class="headerlink" title="二、冰蝎4.0的流量特征（和3.0对比观看）："></a>二、冰蝎4.0的流量特征（和3.0对比观看）：</h2><p>v3.0 和 v4.0 的区别很明显在于这里 <code>$_SESSION['k']=$key</code>，v3.0 版本当中会把 key 作为 session 传入；接着判断 <code>extension_loaded</code>，也就是判断服务端是否存在 <code>openssl</code>拓展，如果不存在就用 base64 解码，然后使用 key 进行异或加密，这也是冰蝎 v4.0 版本当中的 <code>xor_base64</code>加密方式；如果服务端能够加载 openssl 拓展，就使用 AES128 解密，这里对应冰蝎 v4.0 版本当中的 <code>aes</code>加密方式。</p>
+<p><strong>第一阶段-密钥协商</strong></p>
+<p>1.攻击者通过 GET 或者 POST 方法，形如 <a target="_blank" rel="noopener" href="http://127.0.0.1/shell.php?pass=645%E7%9A%84%E8%AF%B7%E6%B1%82%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AF%86%E9%92%A5%EF%BC%9B">http://127.0.0.1/shell.php?pass=645的请求服务器密钥；</a></p>
+<p>2.服务器使用随机数 MD5 的高16位作为密钥，存储到会话的 <code>$_SESSION</code>变量中，并返回密钥给攻击者。</p>
+<p><strong>第二阶段-加密传输</strong></p>
+<p>1）客户端把待执行命令作为输入，利用 AES 算法或 XOR 运算进行加密，并发送至服务端；</p>
+<p>2）服务端接受密文后进行 AES 或 XOR 运算解密，执行相应的命令；</p>
+<p>3）执行结果通过 AES 加密后返回给攻击者。</p>
+<ul>
+<li>但是我自己在分析的过程中并没有看到这个密钥协商的过程，同时也没有看到 <code>$_SESSION</code>变量当中存储了 md5 的高 16 位，反而 <code>$_SESSION</code>变量存储的是一个 26 位的字符。不知道这里是我的问题还是冰蝎 4.0 版本就是如此。</li>
+</ul>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731172240969.png" alt="image-20230731172240969"></p>
+<h2 id="二、菜刀流量特征："><a href="#二、菜刀流量特征：" class="headerlink" title="二、菜刀流量特征："></a>二、菜刀流量特征：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731172616407.png" alt="image-20230731172616407"></p>
+<h2 id="二、蚁剑流量特征"><a href="#二、蚁剑流量特征" class="headerlink" title="二、蚁剑流量特征:"></a>二、蚁剑流量特征:</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731173230742.png" alt="image-20230731173230742"></p>
+<h2 id="二、哥斯拉流量特征："><a href="#二、哥斯拉流量特征：" class="headerlink" title="二、哥斯拉流量特征："></a>二、哥斯拉流量特征：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731173320610.png" alt="image-20230731173320610"></p>
+<h2 id="二、weblogie原理"><a href="#二、weblogie原理" class="headerlink" title="二、weblogie原理"></a>二、weblogie原理</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731173434963.png" alt="image-20230731173434963"></p>
+<h2 id="二、log4j原理"><a href="#二、log4j原理" class="headerlink" title="二、log4j原理"></a>二、log4j原理</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731173647940.png" alt="image-20230731173647940"></p>
+<h2 id="二、常问的端口信息："><a href="#二、常问的端口信息：" class="headerlink" title="二、常问的端口信息："></a>二、常问的端口信息：</h2><p>21：FTP文件传输协议<br>22：SSH远程连接<br>23：TELNET远程登录<br>25：SMTP邮件服务<br>53：DNS域名系统<br>80：HTTP超文本传输协议<br>443：HTTPS安全超文本传输协议<br>1433：MSSQL<br>3306：MYSQL<br>3389：windows远程桌面服务端口<br>7701：weblogic<br>8080：TCP,HTTP协议代理服务器：Apache-tomcat默认<br>端口号</p>
+<p>拿到webshell不出网情况下怎么办:<br>reg上传去正向连接。探测出网协议，如dns，icmp。</p>
+<p>XSS的种类有哪些,区别和修复方式：</p>
+<p>种类：存储型，反射型，DOM型<br>区别：存储型:常出现在信息修改添加等地方，导致恶意代码被存储在数据库中，每当被攻击者访问到后就会触发执行；反射型：常出现在url中，一般需要攻击者提前构造好恶意链接，欺骗用户点击，触发攻击代码；DOM型：攻击代码在url中，然后输出在了浏览器的DOM节点中。简单比较会发现，存储和反射都经过服务器，而DOM是纯前端。修复：对输入数据进行Html Encode 处理，白名单过滤，过滤JavaScript 事件的标签，开启http-only，装WAF等。</p>
+<h2 id="二、shiro的特征："><a href="#二、shiro的特征：" class="headerlink" title="二、shiro的特征："></a>二、shiro的特征：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731173919178.png" alt="image-20230731173919178"></p>
+<h2 id="二、-文件上传绕过方式："><a href="#二、-文件上传绕过方式：" class="headerlink" title="二、 文件上传绕过方式："></a>二、 文件上传绕过方式：</h2><p>1- 前端JS突破：抓包修改文件名 或者 禁用当前浏览器的JS脚本</p>
+<p>​		2- 后端突破：</p>
+<p>​			2.1-黑名单：方法太多了 点、空格点、 php 1234567 、phphtml、分布式文件上传、文件流绕过….</p>
+<p>​			2.2-白名单：比较鸡肋的00截断、双文件名…</p>
+<p>​             内存木⻢已经注入，如何查杀？</p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731174417138.png" alt="image-20230731174417138"></p>
+<h2 id="三、thinkphp漏洞原理："><a href="#三、thinkphp漏洞原理：" class="headerlink" title="三、thinkphp漏洞原理："></a>三、thinkphp漏洞原理：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731174450857.png" alt="image-20230731174450857"></p>
+<h2 id="三、一句话木马白名单绕过："><a href="#三、一句话木马白名单绕过：" class="headerlink" title="三、一句话木马白名单绕过："></a>三、一句话木马白名单绕过：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731175233624.png" alt="image-20230731175233624"></p>
+<h2 id="三、fastjson不出网利用："><a href="#三、fastjson不出网利用：" class="headerlink" title="三、fastjson不出网利用："></a>三、fastjson不出网利用：</h2><h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731175610705.png" alt="image-20230731175610705"></h2><h2 id="三、存在-反序列化-中间件"><a href="#三、存在-反序列化-中间件" class="headerlink" title="三、存在 反序列化 中间件"></a>三、存在 反序列化 中间件</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731175803413.png" alt="image-20230731175803413"></p>
+<h2 id="三、常见中间件漏洞"><a href="#三、常见中间件漏洞" class="headerlink" title="三、常见中间件漏洞"></a>三、常见中间件漏洞</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731175913646.png" alt="image-20230731175913646"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731180017470.png" alt="image-20230731180017470"></p>
+<h2 id="三、常见未授权漏洞"><a href="#三、常见未授权漏洞" class="headerlink" title="三、常见未授权漏洞"></a>三、常见未授权漏洞</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731180206524.png" alt="image-20230731180206524"></p>
+<h2 id="三、ridis常问"><a href="#三、ridis常问" class="headerlink" title="三、ridis常问"></a>三、ridis常问</h2><p>ridis漏洞原理：弱口令或者没密码直接进那种。</p>
+<h2 id="三、说一下你的漏洞挖掘经历："><a href="#三、说一下你的漏洞挖掘经历：" class="headerlink" title="三、说一下你的漏洞挖掘经历："></a>三、说一下你的漏洞挖掘经历：</h2><p>挖的edu，找到个水平越权，直接改id=什么就好</p>
+<h2 id="三、nmap常用参数："><a href="#三、nmap常用参数：" class="headerlink" title="三、nmap常用参数："></a>三、nmap常用参数：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731180541206.png" alt="image-20230731180541206"></p>
+<h2 id="四、怎么绕过-cdn，寻找真实-ip："><a href="#四、怎么绕过-cdn，寻找真实-ip：" class="headerlink" title="四、怎么绕过 cdn，寻找真实 ip："></a>四、怎么绕过 cdn，寻找真实 ip：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731180616607.png" alt="image-20230731180616607"></p>
+<h2 id="四、linux应急响应常用命令（T1）："><a href="#四、linux应急响应常用命令（T1）：" class="headerlink" title="四、linux应急响应常用命令（T1）："></a>四、linux应急响应常用命令（T1）：</h2><h3 id="1-系统排查"><a href="#1-系统排查" class="headerlink" title="1.系统排查"></a>1.系统排查</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731180655883.png" alt="image-20230731180655883"></p>
+<h3 id="2-进程排查"><a href="#2-进程排查" class="headerlink" title="2.进程排查"></a>2.进程排查</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731181123128.png" alt="image-20230731181123128"></p>
+<h3 id="3-服务排查"><a href="#3-服务排查" class="headerlink" title="3.服务排查"></a>3.服务排查</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731181528422.png" alt="image-20230731181528422"></p>
+<h3 id="4-日志分析"><a href="#4-日志分析" class="headerlink" title="4.日志分析"></a>4.日志分析</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731181640388.png" alt="image-20230731181640388"></p>
+<h3 id="5-查看登陆成功日期、用户名、IP地址的命令"><a href="#5-查看登陆成功日期、用户名、IP地址的命令" class="headerlink" title="5.查看登陆成功日期、用户名、IP地址的命令"></a>5.查看登陆成功日期、用户名、IP地址的命令</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731181844954.png" alt="image-20230731181844954"></p>
+<h2 id="四、windows应急响应常用命令（T1）："><a href="#四、windows应急响应常用命令（T1）：" class="headerlink" title="四、windows应急响应常用命令（T1）："></a>四、windows应急响应常用命令（T1）：</h2><h3 id="1-系统账户相关"><a href="#1-系统账户相关" class="headerlink" title="1.系统账户相关"></a>1.系统账户相关</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731182023367.png" alt="image-20230731182023367"></p>
+<h3 id="2-进程端口相关"><a href="#2-进程端口相关" class="headerlink" title="2.进程端口相关"></a>2.进程端口相关</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731182243135.png" alt="image-20230731182243135"></p>
+<h3 id="3-启动项，计划任务，服务"><a href="#3-启动项，计划任务，服务" class="headerlink" title="3.启动项，计划任务，服务"></a>3.启动项，计划任务，服务</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731182316866.png" alt="image-20230731182316866"></p>
+<h3 id="4-日志目录"><a href="#4-日志目录" class="headerlink" title="4.日志目录"></a>4.日志目录</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731182405270.png" alt="image-20230731182405270"></p>
+<h2 id="四、ip溯源办法："><a href="#四、ip溯源办法：" class="headerlink" title="四、ip溯源办法："></a>四、ip溯源办法：</h2><p>如果是代理就没意义，如果不是代理反查域名绑定，拿信息，丢裤子里，如果是个<br>web，就打回去拿信息</p>
+<h2 id="四、有没有用过设备："><a href="#四、有没有用过设备：" class="headerlink" title="四、有没有用过设备："></a>四、有没有用过设备：</h2><p>自己查，太多了，qax的天眼之类的。</p>
+<h2 id="四、一个登录框可以怎么测试："><a href="#四、一个登录框可以怎么测试：" class="headerlink" title="四、一个登录框可以怎么测试："></a>四、一个登录框可以怎么测试：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731182915977.png" alt="image-20230731182915977"></p>
+<h2 id="四、数据库提权思路："><a href="#四、数据库提权思路：" class="headerlink" title="四、数据库提权思路："></a>四、数据库提权思路：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731183520438.png" alt="image-20230731183520438"></p>
+<p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731183550241.png" alt="image-20230731183550241"></p>
+<h2 id="四、如果有1w条告警怎么办："><a href="#四、如果有1w条告警怎么办：" class="headerlink" title="四、如果有1w条告警怎么办："></a>四、如果有1w条告警怎么办：</h2><p>样本降噪，看200，找有没有外联的东西，打进来肯定是要干点什么的，看命令执行，看ip。</p>
+
                 
             </div>
             <hr/>
@@ -702,7 +979,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://POISON-Biao.github.io/google1xxxxxxx0.html">https://POISON-Biao.github.io/google1xxxxxxx0.html</a>
+                    <a href="https://POISON-Biao.github.io/du-yu/interview-3.html">https://POISON-Biao.github.io/du-yu/interview-3.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -739,7 +1016,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/HW%E9%9D%A2%E7%BB%8F/">
+                                    <span class="chip bg-color">HW面经</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1214,34 +1495,45 @@ new Valine({
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/google1xxxxxxx0.html">
+                <a href="/du-yu/interview-3.html">
                     <div class="card-image">
                         
+                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731020619406.png" class="responsive-img" alt="彪HW面经">
                         
-                        <img src="/null" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
+                        <span class="card-title">彪HW面经</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            彪HW面经
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-02
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            DU-玉
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/HW/" class="post-category">
+                                    HW
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/HW%E9%9D%A2%E7%BB%8F/">
+                        <span class="chip bg-color">HW面经</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1249,37 +1541,47 @@ new Valine({
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/google1xxxxxxx0.html">
+                <a href="/du-yu/xctf.html">
                     <div class="card-image">
                         
+                        <img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/xctf.jpg" class="responsive-img" alt="XCTF">
                         
-                        <img src="/null" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
+                        <span class="card-title">XCTF</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            pwn、web
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-30
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            DU-玉
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CTF/" class="post-category">
+                                    CTF
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/XCTF/">
+                        <span class="chip bg-color">XCTF</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
